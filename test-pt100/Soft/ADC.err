@@ -1,0 +1,16 @@
+Creating   'ADC.eep'
+Creating   'ADC.obj'
+Creating   'ADC.lst'
+
+Assembling 'ADC.asm'
+Including  'ADC.vec'
+Including  'ADC.inc'
+
+Program memory usage:
+Code             :  716 words
+Constants (dw/db):   11 words
+Unused           :    0 words
+Total            :  727 words
+
+Assembly complete with no errors.
+Deleting   'ADC.eep'

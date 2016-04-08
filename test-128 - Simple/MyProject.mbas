@@ -1,0 +1,169 @@
+                                                                               program MyProject
+' Declarations section
+ dim hours, minutes, seconds, day, week, month, year as byte    ' Global date/time variables
+    Interupt_first_time, on_test as byte
+dim var_in_global as Byte
+'module MyProject
+dim txt_inin as string[6]
+dim kp1, ok1 ,K_set_max as byte
+dim kp,ok,k_set,week_new,chanel,Pwm_Percent,Pwm_chanel,Pwm_chanel_main ,Yes_no,on_off,on_off2 as  byte
+'dim on_off as  byte
+'dim v as string[4]
+dim year_new as byte
+dim while_state_blinking,while_satat as bit
+dim oldstate,oldstate_up,oldstate_down,oldstate_ok,oldstate_ww,while_state,while_satate_in_1 as bit
+dim oldstate_4,oldstate_3,while_state_import,oldstate_2,while_state_import_main as bit
+dim while_state_2,oldstate_menu as bit
+' Lcd module connections
+dim LCD_RS as sbit at PORTc2_bit
+dim LCD_EN as sbit at PORTc3_bit
+dim LCD_D4 as sbit at PORTc4_bit
+dim LCD_D5 as sbit at PORTc5_bit
+dim LCD_D6 as sbit at PORTc6_bit
+dim LCD_D7 as sbit at PORTc7_bit
+
+dim LCD_RS_Direction as sbit at DDc2_bit
+dim LCD_EN_Direction as sbit at DDc3_bit
+dim LCD_D4_Direction as sbit at DDc4_bit
+dim LCD_D5_Direction as sbit at DDc5_bit
+dim LCD_D6_Direction as sbit at DDc6_bit
+dim LCD_D7_Direction as sbit at DDc7_bit
+
+' Software I2C connections
+dim Soft_I2C_Scl_Output    as sbit at PORTC0_bit
+    Soft_I2C_Sda_Output    as sbit at PORTC1_bit
+    Soft_I2C_Scl_Input     as sbit at PINC0_bit
+    Soft_I2C_Sda_Input     as sbit at PINC1_bit
+    Soft_I2C_Scl_Direction as sbit at DDC0_bit
+    Soft_I2C_Sda_Direction as sbit at DDC1_bit
+' End Software I2C connections
+' Relay arraye
+'structure On_arrayx
+dim on_a_0 as Byte[7][4][7][2][4]  ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
+dim on_a_1 as Byte[7][4][7][2][4]  ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
+'dim on_a_1 as integer[7][4][7][2][4]  ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
+'dim on_a_0 as byte[7][1][3][2][4]  '' on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off22-1][0]
+ dim st as string[4]
+ dim output as integer
+'dim on_a as byte[7][5][7][4]
+'    Week as byte[7][5]
+'    Hour as byte[7][5]
+'    minut as byte[7][5]
+'end structure
+'structure off_arrayx
+'dim off_a as byte[7][5][2]
+'    Week as byte[7][5]
+'    Hour as byte[7][5]
+'    minut as byte[7][5]
+'end structure
+
+' Lcd constants
+dim txt11,txt22 as string [2]
+    txt33,txt_ch as string[1]
+     txt_pwm1,txt_pwm2,txt_pwm3,txt_pwm4,txt_pwm5,txt_Pwm6,txt_pwm7,txt_pwm8,txt_pwm9 as string [3]
+dim txt,txt3 ,txt1 as string[19]
+
+    txt2 as string[16]
+'    txt3 as string[5]
+'    txt4 as string[5]
+    text_1  as string[16]
+  ' RTC Definitions
+const RTC_ADDR = 0xD0
+
+
+Dim EEprom_data_read As byte
+const write_address_bus = 160 ' or 0XA0
+const read_address_bus = 161  ' or 0XA0
+
+
+'###################timer #################
+Dim _ss as integer volatile data
+Dim _zz as word volatile data
+dim anz as string[10]
+dim freq as longword
+ztmp as integer
+korrekturfaktor as float
+_count as integer
+_a as integer
+''############# end of timer ##############
+ '################### Shamsi to Mlady #####################
+   dim miladiYear as integer
+   dim miladiDate_iMonth,miladiDate_iYear,miladiDate_iDay as integer
+ '################### Shamsi #####################
+' dim uart_rd,counter,error_,receive,error,error1,data1 ,error2_,clk as byte
+'dim cnt,hour1 as integer          ' Global variable cnt
+Dim N2, Conter2 As Byte
+Dim Year2 As Word
+Dim Sec1 As Byte
+Dim Jmonth_a As Byte[12]
+Dim Gmonth_a As Byte[12]
+Dim Gyear As Integer                                        'input gregorian(miladi) year
+Dim Gday As Integer                                         'input gregorian day
+Dim Gmonth As Integer
+Dim Jday As Integer                                         'Output jalali(shamsi) day
+Dim Jmonth As Integer                                       'Output Jalali month
+Dim Jyear As Integer
+Dim Gdayofyear As Integer
+Dim Gyear_ As Integer                                       'Output Jalali year
+Dim Jdayofyear As Integer
+Dim Gnumdayofyear As Integer
+Dim Isleapyear As Bit
+Dim Isleapyearp As Bit
+Dim Iloop As Byte
+Dim Temp1 As Integer
+Dim Temp2 As Integer                                        '***************** set hiter***** led *********
+Dim Temp3 As Integer
+Dim Temp4 As Integer
+
+
+'#############https://www.mikroe.com/forum/viewtopic.php?f=72&t=53322  ############
+
+dim Radc  as integer      '      // Variable que almacena lo obtenido en el ADC
+
+Tem  as float           '    // Valor real del ADC
+Text as string[19]           '   // Almacena el Tem pero tipo Texto para el LCD
+txt12 as char[15]   ' // Texto mostrado en el LCD
+
+ sub  procedure  temprature()
+      Radc= ADC_Get_Sample(0)      '// Obtenemos lectura del AN0
+  Delay_ms(600)                '// Este retardo ayuda a de manera burda a
+                                '//estabilizar el LCD de las actualizaciones de
+                                '//la lectura del ADC.
+
+  Tem = float(Radc * 0.488-5.3)  '(float)(Radc * 0.488)   '// Obtenemos el valor Real de la Conversion A/D
+                                '// (ADCread * 0.00488)/0.01)= Vreal
+                                '// Resumimos que 0.00488 / 0.01 = 0.488
+  tem= float((Radc-96)/7.6273)  'PT100
+   FloatToStr(Tem, txt1)
+   Lcd_Out(2,1,txt1)
+'    Lcd_Out(2,1, Text)
+    delay_ms(100)
+ end sub
+
+''################# LCD Initial #################
+
+sub procedure Lcd_0()
+              Lcd_Init()
+              Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+              Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+
+end sub
+
+main:
+  Lcd_0()
+  
+
+  Lcd_Out(1,1, "Tempratore")'       // Mandamos nuestro mensaje al LCD
+  Lcd_Chr(2,9,223)'         // Display symbol "°" (grado)
+  Lcd_Chr(2,10,"C")
+'#########################################
+    ADC_Init()            '  // Inicializa el Modulo ADC
+  Delay_us(100)
+'#########################################
+
+  while TRUE
+    temprature()
+    delay_ms(200)
+
+  wend                                                ' endless loop
+end.

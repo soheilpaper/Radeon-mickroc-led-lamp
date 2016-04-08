@@ -1,0 +1,14 @@
+CodeVisionAVR C Compiler V1.24.6 Standard
+(C) Copyright 1998-2005 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+e-mail:office@hpinfotech.com
+
+File: F:\test\0811\PT100\Pt100Test\Soft\ADC.c
+Global variables memory map:
+
+Variable                          Address   Size
+ds                                   160h      4
+adc0                                R4,R5      2
+adc1                                R6,R7      2
+adc2                                R8,R9      2
+Ms1000                                R10      1
