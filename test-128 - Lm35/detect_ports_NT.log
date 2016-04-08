@@ -1,0 +1,20 @@
+Enter DetectPortsNT(Parport, LPT%d, 004A05E0, 4)
+Port count: 1)
+Cycle: 0, PNPPath: ACPI\PNP0400\3&13c0b0c5&0
+p=0022EEEC [0]=2, [1]=1114369, [2]=378h, [3]=0h, [4]=8
+Enter DetectPortsNT() *** Count = 1
+Enter DetectPortsNT(Serial, COM%d, 004A05C0, 4)
+Port count: 1)
+Cycle: 0, PNPPath: ACPI\PNP0501\1
+p=0022EEEC [0]=2, [1]=1114369, [2]=3f8h, [3]=0h, [4]=8
+Enter DetectPortsNT() *** Count = 1
+Enter DetectPortsNT(Parport, LPT%d, 004A05E0, 4)
+Port count: 1)
+Cycle: 0, PNPPath: ACPI\PNP0400\3&13c0b0c5&0
+p=0022EEEC [0]=2, [1]=1114369, [2]=378h, [3]=0h, [4]=8
+Enter DetectPortsNT() *** Count = 1
+Enter DetectPortsNT(Serial, COM%d, 004A05C0, 4)
+Port count: 1)
+Cycle: 0, PNPPath: ACPI\PNP0501\1
+p=0022EEEC [0]=2, [1]=1114369, [2]=3f8h, [3]=0h, [4]=8
+Enter DetectPortsNT() *** Count = 1
