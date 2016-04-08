@@ -1,0 +1,78 @@
+program MyProject
+' Lcd module connections
+dim LCD_RS as sbit at PORTb0_bit
+dim LCD_EN as sbit at PORTb2_bit
+dim LCD_D4 as sbit at PORTb4_bit
+dim LCD_D5 as sbit at PORTb5_bit
+dim LCD_D6 as sbit at PORTb6_bit
+dim LCD_D7 as sbit at PORTb7_bit
+
+dim LCD_RS_Direction as sbit at DDb0_bit
+dim LCD_EN_Direction as sbit at DDb2_bit
+dim LCD_D4_Direction as sbit at DDb4_bit
+dim LCD_D5_Direction as sbit at DDb5_bit
+dim LCD_D6_Direction as sbit at DDb6_bit
+dim LCD_D7_Direction as sbit at DDb7_bit
+
+dim on_a_0 as integer
+dim hours, minutes, seconds, day, week, month, year as byte
+' Declarations section 
+
+dim txt,txt_inin as string[6]
+dim kp,ok,k_set,chanel,Pwm_Percent,Pwm_chanel ,on_off as  integer
+
+
+sub procedure Lcd_0()
+              Lcd_Init()
+              Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+              Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+
+end sub
+main:
+'   Main program 
+'for chanel =1 to 1
+'     for week =1to 7
+'     for Pwm_chanel=1 to 1
+'     on_a_0  =0
+'     on_a_0 =0
+'     on_a_0  =0
+'     on_a_0 =0
+'      Delay_mS(1000)
+'      next pwm_chanel
+'      next week
+'      next chanel
+      
+ while True
+ 
+ 
+' for chanel =1 to 2
+'     for week =1to 7
+'     for Pwm_chanel=1 to 2
+'     if  (on_a_0 >= hours ) and (on_a_0 ) then
+'         if    (on_a_0 >= minutes)  and (on_a_0)then
+'           Lcd_0()
+'           Lcd_Out(1,1,"on pwm mode")
+'           inttostr(chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+'           LCD_Out(1,13, txt)
+'           inttostr(on_off,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+'           LCD_Out(2,1, txt)
+'           inttostr(pwm_chanel,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+'           LCD_Out(2,4, txt)
+'         end if
+'      else
+'        Lcd_0()
+'        inttostr(on_a_0 ,txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+'           LCD_Out(1,11, txt)
+'            inttostr(week,txt)
+'            LCD_Out(2,11, txt)
+           Lcd_Out(1,1,"offfff")
+            Delay_mS(100)
+'      end if
+'      Delay_mS(1000)
+'      next pwm_chanel
+'      next week
+'      next chanel
+
+ 
+ wend
+end.

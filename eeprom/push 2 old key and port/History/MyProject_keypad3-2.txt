@@ -1,0 +1,1129 @@
+program MyProject
+
+' Declarations section 
+ dim hours, minutes, seconds, day, week, month, year as byte    ' Global date/time variables
+dim var_in_global as integer
+' Lcd module connections
+dim txt,txt_inin as string[6]
+dim kp,ok,k_set as  integer
+dim v as string[4]
+dim a, b,year_new as byte
+dim oldstate,oldstate_up,oldstate_down,oldstate_ok,oldstate_ww,while_state,while_satate_in_1 as bit
+dim oldstate_4,oldstate_3,while_state_import,oldstate_2 as bit
+' Lcd module connections
+dim LCD_RS as sbit at PORTb0_bit
+dim LCD_EN as sbit at PORTb2_bit
+dim LCD_D4 as sbit at PORTb4_bit
+dim LCD_D5 as sbit at PORTb5_bit
+dim LCD_D6 as sbit at PORTb6_bit
+dim LCD_D7 as sbit at PORTb7_bit
+
+dim LCD_RS_Direction as sbit at DDb0_bit
+dim LCD_EN_Direction as sbit at DDb2_bit
+dim LCD_D4_Direction as sbit at DDb4_bit
+dim LCD_D5_Direction as sbit at DDb5_bit
+dim LCD_D6_Direction as sbit at DDb6_bit
+dim LCD_D7_Direction as sbit at DDb7_bit
+
+' Software I2C connections
+dim Soft_I2C_Scl_Output    as sbit at PORTC0_bit
+    Soft_I2C_Sda_Output    as sbit at PORTC1_bit
+    Soft_I2C_Scl_Input     as sbit at PINC0_bit
+    Soft_I2C_Sda_Input     as sbit at PINC1_bit
+    Soft_I2C_Scl_Direction as sbit at DDC0_bit
+    Soft_I2C_Sda_Direction as sbit at DDC1_bit
+' End Software I2C connections
+
+' Lcd constants
+    txt1 as string[16]
+    txt2 as string[10]
+    txt3 as string[5]
+    txt4 as string[5]
+  ' RTC Definitions
+const RTC_ADDR = 0xD0
+ '################### Shamsi to Mlady #####################
+   dim miladiYear as integer
+   dim miladiDate_iMonth,miladiDate_iYear,miladiDate_iDay as integer
+ '################### Shamsi #####################
+ dim uart_rd,counter,error_,receive,error,error1,data1 ,error2_,clk as byte
+dim cnt,hour1 as integer          ' Global variable cnt
+
+Dim N2, Conter2 As Byte
+Dim Year2 As Word
+Dim Sec1 As Byte
+Dim Jmonth_a As Byte[12]
+Dim Gmonth_a As Byte[12]
+Dim Gyear As Integer                                        'input gregorian(miladi) year
+Dim Gday As Integer                                         'input gregorian day
+Dim Gmonth As Integer
+Dim Jday As Integer                                         'Output jalali(shamsi) day
+Dim Jmonth As Integer                                       'Output Jalali month
+Dim Jyear As Integer
+Dim Gdayofyear As Integer
+Dim Gyear_ As Integer                                       'Output Jalali year
+Dim Jdayofyear As Integer
+Dim Gnumdayofyear As Integer
+Dim Isleapyear As Bit
+Dim Isleapyearp As Bit
+Dim Iloop As Byte
+Dim Temp1 As Integer
+Dim Temp2 As Integer                                        '***************** set hiter***** led *********
+Dim Temp3 As Integer
+Dim Temp4 As Integer
+
+ '{**************************************************************************************************
+'* Write time to RTC DS1307
+'* input : variables with RTC data
+'**************************************************************************************************}
+sub procedure Write_Time(dim c_hours as byte, dim c_minutes as byte, dim c_seconds as byte,
+               dim c_day as byte, dim c_week as byte, dim c_month as byte, dim c_year as byte)
+   Soft_I2C_Start()                         ' issue start signal
+   Soft_I2C_Write(RTC_ADDR)                 ' address DS1307
+   Soft_I2C_Write(0)                        ' start from word at address (REG0)
+   Soft_I2C_Write(0x80)                     ' write $80 to REG0. (pause counter + 0 sec)   ?? ??????? ????? ????? ?????
+
+   Soft_I2C_Write(c_minutes)                ' write 0 to minutes word to (REG1)
+   Soft_I2C_Write(c_hours)                  ' write 17 to hours word (24-hours mode)(REG2)
+   Soft_I2C_Write(c_week)                   ' write 2 - Monday (REG3)
+   Soft_I2C_Write(c_day)                    ' write 4 to date word (REG4)
+   Soft_I2C_Write(c_month)                  ' write 5 (May) to month word (REG5)
+   Soft_I2C_Write(c_year)                   ' write 01 to year word (REG6)
+   Soft_I2C_Stop()                          ' issue stop signal
+
+   Soft_I2C_Start()                         ' issue start signal
+   Soft_I2C_Write(RTC_ADDR)                 ' address DS1307
+   Soft_I2C_Write(0)                        ' start from word at address 0
+   Soft_I2C_Write(0 and c_seconds)          ' write 0 to REG0 (enable counting + 0 sec)       ???? ??? ? ?????
+   Soft_I2C_Stop()                          ' issue stop signal
+end sub
+
+ '**************************************************************************************************
+'* Read_time
+'**************************************************************************************************}
+ '-------------------- Formats date and time
+
+ sub procedure Read_Time(dim p_hours as ^byte, dim p_minutes as ^byte, dim p_seconds as ^byte,
+              dim p_day as ^byte, dim p_week as ^byte, dim p_month as ^byte, dim p_year as ^byte)
+
+  Soft_I2C_Start()                    ' Issue start signal
+  Soft_I2C_Write(RTC_ADDR)            ' Address DS1307, see DS1307 datasheet
+  Soft_I2C_Write(0)                   ' Start from address 0
+  Soft_I2C_Start()                    ' Issue repeated start signal
+  Soft_I2C_Write(RTC_ADDR + 1)        ' Address DS1307 for reading R/W=1
+
+  p_seconds^ = Soft_I2C_Read(1)      ' Read seconds byte
+  p_minutes^ = Soft_I2C_Read(1)      ' Read minutes byte
+  p_hours^ = Soft_I2C_Read(1)        ' Read hours byte
+  p_week^ = Soft_I2C_Read(1)
+  p_day^ = Soft_I2C_Read(1)
+  p_month^ = Soft_I2C_Read(1)
+  p_year^ = Soft_I2C_Read(0)
+
+  Soft_I2C_Stop()   ' Issue stop signal
+end sub
+  '**************************************************************************************************
+'* Shamsi_transfer_time
+'**************************************************************************************************}
+ '-------------------- Formats date and time
+sub procedure Shamsi_transfer_time()
+  seconds  =  ((seconds and 0x70) >> 4)*10 + (seconds and 0x0F)
+  minutes  =  ((minutes and 0xF0) >> 4)*10 + (minutes and 0x0F)
+  hours    =  ((hours and 0x30) >> 4)*10 + (hours and 0x0F)
+  week     =  (week and 0x07)
+  day      =  ((day and 0xF0) >> 4)*10 + (day and 0x0F)
+  month    =  ((month and 0x10) >> 4)*10 + (month and 0x0F)
+  year     =  ((year and 0xF0) >> 4)*10+(year and 0x0F)
+
+
+end sub
+
+    '* ???????? ?????? ?? ????
+'* input : variables with RTC data
+'**************************************************************************************************}
+sub procedure shamsi_to_milady(dim ShamsiMonth, ShamsiDay, ShamsiYear as integer)
+' Declare a constant array which holds number of days in each month:
+'const Gmonth_a as byte[12] = (31,28,31,30,31,30,31,31,30,31,30,31)
+dim miladiYear2,miladiYear,marchDayDiff,Temp5, remainDay as integer
+dim farvardin1st_iMonth,farvardin1st_iDay,dayCount,i as integer
+'dim miladiDate_iMonth,miladiDate_iDay,miladiDate_iYear  as integer
+Dim Mmonth_a As Byte[12]
+structure farvardin1st_2
+  dim iMonth,iDay as integer
+end structure
+'const Mmonth_a as byte[12]   =  (30,31,30,31,31,30,31,30,31,31,28,31)
+       Mmonth_a[0] = 30
+       Mmonth_a[1] = 31
+       Mmonth_a[2] = 30
+       Mmonth_a[3] = 31
+       Mmonth_a[4] = 31
+       Mmonth_a[5] = 30
+       Mmonth_a[6] = 31
+       Mmonth_a[7] = 30
+       Mmonth_a[8] = 31
+       Mmonth_a[9] = 31
+       Mmonth_a[10] = 28
+       Mmonth_a[11] = 31
+
+      miladiYear = ShamsiYear + 621
+      miladiYear2=miladiYear
+      Temp1 = miladiYear2 Mod 4
+      Temp2 = miladiYear2 Mod 100
+      Temp3 = miladiYear2 Mod 400
+      Temp4 = (( Temp2 <> 0) and ( Temp1 = 0) )
+      Temp5=((Temp2 = 0) and (Temp3 = 0) )
+'      if(((((miladiYear mod  100)<> 0) and ((miladiYear mod 4) = 0))) or ((((miladiYear mod 100)= 0) and (miladiYear mod 400) = 0))) then
+      if(Temp4 or temp5) then
+
+'      If (Temp4 <> 0 ) or Temp3 = 0    Then
+        farvardin1st_iMonth = 3
+        farvardin1st_iDay = 20
+        marchDayDiff = 12
+      Else
+         farvardin1st_iMonth = 3
+         farvardin1st_iDay =21
+         marchDayDiff = 11
+      End If
+      if(((((miladiYear+1 mod  100)<> 0) and ((miladiYear+1 mod 4) = 0))) or ((((miladiYear+1 mod 100)= 0) and (miladiYear+1 mod 400) = 0))) then
+
+         Mmonth_a[10] = Mmonth_a[10] + 1 '//Adding one day to Feb
+       end if
+
+       if((ShamsiMonth>=1)and( ShamsiMonth<=6))   then
+           dayCount = ((ShamsiMonth-1) * 31) + ShamsiDay
+       else
+           dayCount =(6 * 31) + ((ShamsiMonth - 7) * 30) + ShamsiDay
+       end if
+       if (dayCount <= marchDayDiff) then '//So we are in 20(for leap year) or 21for none leap year) to 31 march
+
+          miladiDate_iDay = dayCount + (31 - marchDayDiff)
+          miladiDate_iMonth = 3
+          miladiDate_iYear=miladiYear
+
+      else
+          remainDay = dayCount - marchDayDiff
+      end if
+       i = 0  ' //starting from April
+
+       while ((remainDay > Mmonth_a[i]))
+
+             remainDay = remainDay - Mmonth_a[i]
+             i=i+1
+
+       wend
+      miladiDate_iDay = remainDay
+
+      if (i > 8)  then '// We are in the next Miladi Year
+
+         miladiDate_iMonth = i - 8
+         miladiDate_iYear =  miladiYear + 1
+
+     else
+
+         miladiDate_iMonth = i + 4
+         miladiDate_iYear =  miladiYear
+     end if
+
+
+end sub
+
+
+   '* ???????? ?????? ?? ????
+'* input : variables with RTC data
+'**************************************************************************************************}
+sub procedure shamsi()
+' Declare a constant array which holds number of days in each month:
+'const Gmonth_a as byte[12] = (31,28,31,30,31,30,31,31,30,31,30,31)
+
+  Gmonth_a[0] = 31
+  Gmonth_a[1] = 28
+  Gmonth_a[2] = 31
+  Gmonth_a[3] = 30
+  Gmonth_a[4] = 31
+  Gmonth_a[5] = 30
+  Gmonth_a[6] = 31
+  Gmonth_a[7] = 31
+  Gmonth_a[8] = 30
+  Gmonth_a[9] = 31
+  Gmonth_a[10] = 30
+  Gmonth_a[11] = 31
+  Gnumdayofyear = 365
+  Gdayofyear = 0
+  Temp1 = Gyear Mod 4
+  Temp2 = Gyear Mod 100
+  Temp3 = Gyear Mod 400
+  Temp4 = Temp1 And Temp2
+  If (Temp4 <> 0) Or (Temp3 = 0) Then
+'  If (Temp4 = 0 ) and (Temp3 <> 0)    Then
+    Gmonth_a[1] = 28
+  Else
+      Gmonth_a[1] = 29
+  End If
+
+
+  Gyear_ = Gyear - 1
+  Temp1 = Gyear_ Mod 4
+  Temp2 = Gyear_ Mod 100
+  Temp3 = Gyear_ Mod 400
+  Temp4 = Temp1 And Temp2
+  If (Temp4 <> 0) Or (Temp3 = 0) Then
+      Isleapyearp =0
+  Else
+      Isleapyearp=1
+  End If
+  Temp1 = Gmonth - 1
+  For Iloop = 1 To Temp1
+      Gdayofyear = Gmonth_a[iloop-1] + Gdayofyear
+  Next   Iloop
+      Gdayofyear = Gday + Gdayofyear
+  If Gdayofyear > 79 Then
+                Temp1 = Gdayofyear - 79
+                Jyear = Gyear - 621
+                If Temp1 < 186 Then
+                   Temp2 = Temp1 Mod 31
+                   Temp3 = Temp1 / 31
+                   If Temp2 = 0 Then
+                      Jmonth = Temp3
+                      Jday = 31
+                   Else
+                       Jmonth = Temp3 + 1
+                       Jday = Temp2
+                   End If
+                Else
+                    Temp2 = Temp1 - 186
+                    Temp3 = Temp2 Mod 30
+                    Temp4 = Temp2 / 30
+                    If Temp3 = 0 Then
+                       Jmonth = Temp4 + 6
+                       Jday = 30
+                    Else
+                        Jmonth = Temp4 + 7
+                        Jday = Temp3
+                    End If
+                End If
+   Else
+       Jyear = Gyear - 622
+       If Isleapyearp  Then
+          Gdayofyear = Gdayofyear + 11
+       Else
+          Gdayofyear = Gdayofyear + 10
+       End If
+       Temp2 = Gdayofyear Mod 30
+       Temp3 = Gdayofyear / 30
+       If Temp2 = 0 Then
+          Jmonth = Temp3 + 9
+          Jday = 30
+       Else
+           Jmonth = Temp3 + 10
+           Jday = Temp2
+       End If
+       Delay_ms(1)
+  End If
+
+
+end sub
+
+'**************************************************************************************************
+'* Call Shamsi
+'**************************************************************************************************}
+  sub procedure Shamsi_call()
+'      Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+
+
+'  Transform_Time()
+  seconds  =  ((seconds and 0x70) >> 4)*10 + (seconds and 0x0F)
+  minutes  =  ((minutes and 0xF0) >> 4)*10 + (minutes and 0x0F)
+  hours    =  ((hours and 0x30) >> 4)*10 + (hours and 0x0F)
+  week     =  (week and 0x07)
+  day      =  ((day and 0xF0) >> 4)*10 + (day and 0x0F)
+  month    =  ((month and 0x10) >> 4)*10 + (month and 0x0F)
+  year     =  ((year and 0xF0) >> 4)*10+(year and 0x0F)
+'   day=2
+'  year=Dec2Bcd(year)
+'  hours    =      Dec2Bcd(hours)
+'       Gyear =  15+2000
+'      Gday = 24
+'      Gmonth = 10
+
+      Gyear =  Year+2000
+      Gday = Day
+      Gmonth = Month
+'        jyear =  Gyear
+'      jday = Gday
+'      jmonth = Gmonth
+
+'        shamsi2()
+     shamsi()
+
+'     Day = Jday
+'     Year2 = Jyear
+'     Jyear=jyear -1300
+'     Month = Jmonth
+     Lcd_Cmd(_LCD_CLEAR)               ' Prepare and output static text on LCD
+'     ByteToStr(Year2, txt)
+'     IntToStr(Jyear, txt)
+'     Display_Time()
+
+
+  select case week
+     case 1
+      txt = "Sun"
+     case 2
+      txt = "Mon"
+     case 3
+      txt = "Tue"
+     case 4
+      txt = "Wed"
+     case 5
+      txt = "Thu"
+     case 6
+      txt = "Fri"
+     case 7
+      txt = "Sat"
+  end select
+
+  LCD_Out(1,1, txt)
+
+
+  Lcd_Chr(1, 6, (jday div 10)   + 48)    ' Print tens digit of day variable
+  Lcd_Chr(1, 7, (jday mod 10)   + 48)    ' Print oness digit of day variable
+  Lcd_Chr(1, 9, (jmonth div 10) + 48)
+  Lcd_Chr(1,10, (jmonth mod 10) + 48)
+'  Lcd_Chr(1,14, txt)
+  Lcd_Chr(1,12, (jyear div 1000)  + 48)
+  Lcd_Chr(1,13, ((jyear mod 1000)div 100)  + 48)
+  Lcd_Chr(1,14, (((jyear mod 1000)mod 100) div 10)  + 48)
+  Lcd_Chr(1,15, (((jyear mod 1000)mod 100) mod 10)  + 48)
+
+  Lcd_Chr(2, 6, (hours div 10)   + 48)
+  Lcd_Chr(2, 7, (hours mod 10)   + 48)
+  Lcd_Chr(2, 9, (minutes div 10) + 48)
+  Lcd_Chr(2,10, (minutes mod 10) + 48)
+  Lcd_Chr(2,12, (seconds div 10) + 48)
+  Lcd_Chr(2,13, (seconds mod 10) + 48)
+
+   Delay_mS(1000)
+'    For N2 = 1 To 10
+'      Delay_mS(50)
+'    Next N2
+  Lcd_Init()                        ' Initialize Lcd
+  Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+  Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+  shamsi_to_milady( jmonth, jday, jyear )
+  Lcd_Chr(1, 6, (miladiDate_iDay div 10)   + 48)    ' Print tens digit of day variable
+  Lcd_Chr(1, 7, (miladiDate_iDay mod 10)   + 48)    ' Print oness digit of day variable
+  Lcd_Chr(1, 9, (miladiDate_iMonth div 10) + 48)
+  Lcd_Chr(1,10, (miladiDate_iMonth mod 10) + 48)
+  Lcd_Chr(1,12, (miladiDate_iYear div 1000)  + 48)
+  Lcd_Chr(1,13, ((miladiDate_iYear mod 1000)div 100)  + 48)
+  Lcd_Chr(1,14, (((miladiDate_iYear mod 1000)mod 100) div 10)  + 48)
+  Lcd_Chr(1,15, (((miladiDate_iYear mod 1000)mod 100) mod 10)  + 48)
+  Delay_mS(1000)
+  end sub
+
+'**************************************************************************************************
+'* Keypad PROGRAM
+'**************************************************************************************************}
+ sub procedure Keypad_set__date_time_import(dim var_in as integer, dim p_max as  integer, dim p_min as  integer )
+'    dim oldstate_4,oldstate_3,while_state_import,oldstate_2 as bit
+      Delay_mS(200)
+    while_state_import=1
+    oldstate_2=0
+  while  (while_state_import )
+    if (Button(PORTA, 5, 0.1, 0)) then    ' Detect logical one up key
+            oldstate_3 = 1                      ' Update flag
+    end if
+    if (oldstate_3 and Button(PINA, 5,0.1, 1)) then
+          if (var_in=p_max) then
+              var_in=p_min
+          else
+             var_in=var_in+1
+          end if
+          Lcd_Init()                        ' Initialize Lcd
+          Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+          Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+          inttostr(var_in,txt)
+          LCD_Out(2,9, txt)  ''Show on LCD
+          LCD_Out(2,5, "Value : ")  ''Show on LCD
+          Delay_mS(200)
+    end if
+
+           oldstate_3 = 1                      ' Update flag
+
+    if (Button(PORTA, 4, 0.1, 0)) then    ' Detect logical one Down key
+            oldstate_3 = 1                      ' Update flag
+    end if
+    if (oldstate_3 and Button(PINA, 4,0.1, 1)) then
+          if (var_in=p_min) then
+              var_in=p_max
+          else
+             var_in=var_in-1
+          end if
+          Lcd_Init()                        ' Initialize Lcd
+          Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+          Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+          inttostr(var_in,txt)
+          LCD_Out(2,11, txt)  ''Show on LCD
+          LCD_Out(2,5, "Value : ")  ''Show on LCD
+          Delay_mS(200)
+
+    end if
+    var_in_global=var_in
+
+    if (Button(PIND, 2, 0.1, 0)<> 0) then    ' Detect logical one setting key
+            oldstate_2 = 1                      ' Update flag
+        end if
+        if (oldstate_2 and Button(PIND, 2,0.1, 1)) then
+           oldstate_2 = 0
+           while_state_import=0
+           Lcd_Init()                        ' Initialize Lcd
+           Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+           Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+           LCD_Out(2,1, "Exit No save !!! ")  ''Show on LCD
+           Delay_mS(500)
+         end if
+
+    if (Button(PINA, 6, 0.1, 0)<> 0) then    ' Detect logical one setting key
+            oldstate_3 = 1                      ' Update flag
+        end if
+        if (while_state_import and oldstate_3 and Button(PINA, 6,0.1, 1)) then
+          while_state_import=0
+          oldstate_3 = 0
+          inttostr(var_in_global,txt)
+                LCD_Out(2,11, txt)  ''Show on LCD
+                LCD_Out(2,5, "Value :")  ''Show on LCD
+                Delay_mS(200)
+        end if
+    var_in_global= var_in
+  wend
+ end sub
+
+   '**************************************************************************************************
+'* Keypad PROGRAM
+'**************************************************************************************************}
+ sub procedure Keypad_set__date_time()
+    dim  txt1 as string[4]
+    dim while_state_2,oldstate_2,oldstate_3,oldstate_menu as bit
+    dim kp,ok,k_set as  integer
+' Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+'   Transform_Time()
+'   Shamsi_transfer_time()
+
+        oldstate_2 = 0
+        oldstate_3 = 0
+        oldstate_menu = 0
+        while_state_2=1
+        k_set=0
+        Lcd_Init()                        ' Initialize Lcd
+        Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+        Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+
+        LCD_Out(2,1, "fisrt : ")  ''Show on LCD
+        Delay_mS(500)
+        while  (while_state_2 )
+        LCD_Out(1,1, "while : ")  ''Show on LCD
+        Delay_mS(100)
+      if (Button(PIND, 2, 0.1, 0)<> 0) then    ' Detect logical one setting key
+            oldstate_2 = 1                      ' Update flag
+        end if
+        if (oldstate_2 and Button(PIND, 2,0.1, 1)) then
+           oldstate_2 = 0
+           oldstate_menu=1
+          k_set=k_set+1
+          if k_set=8  then
+             k_set=1
+          end if
+          inttostr(k_set,txt)
+                LCD_Out(2,9, txt)  ''Show on LCD
+                LCD_Out(2,1, "Position : ")  ''Show on LCD
+                Delay_mS(100)
+         end if
+       if (Button(PINA, 6, 0.1, 0)<> 0) then    ' Detect logical one setting key
+            oldstate_3 = 1                      ' Update flag
+        end if
+        if (oldstate_menu and oldstate_3 and Button(PINA, 6,0.1, 1)) then
+          while_state_2=0
+          oldstate_3 = 0
+
+          select case k_set
+           'case 10: kp = 42   ' "*"        ' Uncomment this block for keypad4x3
+           'case 11: kp = 48   ' "0"
+           'case 12: kp = 35   ' "#"
+           'default: kp += 48
+
+
+            case 1
+               Lcd_Init()                        ' Initialize Lcd
+               Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+               Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+               LCD_Out(2,1, "Year seting")  ''Show on LCD
+               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                Shamsi_transfer_time()
+               Keypad_set__date_time_import(year,100,0)
+               year=var_in_global
+'               var_in_global
+'               year=year+ 1
+
+               inttostr(var_in_global,txt)
+                LCD_Out(2,2, txt)  ''Show on LCD
+                Delay_mS(500)
+                 'Write TIME    11  : 15  : 00  : 24.  tuesday april  2012
+'                 Write_Time(0x11, 0x15, 0x00, 0x24, 0x03,   0x04, 0x12)'
+'                  Delay_mS(3500)
+
+
+                    Lcd_Init()                        ' Initialize Lcd
+                    Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+                    Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+
+
+                   inttostr(year,txt)
+                   LCD_Out(1,2, "int2str year")  ''Show on LCD
+                   LCD_Out(2,2, txt)  ''Show on LCD
+
+                   a = year
+                   year_new = Dec2Bcd(a) ' b equals 34
+'                   Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                   Write_Time(Dec2Bcd(hours), Dec2Bcd(minutes), Dec2Bcd(seconds), Dec2Bcd(day), Dec2Bcd(week),   Dec2Bcd(month), Dec2Bcd(year))'
+                   Delay_mS(500)
+
+'                  Write_Time(hours, minutes, seconds, day, week,  month, txt1)
+
+'              Keypad_set__date_time()
+              k_set = 1  ' 1               ' ÊäÙíã ÓÇÚÊ æ ÊÇÑíÎ ÑæÒ
+            case 2
+'              LCD_Out(2,1, "date 1 loop ")  ''Show on LCD
+
+               Lcd_Init()                        ' Initialize Lcd
+               Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+               Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+               LCD_Out(2,1, "month seting0")  ''Show on LCD
+               k_set=94
+               inttostr(k_set,txt)
+                LCD_Out(2,2, txt)  ''Show on LCD
+               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+               Shamsi_transfer_time()
+               LCD_Out(2,1, "month seting2")  ''Show on LCD
+               Lcd_Chr(2, 3, 94)
+               Delay_mS(2500)
+               Keypad_set__date_time_import(month,12,1)
+               month=var_in_global
+'               var_in_global
+'               year=year+ 1
+
+               inttostr(var_in_global,txt)
+                LCD_Out(2,2, txt)  ''Show on LCD
+                Delay_mS(500)
+                 'Write TIME    11  : 15  : 00  : 24.  tuesday april  2012
+'                 Write_Time(0x11, 0x15, 0x00, 0x24, 0x03,   0x04, 0x12)'
+'                  Delay_mS(3500)
+
+
+                    Lcd_Init()                        ' Initialize Lcd
+                    Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+                    Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+
+
+                   inttostr(month,txt)
+                   LCD_Out(1,2, "int2str month")  ''Show on LCD
+                   LCD_Out(2,2, txt)  ''Show on LCD
+
+                   a = month
+                   year_new = Dec2Bcd(a) ' b equals 34
+'                   Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                   Write_Time(Dec2Bcd(hours), Dec2Bcd(minutes), Dec2Bcd(seconds), Dec2Bcd(day), Dec2Bcd(week),   Dec2Bcd(month),  Dec2Bcd(year))'
+                   Delay_mS(500)
+'               var_in_global
+'               year=year+ 1
+
+'              Keypad_set__date_time()
+              k_set = 1  ' 1               ' ÊäÙíã ÓÇÚÊ æ ÊÇÑíÎ ÑæÒ
+            case 3
+
+
+'               var_in_global
+'               year=year+ 1
+
+               Lcd_Init()                        ' Initialize Lcd
+               Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+               Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+               LCD_Out(2,1, "Day seting")  ''Show on LCD
+               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+               Shamsi_transfer_time()
+               LCD_Out(2,1, "Day seting")  ''Show on LCD
+               Keypad_set__date_time_import(day,31,1)
+               day=var_in_global
+'
+               inttostr(var_in_global,txt)
+                LCD_Out(2,2, txt)  ''Show on LCD
+                Delay_mS(500)
+
+                    Lcd_Init()                        ' Initialize Lcd
+                    Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+                    Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+
+
+                   inttostr(day,txt)
+                   LCD_Out(1,2, "int2str Day")  ''Show on LCD
+                   LCD_Out(2,2, txt)  ''Show on LCD
+
+
+'                   Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                   Write_Time(Dec2Bcd(hours), Dec2Bcd(minutes), Dec2Bcd(seconds), Dec2Bcd(day), Dec2Bcd(week),   Dec2Bcd(month),  Dec2Bcd(year))'
+                   Delay_mS(500)
+'               var_in_global
+'               year=year+ 1
+            case 4
+
+               Lcd_Init()                        ' Initialize Lcd
+               Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+               Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+               LCD_Out(2,1, "Week seting")  ''Show on LCD
+               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                Shamsi_transfer_time()
+               LCD_Out(2,1, "Week seting")  ''Show on LCD
+               Keypad_set__date_time_import(Day,7,1)
+               week=var_in_global
+'
+                inttostr(var_in_global,txt)
+                LCD_Out(2,2, txt)  ''Show on LCD
+                Delay_mS(500)
+                Lcd_Init()                        ' Initialize Lcd
+                Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+                Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+                inttostr(week,txt)
+                LCD_Out(1,2, "int2str week")  ''Show on LCD
+                LCD_Out(2,2, txt)  ''Show on LCD
+'               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                Write_Time(Dec2Bcd(hours), Dec2Bcd(minutes), Dec2Bcd(seconds), Dec2Bcd(day), Dec2Bcd(week),   Dec2Bcd(month),  Dec2Bcd(year))'
+                Delay_mS(500)
+            case 5
+
+               Lcd_Init()                        ' Initialize Lcd
+               Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+               Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+               LCD_Out(2,1, "hours seting")  ''Show on LCD
+               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                Shamsi_transfer_time()
+               LCD_Out(2,1, "hours seting")  ''Show on LCD
+               Keypad_set__date_time_import(hours,24,0)
+               hours=var_in_global
+'
+                inttostr(var_in_global,txt)
+                LCD_Out(2,2, txt)  ''Show on LCD
+                Delay_mS(500)
+                Lcd_Init()                        ' Initialize Lcd
+                Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+                Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+                inttostr(hours,txt)
+                LCD_Out(1,2, "int2str hours")  ''Show on LCD
+                LCD_Out(2,2, txt)  ''Show on LCD
+'               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                Write_Time(Dec2Bcd(hours), Dec2Bcd(minutes), Dec2Bcd(seconds), Dec2Bcd(day), Dec2Bcd(week),   Dec2Bcd(month),  Dec2Bcd(year))'
+                Delay_mS(500)
+            case 6
+              Lcd_Init()                        ' Initialize Lcd
+               Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+               Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+               LCD_Out(2,1, "minutes seting")  ''Show on LCD
+               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                Shamsi_transfer_time()
+               LCD_Out(2,1, "minutes seting")  ''Show on LCD
+               Keypad_set__date_time_import(hours,23,0)
+               minutes=var_in_global
+'
+                inttostr(var_in_global,txt)
+                LCD_Out(2,2, txt)  ''Show on LCD
+                Delay_mS(500)
+                Lcd_Init()                        ' Initialize Lcd
+                Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+                Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+                inttostr(minutes,txt)
+                LCD_Out(1,2, "int2str minutes")  ''Show on LCD
+                LCD_Out(2,2, txt)  ''Show on LCD
+'               Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+                Write_Time(Dec2Bcd(hours), Dec2Bcd(minutes), Dec2Bcd(seconds), Dec2Bcd(day), Dec2Bcd(week),   Dec2Bcd(month),  Dec2Bcd(year))'
+                Delay_mS(500)
+          end select
+        end if                      ' Update flag
+
+     wend
+ end sub
+'**************************************************************************************************
+'* Keypad PROGRAM
+'**************************************************************************************************}
+ sub procedure Keypad_3()
+
+'  dim oldstate,oldstate_up,oldstate_down,oldstate_ok,oldstate_ww,while_state as bit
+'  dim kp,ok,k_set as  integer
+  kp=1
+  ok=0
+
+
+     oldstate = 0
+     oldstate_up=0
+     oldstate_down=0
+     oldstate_ok=0
+     oldstate_ww=0
+     while_state=1
+
+'    if (PINA1_bit <> 0) then
+      if (Button(PINA, 1, 0.1, 1)<> 0) then    ' Detect logical one setting key
+      Lcd_Init()                        ' Initialize Lcd
+
+      Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+      Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+      oldstate = 1                      ' Update flag
+       end if
+    if (oldstate and Button(PINA, 1, 0.1, 0)) then    ' Detect one-to-zero transition
+       oldstate = 0
+       while_state=1
+      LCD_Out(1,1, "Menu")  ''Show on LCD
+      LCD_Out(2,1, " date Setting")  ''Show on LCD
+      intToStr(kp,txt)
+      LCD_Out(2,9, txt)  ''Show on LCD
+      Delay_mS(500)
+    end if
+'
+   while  (while_state )
+'   kp=kp-1
+  if (Button(PIND, 2, 0.1, 1)<> 0) then    ' Detect logical one setting key
+      Lcd_Init()                        ' Initialize Lcd
+
+      Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+      Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+      oldstate_ww = 1                      ' Update flag
+       end if
+    if (oldstate_ww and Button(PIND, 2, 0.1, 0)) then    ' Detect one-to-zero transition
+       oldstate_ww = 0
+       while_state=0
+      LCD_Out(1,1, "exit")  ''Show on LCD
+'      LCD_Out(2,1, "old_satate")  ''Show on LCD
+'      ByteToStr(while_state,txt)
+'      LCD_Out(2,9, txt)  ''Show on LCD
+      Delay_mS(500)
+    end if
+     if (Button(PINA, 4, 0.1, 1)<> 0) then    ' Detect logical down setting key
+      oldstate_down = 1                      ' Update flag
+     end if
+    if (oldstate_down and Button(PINA, 4, 0.1, 0)) then    ' Detect one-to-zero transition
+        oldstate_down=0
+            Lcd_Init()                        ' Initialize Lcd
+
+      Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+      Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+           if (kp=0) then
+              kp=2
+            else
+             kp=kp-1
+            end if
+            LCD_Out(1,2, "down pressd")  ''Show on LCD'
+
+      inttostr(kp,txt)
+      LCD_Out(2,8, txt)  ''Show on LCD
+
+      Delay_mS(500)
+    end if
+    if (Button(PINA, 5, 0.1, 1)<> 0) then    ' Detect logical one setting key
+      oldstate_up = 1                      ' Update flag
+      end if
+      if ((oldstate_up) and (Button(PINA, 5, 0.1, 0))) then    ' Detect one-to-zero transition
+            oldstate_up=0
+            Lcd_Init()                        ' Initialize Lcd
+
+      Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+      Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+            if (kp=2) then
+              kp=0
+            else
+              kp=kp+1
+            end if
+      LCD_Out(1,1, "Up key ")  ''Show on LCD
+      inttostr(kp,txt)
+      LCD_Out(2,8, txt)  ''Show on LCD
+      Delay_mS(500)
+    end if
+    if (Button(PINA, 6, 0.1, 1)<> 0) then    ' Detect logical one setting key
+      oldstate_ok =1
+    end if
+      if ((oldstate_ok) and (while_state) and (Button(PINA, 6, 0.1, 0))) then    ' Detect one-to-zero transition
+       while_state=0
+       Lcd_Init()                        ' Initialize Lcd
+
+      Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+      Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+      oldstate_ok = 1                      ' Update flag
+      LCD_Out(1,1, "OK")  ''Show on LCD
+'      inttostr(kp,txt)
+'      LCD_Out(2,8, txt)  ''Show on LCD
+      Delay_mS(500)
+
+
+
+          select case kp
+           'case 10: kp = 42   ' "*"        ' Uncomment this block for keypad4x3
+           'case 11: kp = 48   ' "0"
+           'case 12: kp = 35   ' "#"
+           'default: kp += 48
+            case 0
+              kp = 0  ' 1               ' ÚÏã ÇäÌÇã ˜ÇÑí æ ãÔÇåÏå ÊÇÑíÎ æ ÒãÇä
+'               Shamsi_call()
+                inttostr(kp,txt)
+                LCD_Out(1,1, txt)  ''Show on LCD
+                inttostr(kp,txt)
+                LCD_Out(2,9, txt)  ''Show on LCD
+                LCD_Out(2,1, "Case  0 is selected ")  ''Show on LCD
+                Delay_mS(500)
+            case 1
+              Keypad_set__date_time()
+'                Shamsi_call()
+                inttostr(kp,txt)
+                LCD_Out(1,1, txt)  ''Show on LCD
+                inttostr(kp,txt)
+                LCD_Out(2,9, txt)  ''Show on LCD
+                LCD_Out(2,1, "Case 1 is selected ")  ''Show on LCD
+              kp = 1  ' 1               ' ÊäÙíã ÓÇÚÊ æ ÊÇÑíÎ ÑæÒ
+            case 2
+'              Keypad_set__relay_time()  ' ÊäÙíã ÒãÇä ÑæÔä æ ÎÇãæÔ ÔÏä Ñáå åÇ
+              kp = 2  ' 2
+            case 3
+              kp = 3  ' ÊäÙíã  ãíÒÇä äæÑ  ÎÑæÌí åÇ
+            case 4
+              kp = 4  ' A
+          end select
+    end if
+  wend
+     'LCD_Out(1,1, "end of loop")  ''Show on LCD
+end sub
+
+sub procedure interrupt_ISR () org IVT_ADDR_INT0            ''// Interrupt rutine
+'dim while_satate_in_1 as bit
+
+  SREG_I_bit = 0                                   '' // Disable Interrupts
+
+  Lcd_Init()                        ' Initialize Lcd
+  Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+  Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+  txt1 = "Setting   <Exit>"
+  Lcd_Out(1,1,txt1)
+  Lcd_Chr(2, 3, 94)
+  Lcd_Chr(2, 2, 94)
+  Lcd_Chr(2, 4, 94)
+  Delay_ms(500)                    ' delay 2 sec
+  kp=0
+  ok=0
+
+
+     oldstate = 0
+     oldstate_up=0
+     oldstate_down=0
+     oldstate_ok=0
+     oldstate_ww=0
+     while_state=1
+     while_satate_in_1=1
+   while  (while_satate_in_1 )
+'    if (PINA1_bit <> 0) then
+      if (Button(PIND, 2, 0.1, 1)<> 0) then    ' Detect logical one setting key
+      Lcd_Init()                        ' Initialize Lcd
+
+      Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+      Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+      oldstate = 1                      ' Update flag
+       end if
+    if (oldstate and Button(PIND, 2, 0.1, 0)) then    ' Detect one-to-zero transition
+       oldstate = 0
+       while_state=0
+       while_satate_in_1=0
+
+       txt1 = "<Exit> is Selected"
+       Lcd_Out(1,1,txt1)
+      Delay_mS(500)
+       Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+      Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+      Delay_mS(500)
+       txt1 = "<Exit> is Selected"
+       Lcd_Out(1,1,txt1)
+       Delay_mS(500)
+'      LCD_Out(2,1, " date Setting")  ''Show on LCD
+'      intToStr(kp,txt)
+'      LCD_Out(2,9, txt)  ''Show on LCD
+       Delay_mS(500)
+    end if
+     if (Button(PINA, 4, 0.1, 1)<> 0) then    ' Detect logical down setting key
+      oldstate_down = 1                      ' Update flag
+     end if
+    if (oldstate_down and Button(PINA, 4, 0.1, 0)) then    ' Detect one-to-zero transition
+        oldstate_down=0
+            Lcd_Init()                        ' Initialize Lcd
+
+            Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+            Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+           if (kp=0) then
+              kp=1
+              txt1 = "Setting   <Exit>"
+              Lcd_Out(1,1,txt1)
+              Lcd_Chr(2, 13, 94)
+              Lcd_Chr(2, 14, 94)
+              Lcd_Chr(2, 15, 94)
+            else
+             kp=kp-1
+             txt1 = "Setting   <Exit>"
+             Lcd_Out(1,1,txt1)
+             Lcd_Chr(2, 3, 94)
+             Lcd_Chr(2, 2, 94)
+             Lcd_Chr(2, 4, 94)
+            end if
+
+
+      Delay_mS(500)
+    end if
+    if (Button(PINA, 5, 0.1, 1)<> 0) then    ' Detect logical one setting key
+      oldstate_up = 1                      ' Update flag
+      end if
+      if ((oldstate_up) and (Button(PINA, 5, 0.1, 0))) then    ' Detect one-to-zero transition
+            oldstate_up=0
+            Lcd_Init()                        ' Initialize Lcd
+
+      Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+      Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+            if (kp=1) then
+              kp=0
+              txt1 = "Setting   <Exit>"
+             Lcd_Out(1,1,txt1)
+             Lcd_Chr(2, 3, 94)
+             Lcd_Chr(2, 2, 94)
+             Lcd_Chr(2, 4, 94)
+            else
+              kp=kp+1
+              txt1 = "Setting   <Exit>"
+              Lcd_Out(1,1,txt1)
+              Lcd_Chr(2, 13, 94)
+              Lcd_Chr(2, 14, 94)
+              Lcd_Chr(2, 15, 94)
+              
+            end if
+
+      Delay_mS(500)
+    end if
+    
+    if (Button(PINA, 6, 0.1, 1)<> 0) then    ' Detect logical one setting key
+      oldstate_ok =1
+    end if
+      if ((oldstate_ok) and (while_satate_in_1) and (Button(PINA, 6, 0.1, 0))) then    ' Detect one-to-zero transition
+       while_state=0
+       while_satate_in_1=0
+       Lcd_Init()                        ' Initialize Lcd
+
+      Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+      Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+      oldstate_ok = 1                      ' Update flag
+      LCD_Out(1,1, "Setting is active")  ''Show on LCD
+'      inttostr(kp,txt)
+'      LCD_Out(2,8, txt)  ''Show on LCD
+      Delay_mS(500)
+      end if
+      
+      
+   wend
+
+'
+
+
+          select case kp
+           'case 10: kp = 42   ' "*"        ' Uncomment this block for keypad4x3
+           'case 11: kp = 48   ' "0"
+           'case 12: kp = 35   ' "#"
+           'default: kp += 48
+            case 0
+              kp = 0  ' 1               ' ÚÏã ÇäÌÇã ˜ÇÑí æ ãÔÇåÏå ÊÇÑíÎ æ ÒãÇä
+                Keypad_3()
+                inttostr(kp,txt)
+                LCD_Out(1,1, txt)  ''Show on LCD
+                inttostr(kp,txt)
+                LCD_Out(2,9, txt)  ''Show on LCD
+                LCD_Out(2,1, "Case  Ok is selected ")  ''Show on LCD
+                Delay_mS(500)
+            case 1
+
+'                Shamsi_call()
+                inttostr(kp,txt)
+                LCD_Out(1,1, txt)  ''Show on LCD
+                inttostr(kp,txt)
+                LCD_Out(2,9, txt)  ''Show on LCD
+                LCD_Out(2,1, "Case Exit is selected ")  ''Show on LCD
+              kp = 1  ' 1               ' ÊäÙíã ÓÇÚÊ æ ÊÇÑíÎ ÑæÒ
+
+          end select
+
+
+  
+'  Keypad_3()
+  INTF0_bit=0                                                  '  // Clear interrupt flag
+  SREG_I_bit = 1                                  ''  // Enable Interrupts
+end sub
+main:
+  DDB0_bit = 0                                        ' set Button pin as input
+  DDA2_bit = 0                                        ' set Button pin as input
+
+
+  DDA5_bit = 0                                        ' set Button pin as input
+  DDA4_bit = 0                                        ' set Button pin as input
+  DDA3_bit = 0                                        ' set Button pin as input
+'  DDRC  = 0xFF                                        ' configure PORTC as output
+'  PORTC = 0xAA                                        ' initial PORTC value
+
+'  oldstate = 0                                        ' oldstate initial value
+  txt1 = "www.elasa.ir"
+  txt2 = "RTC2 click"
+  txt3 = "DATE:"
+  txt4 = "TIME:"
+
+'  Soft_I2C_Init()                   ' Initialize I2C bus for communication with RTC
+  Lcd_Init()                        ' Initialize Lcd
+
+  Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+  Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+  Lcd_Out(1,1,txt1)                 ' Write text in first row
+  Lcd_Out(2,4,txt2)                 ' Write text in second row
+
+  Delay_ms(500)                    ' delay 2 sec
+
+  Lcd_Cmd(_LCD_CLEAR)               ' Prepare and output static text on LCD
+  LCD_Chr(1,8,".")
+  LCD_Chr(1,11,".")
+  LCD_Out(2,1,"Time:")
+  LCD_Chr(2,8,":")
+  LCD_Chr(2,11,":")
+  LCD_Out(1,12,"")
+  v="0x15"
+  Delay_ms(500)                    ' delay 2 sec
+
+
+
+'  Write_Time(0x11, 0x15, 0x00, 0x31, 0x1,   0x10, 0x15)'
+'  Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+'     hours=0x0  minutes=0x0   seconds=0x0 day= 0x2 week=0x3   month=0x11  year=0x15
+'   a = 17
+'   year = Dec2Bcd(a) ' b equals 34
+'  Write_Time(hours, minutes, seconds, 0x1, 0x01,   0x11,year)'
+  Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+  Shamsi_call()
+   Delay_ms(500)
+  ' ##########   Interupt enalbleing   ##########
+   ISC00_bit = 1                                    '' // Set interrupts to be detected on rising edge
+'   ISC00_bit = 1
+   SREG_I_bit = 0
+    Delay_ms(500)                                  ''  // Enable Interrupts
+   SREG_I_bit = 1
+   Delay_ms(500)                    ' delay 2 sec
+   INT0_bit = 1
+'#########################################
+
+  while TRUE
+
+'    Keypad_3()
+     Read_Time(@hours, @minutes, @seconds, @day, @week, @month, @year)
+     Shamsi_call()
+
+
+  wend                                                ' endless loop
+end.

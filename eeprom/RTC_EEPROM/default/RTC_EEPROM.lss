@@ -1,0 +1,3088 @@
+
+RTC_EEPROM.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00001580  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          0000001e  00800100  00800100  000015f4  2**0
+                  ALLOC
+  2 .debug_aranges 000000a0  00000000  00000000  000015f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 000002d4  00000000  00000000  00001694  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000011ea  00000000  00000000  00001968  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000004e1  00000000  00000000  00002b52  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000011e2  00000000  00000000  00003033  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000260  00000000  00000000  00004218  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000034f  00000000  00000000  00004478  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    0000045c  00000000  00000000  000047c7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000030  00000000  00000000  00004c23  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 8c 03 	jmp	0x718	; 0x718 <__ctors_end>
+       4:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+       8:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+       c:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      10:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      14:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      18:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      1c:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      20:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      24:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      28:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      2c:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      30:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      34:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      38:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      3c:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      40:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      44:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      48:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      4c:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      50:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      54:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      58:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      5c:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      60:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      64:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      68:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      6c:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      70:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      74:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      78:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      7c:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      80:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      84:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+      88:	0c 94 ab 03 	jmp	0x756	; 0x756 <__bad_interrupt>
+
+0000008c <__c.1450>:
+      8c:	45 45 50 52 4f 4d 20 77 72 69 74 65 20 64 61 74     EEPROM write dat
+      9c:	61 20 66 61 69 6c 65 64 2e 2e 00                    a failed...
+
+000000a7 <__c.1448>:
+      a7:	45 45 50 52 4f 4d 20 77 72 69 74 65 2d 32 20 66     EEPROM write-2 f
+      b7:	61 69 6c 65 64 2e 2e 00                             ailed...
+
+000000bf <__c.1446>:
+      bf:	45 45 50 52 4f 4d 20 77 72 69 74 65 2d 31 20 66     EEPROM write-1 f
+      cf:	61 69 6c 65 64 2e 2e 00                             ailed...
+
+000000d7 <__c.1444>:
+      d7:	45 45 50 52 4f 4d 20 73 65 6e 64 41 64 64 72 65     EEPROM sendAddre
+      e7:	73 73 31 20 66 61 69 6c 65 64 2e 2e 00              ss1 failed...
+
+000000f4 <__c.1442>:
+      f4:	69 32 63 20 73 74 61 72 74 20 66 61 69 6c 65 64     i2c start failed
+     104:	2e 2e 00                                            ...
+
+00000107 <__c.1440>:
+     107:	57 61 69 74 2e 2e 2e 00                             Wait....
+
+0000010f <__c.1403>:
+     10f:	45 45 50 52 4f 4d 20 77 72 69 74 65 20 64 61 74     EEPROM write dat
+     11f:	61 20 66 61 69 6c 65 64 2e 2e 00                    a failed...
+
+0000012a <__c.1401>:
+     12a:	45 45 50 52 4f 4d 20 77 72 69 74 65 2d 32 20 66     EEPROM write-2 f
+     13a:	61 69 6c 65 64 2e 2e 00                             ailed...
+
+00000142 <__c.1399>:
+     142:	45 45 50 52 4f 4d 20 77 72 69 74 65 2d 31 20 66     EEPROM write-1 f
+     152:	61 69 6c 65 64 2e 2e 00                             ailed...
+
+0000015a <__c.1397>:
+     15a:	45 45 50 52 4f 4d 20 73 65 6e 64 41 64 64 72 65     EEPROM sendAddre
+     16a:	73 73 31 20 66 61 69 6c 65 64 2e 2e 00              ss1 failed...
+
+00000177 <__c.1395>:
+     177:	69 32 63 20 73 74 61 72 74 20 66 61 69 6c 65 64     i2c start failed
+     187:	2e 2e 00                                            ...
+
+0000018a <__c.1371>:
+     18a:	45 45 50 52 4f 4d 20 72 65 63 65 69 76 65 20 66     EEPROM receive f
+     19a:	61 69 6c 65 64 2e 2e 00                             ailed...
+
+000001a2 <__c.1369>:
+     1a2:	45 45 50 52 4f 4d 20 73 65 6e 64 41 64 64 72 65     EEPROM sendAddre
+     1b2:	73 73 32 20 66 61 69 6c 65 64 2e 2e 00              ss2 failed...
+
+000001bf <__c.1367>:
+     1bf:	69 32 63 20 72 65 70 65 61 74 2d 73 74 61 72 74     i2c repeat-start
+     1cf:	20 66 61 69 6c 65 64 2e 2e 00                        failed...
+
+000001d9 <__c.1365>:
+     1d9:	45 45 50 52 4f 4d 20 77 72 69 74 65 2d 32 20 66     EEPROM write-2 f
+     1e9:	61 69 6c 65 64 2e 2e 00                             ailed...
+
+000001f1 <__c.1363>:
+     1f1:	45 45 50 52 4f 4d 20 77 72 69 74 65 2d 31 20 66     EEPROM write-1 f
+     201:	61 69 6c 65 64 2e 2e 00                             ailed...
+
+00000209 <__c.1361>:
+     209:	45 45 50 52 4f 4d 20 73 65 6e 64 41 64 64 72 65     EEPROM sendAddre
+     219:	73 73 31 20 66 61 69 6c 65 64 2e 2e 00              ss1 failed...
+
+00000226 <__c.1359>:
+     226:	69 32 63 20 73 74 61 72 74 20 66 61 69 6c 65 64     i2c start failed
+     236:	2e 2e 00                                            ...
+
+00000239 <__c.1507>:
+     239:	20 46 69 6e 69 73 68 65 64 2e 2e 00                  Finished...
+
+00000245 <__c.1505>:
+     245:	20 45 45 50 52 4f 4d 20 6f 70 65 72 61 74 69 6f      EEPROM operatio
+     255:	6e 20 66 61 69 6c 65 64 2e 2e 00                    n failed...
+
+00000260 <__c.1503>:
+     260:	20 49 6e 76 61 6c 69 64 20 6f 70 74 69 6f 6e 21      Invalid option!
+	...
+
+00000271 <__c.1496>:
+     271:	20 45 6e 74 65 72 20 74 65 78 74 3a 20 00            Enter text: .
+
+0000027f <__c.1494>:
+     27f:	20 41 64 64 72 65 73 73 20 6f 75 74 20 6f 66 20      Address out of 
+     28f:	72 61 6e 67 65 2e 2e 20 00                          range.. .
+
+00000298 <__c.1492>:
+     298:	20 45 6e 74 65 72 20 50 61 67 65 20 4e 75 6d 62      Enter Page Numb
+     2a8:	65 72 20 28 30 30 30 2d 35 31 31 29 3a 20 00        er (000-511): .
+
+000002b7 <__c.1488>:
+     2b7:	20 48 6f 77 20 6d 61 6e 79 20 62 79 74 65 73 3f      How many bytes?
+     2c7:	28 30 30 2d 36 34 29 3a 20 00                       (00-64): .
+
+000002d1 <__c.1485>:
+     2d1:	20 45 6e 74 65 72 20 74 65 78 74 3a 20 00            Enter text: .
+
+000002df <__c.1481>:
+     2df:	20 45 45 50 52 4f 4d 20 65 72 61 73 65 64 20 73      EEPROM erased s
+     2ef:	75 63 63 65 73 73 66 75 6c 6c 79 2e 2e 00           uccessfully...
+
+000002fd <__c.1479>:
+     2fd:	20 45 45 50 52 4f 4d 20 65 72 61 73 65 20 66 61      EEPROM erase fa
+     30d:	69 6c 65 64 2e 2e 00                                iled...
+
+00000314 <__c.1476>:
+     314:	3e 20 53 65 6c 65 63 74 20 4f 70 74 69 6f 6e 20     > Select Option 
+     324:	28 30 2d 38 29 3a 20 00                             (0-8): .
+
+0000032c <__c.1474>:
+     32c:	3e 20 38 20 3a 20 55 70 64 61 74 65 20 52 54 43     > 8 : Update RTC
+     33c:	20 54 69 6d 65 00                                    Time.
+
+00000342 <__c.1472>:
+     342:	3e 20 37 20 3a 20 55 70 64 61 74 65 20 52 54 43     > 7 : Update RTC
+     352:	20 44 61 74 65 00                                    Date.
+
+00000358 <__c.1470>:
+     358:	3e 20 36 20 3a 20 44 69 73 70 6c 61 79 20 52 54     > 6 : Display RT
+     368:	43 20 54 69 6d 65 00                                C Time.
+
+0000036f <__c.1468>:
+     36f:	3e 20 35 20 3a 20 44 69 73 70 6c 61 79 20 52 54     > 5 : Display RT
+     37f:	43 20 44 61 74 65 00                                C Date.
+
+00000386 <__c.1466>:
+     386:	3e 20 34 20 3a 20 52 65 61 64 20 45 45 50 52 4f     > 4 : Read EEPRO
+     396:	4d 20 50 61 67 65 00                                M Page.
+
+0000039d <__c.1464>:
+     39d:	3e 20 33 20 3a 20 57 72 69 74 65 20 45 45 50 52     > 3 : Write EEPR
+     3ad:	4f 4d 20 50 61 67 65 00                             OM Page.
+
+000003b5 <__c.1462>:
+     3b5:	3e 20 32 20 3a 20 52 65 61 64 20 45 45 50 52 4f     > 2 : Read EEPRO
+     3c5:	4d 00                                               M.
+
+000003c7 <__c.1460>:
+     3c7:	3e 20 31 20 3a 20 57 72 69 74 65 20 45 45 50 52     > 1 : Write EEPR
+     3d7:	4f 4d 00                                            OM.
+
+000003da <__c.1458>:
+     3da:	3e 20 30 20 3a 20 45 72 61 73 65 20 45 45 50 52     > 0 : Erase EEPR
+     3ea:	4f 4d 00                                            OM.
+
+000003ed <__c.1456>:
+     3ed:	50 72 65 73 73 20 61 6e 79 20 6b 65 79 2e 2e 00     Press any key...
+
+000003fd <__c.1454>:
+     3fd:	3e 43 6f 6d 6d 75 6e 69 63 61 74 69 6f 6e 20 53     >Communication S
+     40d:	74 61 72 74 65 64 2e 2e 2e 00                       tarted....
+
+00000417 <__c.1452>:
+     417:	3e 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d     >---------------
+     427:	2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d     ----------------
+     437:	2d 2d 2d 00                                         ---.
+
+0000043b <__c.1450>:
+     43b:	3e 2d 2d 2d 2d 2d 2d 2d 2d 20 42 79 20 43 43 20     >-------- By CC 
+     44b:	44 68 61 72 6d 61 6e 69 20 2d 2d 2d 2d 2d 2d 2d     Dharmani -------
+     45b:	2d 2d 00                                            --.
+
+0000045e <__c.1448>:
+     45e:	3e 2d 20 52 54 43 20 26 20 53 45 52 49 41 4c 20     >- RTC & SERIAL 
+     46e:	45 45 50 52 4f 4d 20 54 65 73 74 69 6e 67 21 2d     EEPROM Testing!-
+     47e:	2d 2d 00                                            --.
+
+00000481 <__c.1669>:
+     481:	49 6e 76 61 6c 69 64 20 45 6e 74 72 79 2e 2e 00     Invalid Entry...
+
+00000491 <__c.1667>:
+     491:	44 61 74 65 20 55 70 64 61 74 65 64 20 73 75 63     Date Updated suc
+     4a1:	65 73 73 66 75 6c 6c 79 2e 2e 00                    essfully...
+
+000004ac <__c.1665>:
+     4ac:	45 6e 74 65 72 20 44 61 79 20 28 53 75 6e 64 61     Enter Day (Sunda
+     4bc:	79 3a 30 2c 20 4d 6f 6e 64 61 79 3a 31 2e 2e 2e     y:0, Monday:1...
+     4cc:	29 20 28 30 2d 36 29 3a 00                          ) (0-6):.
+
+000004d5 <__c.1662>:
+     4d5:	45 6e 74 65 72 20 44 61 74 65 20 28 64 64 2f 6d     Enter Date (dd/m
+     4e5:	6d 2f 79 79 29 3a 00                                m/yy):.
+
+000004ec <__c.1640>:
+     4ec:	49 6e 76 61 6c 69 64 20 45 6e 74 72 79 2e 2e 00     Invalid Entry...
+
+000004fc <__c.1638>:
+     4fc:	54 69 6d 65 20 55 70 64 61 74 65 64 20 73 75 63     Time Updated suc
+     50c:	65 73 73 66 75 6c 6c 79 2e 2e 00                    essfully...
+
+00000517 <__c.1635>:
+     517:	45 6e 74 65 72 20 54 69 6d 65 20 69 6e 20 32 34     Enter Time in 24
+     527:	68 20 66 6f 72 6d 61 74 28 68 68 3a 6d 6d 3a 73     h format(hh:mm:s
+     537:	73 29 3a 00                                         s):.
+
+0000053b <__c.1619>:
+     53b:	52 54 43 20 77 72 69 74 65 20 64 61 74 65 20 66     RTC write date f
+     54b:	61 69 6c 65 64 2e 2e 00                             ailed...
+
+00000553 <__c.1617>:
+     553:	52 54 43 20 77 72 69 74 65 2d 31 20 66 61 69 6c     RTC write-1 fail
+     563:	65 64 2e 2e 00                                      ed...
+
+00000568 <__c.1615>:
+     568:	52 54 43 20 73 65 6e 64 41 64 64 72 65 73 73 31     RTC sendAddress1
+     578:	20 66 61 69 6c 65 64 2e 2e 00                        failed...
+
+00000582 <__c.1613>:
+     582:	52 54 43 20 73 74 61 72 74 31 20 66 61 69 6c 65     RTC start1 faile
+     592:	64 2e 2e 00                                         d...
+
+00000596 <__c.1596>:
+     596:	52 54 43 20 77 72 69 74 65 20 74 69 6d 65 20 66     RTC write time f
+     5a6:	61 69 6c 65 64 2e 2e 00                             ailed...
+
+000005ae <__c.1594>:
+     5ae:	52 54 43 20 77 72 69 74 65 2d 31 20 66 61 69 6c     RTC write-1 fail
+     5be:	65 64 2e 2e 00                                      ed...
+
+000005c3 <__c.1592>:
+     5c3:	52 54 43 20 73 65 6e 64 41 64 64 72 65 73 73 31     RTC sendAddress1
+     5d3:	20 66 61 69 6c 65 64 2e 2e 00                        failed...
+
+000005dd <__c.1590>:
+     5dd:	52 54 43 20 73 74 61 72 74 31 20 66 61 69 6c 65     RTC start1 faile
+     5ed:	64 2e 2e 00                                         d...
+
+000005f1 <__c.1518>:
+     5f1:	55 6e 6b 6e 6f 77 6e 00                             Unknown.
+
+000005f9 <__c.1515>:
+     5f9:	53 61 74 75 72 64 61 79 00                          Saturday.
+
+00000602 <__c.1512>:
+     602:	46 72 69 64 61 79 00                                Friday.
+
+00000609 <__c.1509>:
+     609:	54 68 75 72 73 64 61 79 00                          Thursday.
+
+00000612 <__c.1506>:
+     612:	57 65 64 6e 65 73 64 61 79 00                       Wednesday.
+
+0000061c <__c.1503>:
+     61c:	54 75 65 73 64 61 79 00                             Tuesday.
+
+00000624 <__c.1500>:
+     624:	4d 6f 6e 64 61 79 00                                Monday.
+
+0000062b <__c.1496>:
+     62b:	53 75 6e 64 61 79 00                                Sunday.
+
+00000632 <__c.1493>:
+     632:	20 20 20 20 44 61 79 3a 20 00                           Day: .
+
+0000063c <__c.1488>:
+     63c:	44 61 74 65 3a 00                                   Date:.
+
+00000642 <__c.1483>:
+     642:	54 69 6d 65 3a 00                                   Time:.
+
+00000648 <__c.1397>:
+     648:	52 54 43 20 72 65 63 65 69 76 65 20 66 61 69 6c     RTC receive fail
+     658:	65 64 2e 2e 00                                      ed...
+
+0000065d <__c.1395>:
+     65d:	52 54 43 20 73 65 6e 64 41 64 64 72 65 73 73 32     RTC sendAddress2
+     66d:	20 66 61 69 6c 65 64 2e 2e 00                        failed...
+
+00000677 <__c.1393>:
+     677:	52 54 43 20 72 65 70 65 61 74 20 73 74 61 72 74     RTC repeat start
+     687:	20 66 61 69 6c 65 64 2e 2e 00                        failed...
+
+00000691 <__c.1391>:
+     691:	52 54 43 20 77 72 69 74 65 2d 31 20 66 61 69 6c     RTC write-1 fail
+     6a1:	65 64 2e 2e 00                                      ed...
+
+000006a6 <__c.1389>:
+     6a6:	52 54 43 20 73 65 6e 64 41 64 64 72 65 73 73 31     RTC sendAddress1
+     6b6:	20 66 61 69 6c 65 64 2e 2e 00                        failed...
+
+000006c0 <__c.1387>:
+     6c0:	52 54 43 20 73 74 61 72 74 31 20 66 61 69 6c 65     RTC start1 faile
+     6d0:	64 2e 2e 00                                         d...
+
+000006d4 <__c.1376>:
+     6d4:	52 54 43 20 77 72 69 74 65 2d 32 20 66 61 69 6c     RTC write-2 fail
+     6e4:	65 64 2e 2e 00                                      ed...
+
+000006e9 <__c.1374>:
+     6e9:	52 54 43 20 73 65 6e 64 41 64 64 72 65 73 73 31     RTC sendAddress1
+     6f9:	20 66 61 69 6c 65 64 2e 2e 00                        failed...
+
+00000703 <__c.1372>:
+     703:	52 54 43 20 73 74 61 72 74 31 20 66 61 69 6c 65     RTC start1 faile
+     713:	64 2e 2e 00 00                                      d....
+
+00000718 <__ctors_end>:
+     718:	11 24       	eor	r1, r1
+     71a:	1f be       	out	0x3f, r1	; 63
+     71c:	cf ef       	ldi	r28, 0xFF	; 255
+     71e:	d0 e1       	ldi	r29, 0x10	; 16
+     720:	de bf       	out	0x3e, r29	; 62
+     722:	cd bf       	out	0x3d, r28	; 61
+
+00000724 <__do_copy_data>:
+     724:	11 e0       	ldi	r17, 0x01	; 1
+     726:	a0 e0       	ldi	r26, 0x00	; 0
+     728:	b1 e0       	ldi	r27, 0x01	; 1
+     72a:	e0 e8       	ldi	r30, 0x80	; 128
+     72c:	f5 e1       	ldi	r31, 0x15	; 21
+     72e:	00 e0       	ldi	r16, 0x00	; 0
+     730:	0b bf       	out	0x3b, r16	; 59
+     732:	02 c0       	rjmp	.+4      	; 0x738 <__do_copy_data+0x14>
+     734:	07 90       	elpm	r0, Z+
+     736:	0d 92       	st	X+, r0
+     738:	a0 30       	cpi	r26, 0x00	; 0
+     73a:	b1 07       	cpc	r27, r17
+     73c:	d9 f7       	brne	.-10     	; 0x734 <__do_copy_data+0x10>
+
+0000073e <__do_clear_bss>:
+     73e:	11 e0       	ldi	r17, 0x01	; 1
+     740:	a0 e0       	ldi	r26, 0x00	; 0
+     742:	b1 e0       	ldi	r27, 0x01	; 1
+     744:	01 c0       	rjmp	.+2      	; 0x748 <.do_clear_bss_start>
+
+00000746 <.do_clear_bss_loop>:
+     746:	1d 92       	st	X+, r1
+
+00000748 <.do_clear_bss_start>:
+     748:	ae 31       	cpi	r26, 0x1E	; 30
+     74a:	b1 07       	cpc	r27, r17
+     74c:	e1 f7       	brne	.-8      	; 0x746 <.do_clear_bss_loop>
+     74e:	0e 94 72 05 	call	0xae4	; 0xae4 <main>
+     752:	0c 94 be 0a 	jmp	0x157c	; 0x157c <_exit>
+
+00000756 <__bad_interrupt>:
+     756:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000075a <EEPROM_erase>:
+ 
+//******************************************************************
+//Erasing EEPROM (filling it with databyte 0xff)
+//******************************************************************
+unsigned char EEPROM_erase(void)
+{
+     75a:	cf 93       	push	r28
+     75c:	df 93       	push	r29
+  
+  unsigned char errorStatus;
+  unsigned int i;
+  
+  TX_NEWLINE;
+     75e:	8d e0       	ldi	r24, 0x0D	; 13
+     760:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     764:	8a e0       	ldi	r24, 0x0A	; 10
+     766:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  TX_NEWLINE;
+     76a:	8d e0       	ldi	r24, 0x0D	; 13
+     76c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     770:	8a e0       	ldi	r24, 0x0A	; 10
+     772:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  transmitString_F(PSTR("Wait..."));
+     776:	87 e0       	ldi	r24, 0x07	; 7
+     778:	91 e0       	ldi	r25, 0x01	; 1
+     77a:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+  TX_NEWLINE;
+     77e:	8d e0       	ldi	r24, 0x0D	; 13
+     780:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     784:	8a e0       	ldi	r24, 0x0A	; 10
+     786:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   
+   errorStatus = i2c_start();
+     78a:	0e 94 c5 04 	call	0x98a	; 0x98a <i2c_start>
+   if(errorStatus == 1)
+     78e:	81 30       	cpi	r24, 0x01	; 1
+     790:	19 f4       	brne	.+6      	; 0x798 <EEPROM_erase+0x3e>
+   {
+     transmitString_F(PSTR("i2c start failed.."));
+     792:	84 ef       	ldi	r24, 0xF4	; 244
+     794:	90 e0       	ldi	r25, 0x00	; 0
+     796:	07 c0       	rjmp	.+14     	; 0x7a6 <EEPROM_erase+0x4c>
+   	 i2c_stop();
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendAddress(EEPROM_W);
+     798:	80 ea       	ldi	r24, 0xA0	; 160
+     79a:	0e 94 e5 04 	call	0x9ca	; 0x9ca <i2c_sendAddress>
+   
+   if(errorStatus == 1)
+     79e:	81 30       	cpi	r24, 0x01	; 1
+     7a0:	41 f4       	brne	.+16     	; 0x7b2 <EEPROM_erase+0x58>
+   {
+     transmitString_F(PSTR("EEPROM sendAddress1 failed.."));
+     7a2:	87 ed       	ldi	r24, 0xD7	; 215
+     7a4:	90 e0       	ldi	r25, 0x00	; 0
+     7a6:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+	 i2c_stop();
+     7aa:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+     7ae:	81 e0       	ldi	r24, 0x01	; 1
+     7b0:	21 c0       	rjmp	.+66     	; 0x7f4 <EEPROM_erase+0x9a>
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendData(0x00);
+     7b2:	80 e0       	ldi	r24, 0x00	; 0
+     7b4:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+     7b8:	81 30       	cpi	r24, 0x01	; 1
+     7ba:	19 f4       	brne	.+6      	; 0x7c2 <EEPROM_erase+0x68>
+   {
+     transmitString_F(PSTR("EEPROM write-1 failed.."));
+     7bc:	8f eb       	ldi	r24, 0xBF	; 191
+     7be:	90 e0       	ldi	r25, 0x00	; 0
+     7c0:	f2 cf       	rjmp	.-28     	; 0x7a6 <EEPROM_erase+0x4c>
+	 i2c_stop();
+	 return(1);
+   } 
+   
+ 
+   errorStatus = i2c_sendData(0x00);
+     7c2:	80 e0       	ldi	r24, 0x00	; 0
+     7c4:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+     7c8:	81 30       	cpi	r24, 0x01	; 1
+     7ca:	19 f0       	breq	.+6      	; 0x7d2 <EEPROM_erase+0x78>
+     7cc:	c0 e0       	ldi	r28, 0x00	; 0
+     7ce:	d0 e0       	ldi	r29, 0x00	; 0
+     7d0:	0c c0       	rjmp	.+24     	; 0x7ea <EEPROM_erase+0x90>
+   {
+     transmitString_F(PSTR("EEPROM write-2 failed.."));
+     7d2:	87 ea       	ldi	r24, 0xA7	; 167
+     7d4:	90 e0       	ldi	r25, 0x00	; 0
+     7d6:	e7 cf       	rjmp	.-50     	; 0x7a6 <EEPROM_erase+0x4c>
+	 return(1);
+   } 
+   
+    for(i=0;i<0x8000;i++)
+   {
+	  errorStatus = i2c_sendData(0xff);
+     7d8:	8f ef       	ldi	r24, 0xFF	; 255
+     7da:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   	  if(errorStatus == 1)
+     7de:	81 30       	cpi	r24, 0x01	; 1
+     7e0:	19 f4       	brne	.+6      	; 0x7e8 <EEPROM_erase+0x8e>
+   	  {
+       		transmitString_F(PSTR("EEPROM write data failed.."));
+     7e2:	8c e8       	ldi	r24, 0x8C	; 140
+     7e4:	90 e0       	ldi	r25, 0x00	; 0
+     7e6:	df cf       	rjmp	.-66     	; 0x7a6 <EEPROM_erase+0x4c>
+     transmitString_F(PSTR("EEPROM write-2 failed.."));
+	 i2c_stop();
+	 return(1);
+   } 
+   
+    for(i=0;i<0x8000;i++)
+     7e8:	21 96       	adiw	r28, 0x01	; 1
+     7ea:	d7 ff       	sbrs	r29, 7
+     7ec:	f5 cf       	rjmp	.-22     	; 0x7d8 <EEPROM_erase+0x7e>
+			i2c_stop();
+	   		return(1);
+   	  }
+   }
+   
+   i2c_stop();
+     7ee:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+     7f2:	80 e0       	ldi	r24, 0x00	; 0
+   
+   return(0);
+
+}   	  
+     7f4:	df 91       	pop	r29
+     7f6:	cf 91       	pop	r28
+     7f8:	08 95       	ret
+
+000007fa <EEPROM_write>:
+
+//******************************************************************
+//Function to a character string to EEPROM 
+//******************************************************************
+unsigned char EEPROM_write(unsigned char highAddress, unsigned char lowAddress)
+{
+     7fa:	0f 93       	push	r16
+     7fc:	1f 93       	push	r17
+     7fe:	18 2f       	mov	r17, r24
+     800:	06 2f       	mov	r16, r22
+   unsigned char errorStatus, data;
+   
+   errorStatus = i2c_start();
+     802:	0e 94 c5 04 	call	0x98a	; 0x98a <i2c_start>
+   if(errorStatus == 1)
+     806:	81 30       	cpi	r24, 0x01	; 1
+     808:	19 f4       	brne	.+6      	; 0x810 <EEPROM_write+0x16>
+   {
+     transmitString_F(PSTR("i2c start failed.."));
+     80a:	87 e7       	ldi	r24, 0x77	; 119
+     80c:	91 e0       	ldi	r25, 0x01	; 1
+     80e:	07 c0       	rjmp	.+14     	; 0x81e <EEPROM_write+0x24>
+   	 i2c_stop();
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendAddress(EEPROM_W);
+     810:	80 ea       	ldi	r24, 0xA0	; 160
+     812:	0e 94 e5 04 	call	0x9ca	; 0x9ca <i2c_sendAddress>
+   
+   if(errorStatus == 1)
+     816:	81 30       	cpi	r24, 0x01	; 1
+     818:	41 f4       	brne	.+16     	; 0x82a <EEPROM_write+0x30>
+   {
+     transmitString_F(PSTR("EEPROM sendAddress1 failed.."));
+     81a:	8a e5       	ldi	r24, 0x5A	; 90
+     81c:	91 e0       	ldi	r25, 0x01	; 1
+     81e:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+	 i2c_stop();
+     822:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+     826:	81 e0       	ldi	r24, 0x01	; 1
+     828:	23 c0       	rjmp	.+70     	; 0x870 <EEPROM_write+0x76>
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendData(highAddress);
+     82a:	81 2f       	mov	r24, r17
+     82c:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+     830:	81 30       	cpi	r24, 0x01	; 1
+     832:	19 f4       	brne	.+6      	; 0x83a <EEPROM_write+0x40>
+   {
+     transmitString_F(PSTR("EEPROM write-1 failed.."));
+     834:	82 e4       	ldi	r24, 0x42	; 66
+     836:	91 e0       	ldi	r25, 0x01	; 1
+     838:	f2 cf       	rjmp	.-28     	; 0x81e <EEPROM_write+0x24>
+	 i2c_stop();
+	 return(1);
+   } 
+   
+ 
+   errorStatus = i2c_sendData(lowAddress);
+     83a:	80 2f       	mov	r24, r16
+     83c:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+     840:	81 30       	cpi	r24, 0x01	; 1
+     842:	71 f4       	brne	.+28     	; 0x860 <EEPROM_write+0x66>
+   {
+     transmitString_F(PSTR("EEPROM write-2 failed.."));
+     844:	8a e2       	ldi	r24, 0x2A	; 42
+     846:	91 e0       	ldi	r25, 0x01	; 1
+     848:	ea cf       	rjmp	.-44     	; 0x81e <EEPROM_write+0x24>
+	 return(1);
+   } 
+   
+    while((data = receiveByte()) != 0x0d)
+   {
+      transmitByte(data);
+     84a:	81 2f       	mov	r24, r17
+     84c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	  if(data == 0x0d)
+ 	  transmitByte(0x0a);
+	  errorStatus = i2c_sendData(data);
+     850:	81 2f       	mov	r24, r17
+     852:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   	  if(errorStatus == 1)
+     856:	81 30       	cpi	r24, 0x01	; 1
+     858:	19 f4       	brne	.+6      	; 0x860 <EEPROM_write+0x66>
+   	  {
+       		transmitString_F(PSTR("EEPROM write data failed.."));
+     85a:	8f e0       	ldi	r24, 0x0F	; 15
+     85c:	91 e0       	ldi	r25, 0x01	; 1
+     85e:	df cf       	rjmp	.-66     	; 0x81e <EEPROM_write+0x24>
+     transmitString_F(PSTR("EEPROM write-2 failed.."));
+	 i2c_stop();
+	 return(1);
+   } 
+   
+    while((data = receiveByte()) != 0x0d)
+     860:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+     864:	18 2f       	mov	r17, r24
+     866:	8d 30       	cpi	r24, 0x0D	; 13
+     868:	81 f7       	brne	.-32     	; 0x84a <EEPROM_write+0x50>
+			i2c_stop();
+	   		return(1);
+   	  }
+   }
+   
+   i2c_stop();
+     86a:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+     86e:	80 e0       	ldi	r24, 0x00	; 0
+   
+   return(0);
+}
+     870:	1f 91       	pop	r17
+     872:	0f 91       	pop	r16
+     874:	08 95       	ret
+
+00000876 <EEPROM_writePage>:
+unsigned char EEPROM_writePage( unsigned int pageNumber )
+{
+  unsigned char highAddress, lowAddress, errorStatus;
+  unsigned int pageAddress;
+  
+  pageAddress = pageNumber * 64;
+     876:	bc 01       	movw	r22, r24
+     878:	86 e0       	ldi	r24, 0x06	; 6
+     87a:	66 0f       	add	r22, r22
+     87c:	77 1f       	adc	r23, r23
+     87e:	8a 95       	dec	r24
+     880:	e1 f7       	brne	.-8      	; 0x87a <EEPROM_writePage+0x4>
+  
+  highAddress = (unsigned char)((pageAddress >> 8) & 0x00ff);
+  lowAddress  = (unsigned char)( pageAddress & 0x00ff);
+  
+  errorStatus = EEPROM_write(highAddress, lowAddress);
+     882:	87 2f       	mov	r24, r23
+     884:	0e 94 fd 03 	call	0x7fa	; 0x7fa <EEPROM_write>
+  
+  return(errorStatus);  
+} 
+     888:	08 95       	ret
+
+0000088a <EEPROM_read>:
+
+//******************************************************************
+//Function to read given number of bytes from EEPROM 
+//******************************************************************
+unsigned char EEPROM_read(unsigned char highAddress, unsigned char lowAddress, unsigned char totalChar)
+{
+     88a:	df 92       	push	r13
+     88c:	ef 92       	push	r14
+     88e:	ff 92       	push	r15
+     890:	0f 93       	push	r16
+     892:	1f 93       	push	r17
+     894:	cf 93       	push	r28
+     896:	df 93       	push	r29
+     898:	18 2f       	mov	r17, r24
+     89a:	06 2f       	mov	r16, r22
+     89c:	d4 2e       	mov	r13, r20
+   unsigned char errorStatus, i, data;
+   
+   errorStatus = i2c_start();
+     89e:	0e 94 c5 04 	call	0x98a	; 0x98a <i2c_start>
+   if(errorStatus == 1)
+     8a2:	81 30       	cpi	r24, 0x01	; 1
+     8a4:	19 f4       	brne	.+6      	; 0x8ac <EEPROM_read+0x22>
+   {
+     transmitString_F(PSTR("i2c start failed.."));
+     8a6:	86 e2       	ldi	r24, 0x26	; 38
+     8a8:	92 e0       	ldi	r25, 0x02	; 2
+     8aa:	07 c0       	rjmp	.+14     	; 0x8ba <EEPROM_read+0x30>
+   	 i2c_stop();
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendAddress(EEPROM_W);
+     8ac:	80 ea       	ldi	r24, 0xA0	; 160
+     8ae:	0e 94 e5 04 	call	0x9ca	; 0x9ca <i2c_sendAddress>
+   
+   if(errorStatus == 1)
+     8b2:	81 30       	cpi	r24, 0x01	; 1
+     8b4:	41 f4       	brne	.+16     	; 0x8c6 <EEPROM_read+0x3c>
+   {
+     transmitString_F(PSTR("EEPROM sendAddress1 failed.."));
+     8b6:	89 e0       	ldi	r24, 0x09	; 9
+     8b8:	92 e0       	ldi	r25, 0x02	; 2
+     8ba:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+	 i2c_stop();
+     8be:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+     8c2:	81 e0       	ldi	r24, 0x01	; 1
+     8c4:	4f c0       	rjmp	.+158    	; 0x964 <EEPROM_read+0xda>
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendData(highAddress);
+     8c6:	81 2f       	mov	r24, r17
+     8c8:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+     8cc:	81 30       	cpi	r24, 0x01	; 1
+     8ce:	19 f4       	brne	.+6      	; 0x8d6 <EEPROM_read+0x4c>
+   {
+     transmitString_F(PSTR("EEPROM write-1 failed.."));
+     8d0:	81 ef       	ldi	r24, 0xF1	; 241
+     8d2:	91 e0       	ldi	r25, 0x01	; 1
+     8d4:	f2 cf       	rjmp	.-28     	; 0x8ba <EEPROM_read+0x30>
+	 i2c_stop();
+	 return(1);
+   } 
+   
+ 
+   errorStatus = i2c_sendData(lowAddress);
+     8d6:	80 2f       	mov	r24, r16
+     8d8:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+     8dc:	81 30       	cpi	r24, 0x01	; 1
+     8de:	19 f4       	brne	.+6      	; 0x8e6 <EEPROM_read+0x5c>
+   {
+     transmitString_F(PSTR("EEPROM write-2 failed.."));
+     8e0:	89 ed       	ldi	r24, 0xD9	; 217
+     8e2:	91 e0       	ldi	r25, 0x01	; 1
+     8e4:	ea cf       	rjmp	.-44     	; 0x8ba <EEPROM_read+0x30>
+	 i2c_stop();
+	 return(1);
+   } 
+   
+   errorStatus = i2c_repeatStart();
+     8e6:	0e 94 d5 04 	call	0x9aa	; 0x9aa <i2c_repeatStart>
+   if(errorStatus == 1)
+     8ea:	81 30       	cpi	r24, 0x01	; 1
+     8ec:	19 f4       	brne	.+6      	; 0x8f4 <EEPROM_read+0x6a>
+   {
+     transmitString_F(PSTR("i2c repeat-start failed.."));
+     8ee:	8f eb       	ldi	r24, 0xBF	; 191
+     8f0:	91 e0       	ldi	r25, 0x01	; 1
+     8f2:	e3 cf       	rjmp	.-58     	; 0x8ba <EEPROM_read+0x30>
+	 i2c_stop();
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendAddress(EEPROM_R);
+     8f4:	81 ea       	ldi	r24, 0xA1	; 161
+     8f6:	0e 94 e5 04 	call	0x9ca	; 0x9ca <i2c_sendAddress>
+   if(errorStatus == 1)
+     8fa:	81 30       	cpi	r24, 0x01	; 1
+     8fc:	39 f0       	breq	.+14     	; 0x90c <EEPROM_read+0x82>
+     8fe:	00 e0       	ldi	r16, 0x00	; 0
+	 return(1);
+   } 
+   
+   for(i=0;i<totalChar;i++)
+   {
+      if(i == (totalChar-1))  	 //no Acknowledge after receiving the last byte
+     900:	ed 2c       	mov	r14, r13
+     902:	ff 24       	eor	r15, r15
+     904:	08 94       	sec
+     906:	e1 08       	sbc	r14, r1
+     908:	f1 08       	sbc	r15, r1
+     90a:	21 c0       	rjmp	.+66     	; 0x94e <EEPROM_read+0xc4>
+   } 
+   
+   errorStatus = i2c_sendAddress(EEPROM_R);
+   if(errorStatus == 1)
+   {
+     transmitString_F(PSTR("EEPROM sendAddress2 failed.."));
+     90c:	82 ea       	ldi	r24, 0xA2	; 162
+     90e:	91 e0       	ldi	r25, 0x01	; 1
+     910:	d4 cf       	rjmp	.-88     	; 0x8ba <EEPROM_read+0x30>
+	 return(1);
+   } 
+   
+   for(i=0;i<totalChar;i++)
+   {
+      if(i == (totalChar-1))  	 //no Acknowledge after receiving the last byte
+     912:	c0 2f       	mov	r28, r16
+     914:	d0 e0       	ldi	r29, 0x00	; 0
+     916:	ce 15       	cp	r28, r14
+     918:	df 05       	cpc	r29, r15
+     91a:	19 f4       	brne	.+6      	; 0x922 <EEPROM_read+0x98>
+	   	  data = i2c_receiveData_NACK();
+     91c:	0e 94 23 05 	call	0xa46	; 0xa46 <i2c_receiveData_NACK>
+     920:	02 c0       	rjmp	.+4      	; 0x926 <EEPROM_read+0x9c>
+	  else
+	  	  data = i2c_receiveData_ACK();
+     922:	0e 94 12 05 	call	0xa24	; 0xa24 <i2c_receiveData_ACK>
+     926:	18 2f       	mov	r17, r24
+		  
+   	  if(data == ERROR_CODE)
+     928:	8e 37       	cpi	r24, 0x7E	; 126
+     92a:	19 f4       	brne	.+6      	; 0x932 <EEPROM_read+0xa8>
+   	  {
+       		transmitString_F(PSTR("EEPROM receive failed.."));
+     92c:	8a e8       	ldi	r24, 0x8A	; 138
+     92e:	91 e0       	ldi	r25, 0x01	; 1
+     930:	c4 cf       	rjmp	.-120    	; 0x8ba <EEPROM_read+0x30>
+			i2c_stop();
+	   		return(1);
+   	  }
+	   
+	   if((i%16) == 0) 
+     932:	cf 70       	andi	r28, 0x0F	; 15
+     934:	d0 70       	andi	r29, 0x00	; 0
+     936:	cd 2b       	or	r28, r29
+     938:	31 f4       	brne	.+12     	; 0x946 <EEPROM_read+0xbc>
+	     TX_NEWLINE;
+     93a:	8d e0       	ldi	r24, 0x0D	; 13
+     93c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     940:	8a e0       	ldi	r24, 0x0A	; 10
+     942:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	   transmitByte(data);
+     946:	81 2f       	mov	r24, r17
+     948:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     transmitString_F(PSTR("EEPROM sendAddress2 failed.."));
+	 i2c_stop();
+	 return(1);
+   } 
+   
+   for(i=0;i<totalChar;i++)
+     94c:	0f 5f       	subi	r16, 0xFF	; 255
+     94e:	0d 15       	cp	r16, r13
+     950:	00 f3       	brcs	.-64     	; 0x912 <EEPROM_read+0x88>
+	     TX_NEWLINE;
+	   transmitByte(data);
+	   
+   }
+   
+   TX_NEWLINE;
+     952:	8d e0       	ldi	r24, 0x0D	; 13
+     954:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     958:	8a e0       	ldi	r24, 0x0A	; 10
+     95a:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   i2c_stop();
+     95e:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+     962:	80 e0       	ldi	r24, 0x00	; 0
+   
+   return(0);
+}
+     964:	df 91       	pop	r29
+     966:	cf 91       	pop	r28
+     968:	1f 91       	pop	r17
+     96a:	0f 91       	pop	r16
+     96c:	ff 90       	pop	r15
+     96e:	ef 90       	pop	r14
+     970:	df 90       	pop	r13
+     972:	08 95       	ret
+
+00000974 <EEPROM_readPage>:
+unsigned char EEPROM_readPage( unsigned int pageNumber )
+{
+  unsigned char highAddress, lowAddress, errorStatus;
+  unsigned int pageAddress;
+  
+  pageAddress = pageNumber * 64;
+     974:	bc 01       	movw	r22, r24
+     976:	96 e0       	ldi	r25, 0x06	; 6
+     978:	66 0f       	add	r22, r22
+     97a:	77 1f       	adc	r23, r23
+     97c:	9a 95       	dec	r25
+     97e:	e1 f7       	brne	.-8      	; 0x978 <EEPROM_readPage+0x4>
+  
+  highAddress = (unsigned char)((pageAddress >> 8) & 0x00ff);
+  lowAddress  = (unsigned char)( pageAddress & 0x00ff);
+  
+  errorStatus = EEPROM_read(highAddress, lowAddress, 64);
+     980:	87 2f       	mov	r24, r23
+     982:	40 e4       	ldi	r20, 0x40	; 64
+     984:	0e 94 45 04 	call	0x88a	; 0x88a <EEPROM_read>
+  
+  return(errorStatus);
+ } 
+     988:	08 95       	ret
+
+0000098a <i2c_start>:
+//Function to start i2c communication
+//*************************************************
+unsigned char i2c_start(void)
+{
+ 
+	TWCR = (1<<TWINT)|(1<<TWSTA)|(1<<TWEN); 	//Send START condition
+     98a:	84 ea       	ldi	r24, 0xA4	; 164
+     98c:	80 93 74 00 	sts	0x0074, r24
+	
+    while (!(TWCR & (1<<TWINT)));   		//Wait for TWINT flag set. This indicates that the
+     990:	80 91 74 00 	lds	r24, 0x0074
+     994:	87 ff       	sbrs	r24, 7
+     996:	fc cf       	rjmp	.-8      	; 0x990 <i2c_start+0x6>
+		  								//START condition has been transmitted
+    if ((TWSR & 0xF8) == START)			//Check value of TWI Status Register
+     998:	80 91 71 00 	lds	r24, 0x0071
+     99c:	90 e0       	ldi	r25, 0x00	; 0
+     99e:	88 7f       	andi	r24, 0xF8	; 248
+     9a0:	88 30       	cpi	r24, 0x08	; 8
+     9a2:	09 f0       	breq	.+2      	; 0x9a6 <i2c_start+0x1c>
+     9a4:	91 e0       	ldi	r25, 0x01	; 1
+ 	   return(0);
+	else
+	   return(1);
+}
+     9a6:	89 2f       	mov	r24, r25
+     9a8:	08 95       	ret
+
+000009aa <i2c_repeatStart>:
+//Function for repeat start condition
+//*************************************************
+unsigned char i2c_repeatStart(void)
+{
+ 
+    TWCR = (1<<TWINT)|(1<<TWSTA)|(1<<TWEN); 		//Send START condition
+     9aa:	84 ea       	ldi	r24, 0xA4	; 164
+     9ac:	80 93 74 00 	sts	0x0074, r24
+    while (!(TWCR & (1<<TWINT)));   		//Wait for TWINT flag set. This indicates that the
+     9b0:	80 91 74 00 	lds	r24, 0x0074
+     9b4:	87 ff       	sbrs	r24, 7
+     9b6:	fc cf       	rjmp	.-8      	; 0x9b0 <i2c_repeatStart+0x6>
+		  								//START condition has been transmitted
+    if ((TWSR & 0xF8) == REPEAT_START)			//Check value of TWI Status Register
+     9b8:	80 91 71 00 	lds	r24, 0x0071
+     9bc:	90 e0       	ldi	r25, 0x00	; 0
+     9be:	88 7f       	andi	r24, 0xF8	; 248
+     9c0:	80 31       	cpi	r24, 0x10	; 16
+     9c2:	09 f0       	breq	.+2      	; 0x9c6 <i2c_repeatStart+0x1c>
+     9c4:	91 e0       	ldi	r25, 0x01	; 1
+ 	   return(0);
+	else
+	   return(1);
+}
+     9c6:	89 2f       	mov	r24, r25
+     9c8:	08 95       	ret
+
+000009ca <i2c_sendAddress>:
+//*************************************************
+unsigned char i2c_sendAddress(unsigned char address)
+{
+   unsigned char STATUS;
+   
+   if((address & 0x01) == 0) 
+     9ca:	80 fd       	sbrc	r24, 0
+     9cc:	02 c0       	rjmp	.+4      	; 0x9d2 <i2c_sendAddress+0x8>
+     9ce:	28 e1       	ldi	r18, 0x18	; 24
+     9d0:	01 c0       	rjmp	.+2      	; 0x9d4 <i2c_sendAddress+0xa>
+     9d2:	20 e4       	ldi	r18, 0x40	; 64
+     STATUS = MT_SLA_ACK;
+   else
+     STATUS = MR_SLA_ACK; 
+   
+   TWDR = address; 
+     9d4:	80 93 73 00 	sts	0x0073, r24
+   TWCR = (1<<TWINT)|(1<<TWEN);	   //Load SLA_W into TWDR Register. Clear TWINT bit
+     9d8:	84 e8       	ldi	r24, 0x84	; 132
+     9da:	80 93 74 00 	sts	0x0074, r24
+   		  			 				   //in TWCR to start transmission of address
+   while (!(TWCR & (1<<TWINT)));	   //Wait for TWINT flag set. This indicates that the
+     9de:	80 91 74 00 	lds	r24, 0x0074
+     9e2:	87 ff       	sbrs	r24, 7
+     9e4:	fc cf       	rjmp	.-8      	; 0x9de <i2c_sendAddress+0x14>
+   		 		   					   //SLA+W has been transmitted, and
+									   //ACK/NACK has been received.
+   if ((TWSR & 0xF8) == STATUS)	   //Check value of TWI Status Register
+     9e6:	80 91 71 00 	lds	r24, 0x0071
+     9ea:	40 e0       	ldi	r20, 0x00	; 0
+     9ec:	90 e0       	ldi	r25, 0x00	; 0
+     9ee:	88 7f       	andi	r24, 0xF8	; 248
+     9f0:	90 70       	andi	r25, 0x00	; 0
+     9f2:	30 e0       	ldi	r19, 0x00	; 0
+     9f4:	82 17       	cp	r24, r18
+     9f6:	93 07       	cpc	r25, r19
+     9f8:	09 f0       	breq	.+2      	; 0x9fc <i2c_sendAddress+0x32>
+     9fa:	41 e0       	ldi	r20, 0x01	; 1
+   	  return(0);
+   else 
+      return(1);
+}
+     9fc:	84 2f       	mov	r24, r20
+     9fe:	08 95       	ret
+
+00000a00 <i2c_sendData>:
+//**************************************************
+//Function to transmit a data byte
+//*************************************************
+unsigned char i2c_sendData(unsigned char data)
+{
+   TWDR = data; 
+     a00:	80 93 73 00 	sts	0x0073, r24
+   TWCR = (1<<TWINT) |(1<<TWEN);	   //Load SLA_W into TWDR Register. Clear TWINT bit
+     a04:	84 e8       	ldi	r24, 0x84	; 132
+     a06:	80 93 74 00 	sts	0x0074, r24
+   		  			 				   //in TWCR to start transmission of data
+   while (!(TWCR & (1<<TWINT)));	   //Wait for TWINT flag set. This indicates that the
+     a0a:	80 91 74 00 	lds	r24, 0x0074
+     a0e:	87 ff       	sbrs	r24, 7
+     a10:	fc cf       	rjmp	.-8      	; 0xa0a <i2c_sendData+0xa>
+   		 		   					   //data has been transmitted, and
+									   //ACK/NACK has been received.
+   if ((TWSR & 0xF8) != MT_DATA_ACK)   //Check value of TWI Status Register
+     a12:	80 91 71 00 	lds	r24, 0x0071
+     a16:	90 e0       	ldi	r25, 0x00	; 0
+     a18:	88 7f       	andi	r24, 0xF8	; 248
+     a1a:	88 32       	cpi	r24, 0x28	; 40
+     a1c:	09 f0       	breq	.+2      	; 0xa20 <i2c_sendData+0x20>
+     a1e:	91 e0       	ldi	r25, 0x01	; 1
+   	  return(1);
+   else
+      return(0);
+}
+     a20:	89 2f       	mov	r24, r25
+     a22:	08 95       	ret
+
+00000a24 <i2c_receiveData_ACK>:
+//*****************************************************
+unsigned char i2c_receiveData_ACK(void)
+{
+  unsigned char data;
+  
+  TWCR = (1<<TWEA)|(1<<TWINT)|(1<<TWEN);
+     a24:	84 ec       	ldi	r24, 0xC4	; 196
+     a26:	80 93 74 00 	sts	0x0074, r24
+  
+  while (!(TWCR & (1<<TWINT)));	   	   //Wait for TWINT flag set. This indicates that the
+     a2a:	80 91 74 00 	lds	r24, 0x0074
+     a2e:	87 ff       	sbrs	r24, 7
+     a30:	fc cf       	rjmp	.-8      	; 0xa2a <i2c_receiveData_ACK+0x6>
+   		 		   					   //data has been received
+  if ((TWSR & 0xF8) != MR_DATA_ACK)    //Check value of TWI Status Register
+     a32:	80 91 71 00 	lds	r24, 0x0071
+     a36:	88 7f       	andi	r24, 0xF8	; 248
+     a38:	80 35       	cpi	r24, 0x50	; 80
+     a3a:	11 f0       	breq	.+4      	; 0xa40 <i2c_receiveData_ACK+0x1c>
+     a3c:	8e e7       	ldi	r24, 0x7E	; 126
+     a3e:	08 95       	ret
+   	  return(ERROR_CODE);
+  
+  data = TWDR;
+     a40:	80 91 73 00 	lds	r24, 0x0073
+  return(data);
+}
+     a44:	08 95       	ret
+
+00000a46 <i2c_receiveData_NACK>:
+//******************************************************************
+unsigned char i2c_receiveData_NACK(void)
+{
+  unsigned char data;
+  
+  TWCR = (1<<TWINT)|(1<<TWEN);
+     a46:	84 e8       	ldi	r24, 0x84	; 132
+     a48:	80 93 74 00 	sts	0x0074, r24
+  
+  while (!(TWCR & (1<<TWINT)));	   	   //Wait for TWINT flag set. This indicates that the
+     a4c:	80 91 74 00 	lds	r24, 0x0074
+     a50:	87 ff       	sbrs	r24, 7
+     a52:	fc cf       	rjmp	.-8      	; 0xa4c <i2c_receiveData_NACK+0x6>
+   		 		   					   //data has been received
+  if ((TWSR & 0xF8) != MR_DATA_NACK)    //Check value of TWI Status Register
+     a54:	80 91 71 00 	lds	r24, 0x0071
+     a58:	88 7f       	andi	r24, 0xF8	; 248
+     a5a:	88 35       	cpi	r24, 0x58	; 88
+     a5c:	11 f0       	breq	.+4      	; 0xa62 <i2c_receiveData_NACK+0x1c>
+     a5e:	8e e7       	ldi	r24, 0x7E	; 126
+     a60:	08 95       	ret
+   	  return(ERROR_CODE);
+  
+  data = TWDR;
+     a62:	80 91 73 00 	lds	r24, 0x0073
+  return(data);
+}
+     a66:	08 95       	ret
+
+00000a68 <i2c_stop>:
+//**************************************************
+//Function to end the i2c communication
+//*************************************************   	
+void i2c_stop(void)
+{
+  TWCR =  (1<<TWINT)|(1<<TWEN)|(1<<TWSTO);	  //Transmit STOP condition
+     a68:	84 e9       	ldi	r24, 0x94	; 148
+     a6a:	80 93 74 00 	sts	0x0074, r24
+}  
+     a6e:	08 95       	ret
+
+00000a70 <port_init>:
+#include "RTC_routines.h"
+
+		  
+void port_init(void)
+{
+ PORTA = 0x00;
+     a70:	1b ba       	out	0x1b, r1	; 27
+ DDRA  = 0x00;
+     a72:	1a ba       	out	0x1a, r1	; 26
+ PORTB = 0x00;
+     a74:	18 ba       	out	0x18, r1	; 24
+ DDRB  = 0x00;
+     a76:	17 ba       	out	0x17, r1	; 23
+ PORTC = 0x00;
+     a78:	15 ba       	out	0x15, r1	; 21
+ DDRC  = 0xff;
+     a7a:	8f ef       	ldi	r24, 0xFF	; 255
+     a7c:	84 bb       	out	0x14, r24	; 20
+ PORTD = 0x00;
+     a7e:	12 ba       	out	0x12, r1	; 18
+ DDRD  = 0x00;
+     a80:	11 ba       	out	0x11, r1	; 17
+ PORTE = 0x00;
+     a82:	13 b8       	out	0x03, r1	; 3
+ DDRE  = 0x00;
+     a84:	12 b8       	out	0x02, r1	; 2
+ PORTF = 0x00;
+     a86:	10 92 62 00 	sts	0x0062, r1
+ DDRF  = 0x00;
+     a8a:	10 92 61 00 	sts	0x0061, r1
+ PORTG = 0x00;
+     a8e:	10 92 65 00 	sts	0x0065, r1
+ DDRG  = 0x00;
+     a92:	10 92 64 00 	sts	0x0064, r1
+}
+     a96:	08 95       	ret
+
+00000a98 <twi_init>:
+
+//TWI initialize
+// bit rate:18 (freq: 100Khz)
+void twi_init(void)
+{
+ TWCR= 0X00; //disable twi
+     a98:	e4 e7       	ldi	r30, 0x74	; 116
+     a9a:	f0 e0       	ldi	r31, 0x00	; 0
+     a9c:	10 82       	st	Z, r1
+ TWBR= 0x12; //set bit rate
+     a9e:	82 e1       	ldi	r24, 0x12	; 18
+     aa0:	80 93 70 00 	sts	0x0070, r24
+ TWSR= 0x00; //set prescale
+     aa4:	10 92 71 00 	sts	0x0071, r1
+ TWCR= 0x44; //enable twi
+     aa8:	84 e4       	ldi	r24, 0x44	; 68
+     aaa:	80 83       	st	Z, r24
+}
+     aac:	08 95       	ret
+
+00000aae <init_devices>:
+
+//call this routine to initialize all peripherals
+void init_devices(void)
+{
+ //stop errant interrupts until set up
+ cli(); //disable all interrupts
+     aae:	f8 94       	cli
+ XDIV  = 0x00; //xtal divider
+     ab0:	1c be       	out	0x3c, r1	; 60
+ XMCRA = 0x00; //external memory
+     ab2:	10 92 6d 00 	sts	0x006D, r1
+ port_init();
+     ab6:	0e 94 38 05 	call	0xa70	; 0xa70 <port_init>
+ uart0_init();
+     aba:	0e 94 95 0a 	call	0x152a	; 0x152a <uart0_init>
+
+//TWI initialize
+// bit rate:18 (freq: 100Khz)
+void twi_init(void)
+{
+ TWCR= 0X00; //disable twi
+     abe:	e4 e7       	ldi	r30, 0x74	; 116
+     ac0:	f0 e0       	ldi	r31, 0x00	; 0
+     ac2:	10 82       	st	Z, r1
+ TWBR= 0x12; //set bit rate
+     ac4:	82 e1       	ldi	r24, 0x12	; 18
+     ac6:	80 93 70 00 	sts	0x0070, r24
+ TWSR= 0x00; //set prescale
+     aca:	10 92 71 00 	sts	0x0071, r1
+ TWCR= 0x44; //enable twi
+     ace:	84 e4       	ldi	r24, 0x44	; 68
+     ad0:	80 83       	st	Z, r24
+ XMCRA = 0x00; //external memory
+ port_init();
+ uart0_init();
+ twi_init();
+ 
+ MCUCR = 0x00;
+     ad2:	15 be       	out	0x35, r1	; 53
+ EICRA = 0x00; //extended ext ints
+     ad4:	10 92 6a 00 	sts	0x006A, r1
+ EICRB = 0x00; //extended ext ints
+     ad8:	1a be       	out	0x3a, r1	; 58
+ EIMSK = 0x00;
+     ada:	19 be       	out	0x39, r1	; 57
+ TIMSK = 0x00; //timer interrupt sources
+     adc:	17 be       	out	0x37, r1	; 55
+ ETIMSK = 0x00; //extended timer interrupt sources
+     ade:	10 92 7d 00 	sts	0x007D, r1
+ //SEI(); //re-enable interrupts
+} 
+     ae2:	08 95       	ret
+
+00000ae4 <main>:
+
+//******************* MAIN FUNCTION *******************
+
+ int main(void)
+{
+     ae4:	cf 92       	push	r12
+     ae6:	df 92       	push	r13
+     ae8:	ef 92       	push	r14
+     aea:	ff 92       	push	r15
+     aec:	0f 93       	push	r16
+     aee:	1f 93       	push	r17
+     af0:	cf 93       	push	r28
+     af2:	df 93       	push	r29
+   unsigned char errorStatus, data, option, totalChar;
+   unsigned int pageNumber;
+   
+   init_devices();
+     af4:	0e 94 57 05 	call	0xaae	; 0xaae <init_devices>
+   
+   TX_NEWLINE;
+     af8:	8d e0       	ldi	r24, 0x0D	; 13
+     afa:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     afe:	8a e0       	ldi	r24, 0x0A	; 10
+     b00:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   TX_NEWLINE;
+     b04:	8d e0       	ldi	r24, 0x0D	; 13
+     b06:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     b0a:	8a e0       	ldi	r24, 0x0A	; 10
+     b0c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   TX_NEWLINE;
+     b10:	8d e0       	ldi	r24, 0x0D	; 13
+     b12:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     b16:	8a e0       	ldi	r24, 0x0A	; 10
+     b18:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR(">- RTC & SERIAL EEPROM Testing!---"));
+     b1c:	8e e5       	ldi	r24, 0x5E	; 94
+     b1e:	94 e0       	ldi	r25, 0x04	; 4
+     b20:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     b24:	8d e0       	ldi	r24, 0x0D	; 13
+     b26:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     b2a:	8a e0       	ldi	r24, 0x0A	; 10
+     b2c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR(">-------- By CC Dharmani ---------"));
+     b30:	8b e3       	ldi	r24, 0x3B	; 59
+     b32:	94 e0       	ldi	r25, 0x04	; 4
+     b34:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     b38:	8d e0       	ldi	r24, 0x0D	; 13
+     b3a:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     b3e:	8a e0       	ldi	r24, 0x0A	; 10
+     b40:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR(">----------------------------------"));
+     b44:	87 e1       	ldi	r24, 0x17	; 23
+     b46:	94 e0       	ldi	r25, 0x04	; 4
+     b48:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     b4c:	8d e0       	ldi	r24, 0x0D	; 13
+     b4e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     b52:	8a e0       	ldi	r24, 0x0A	; 10
+     b54:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR(">Communication Started..."));
+     b58:	8d ef       	ldi	r24, 0xFD	; 253
+     b5a:	93 e0       	ldi	r25, 0x03	; 3
+     b5c:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   			  break;
+	case '3': 
+	case '4': TX_NEWLINE;
+   		 	  transmitString_F(PSTR(" Enter Page Number (000-511): "));
+			  data = receiveByte(); transmitByte(data);
+			  pageNumber = (data & 0x0f) * 100;
+     b60:	64 e6       	ldi	r22, 0x64	; 100
+     b62:	c6 2e       	mov	r12, r22
+     b64:	d1 2c       	mov	r13, r1
+   transmitString_F(PSTR(">Communication Started..."));
+  
+   
+   while(1)
+   {
+   TX_NEWLINE;
+     b66:	8d e0       	ldi	r24, 0x0D	; 13
+     b68:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     b6c:	8a e0       	ldi	r24, 0x0A	; 10
+     b6e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   TX_NEWLINE;
+     b72:	8d e0       	ldi	r24, 0x0D	; 13
+     b74:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     b78:	8a e0       	ldi	r24, 0x0A	; 10
+     b7a:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("Press any key.."));
+     b7e:	8d ee       	ldi	r24, 0xED	; 237
+     b80:	93 e0       	ldi	r25, 0x03	; 3
+     b82:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   option = receiveByte();
+     b86:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+      
+    
+   TX_NEWLINE;
+     b8a:	8d e0       	ldi	r24, 0x0D	; 13
+     b8c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     b90:	8a e0       	ldi	r24, 0x0A	; 10
+     b92:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> 0 : Erase EEPROM"));
+     b96:	8a ed       	ldi	r24, 0xDA	; 218
+     b98:	93 e0       	ldi	r25, 0x03	; 3
+     b9a:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     b9e:	8d e0       	ldi	r24, 0x0D	; 13
+     ba0:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     ba4:	8a e0       	ldi	r24, 0x0A	; 10
+     ba6:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> 1 : Write EEPROM"));
+     baa:	87 ec       	ldi	r24, 0xC7	; 199
+     bac:	93 e0       	ldi	r25, 0x03	; 3
+     bae:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     bb2:	8d e0       	ldi	r24, 0x0D	; 13
+     bb4:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     bb8:	8a e0       	ldi	r24, 0x0A	; 10
+     bba:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> 2 : Read EEPROM"));
+     bbe:	85 eb       	ldi	r24, 0xB5	; 181
+     bc0:	93 e0       	ldi	r25, 0x03	; 3
+     bc2:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     bc6:	8d e0       	ldi	r24, 0x0D	; 13
+     bc8:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     bcc:	8a e0       	ldi	r24, 0x0A	; 10
+     bce:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> 3 : Write EEPROM Page"));
+     bd2:	8d e9       	ldi	r24, 0x9D	; 157
+     bd4:	93 e0       	ldi	r25, 0x03	; 3
+     bd6:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     bda:	8d e0       	ldi	r24, 0x0D	; 13
+     bdc:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     be0:	8a e0       	ldi	r24, 0x0A	; 10
+     be2:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> 4 : Read EEPROM Page"));
+     be6:	86 e8       	ldi	r24, 0x86	; 134
+     be8:	93 e0       	ldi	r25, 0x03	; 3
+     bea:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     bee:	8d e0       	ldi	r24, 0x0D	; 13
+     bf0:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     bf4:	8a e0       	ldi	r24, 0x0A	; 10
+     bf6:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> 5 : Display RTC Date"));
+     bfa:	8f e6       	ldi	r24, 0x6F	; 111
+     bfc:	93 e0       	ldi	r25, 0x03	; 3
+     bfe:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     c02:	8d e0       	ldi	r24, 0x0D	; 13
+     c04:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     c08:	8a e0       	ldi	r24, 0x0A	; 10
+     c0a:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> 6 : Display RTC Time"));
+     c0e:	88 e5       	ldi	r24, 0x58	; 88
+     c10:	93 e0       	ldi	r25, 0x03	; 3
+     c12:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     c16:	8d e0       	ldi	r24, 0x0D	; 13
+     c18:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     c1c:	8a e0       	ldi	r24, 0x0A	; 10
+     c1e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> 7 : Update RTC Date"));
+     c22:	82 e4       	ldi	r24, 0x42	; 66
+     c24:	93 e0       	ldi	r25, 0x03	; 3
+     c26:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     c2a:	8d e0       	ldi	r24, 0x0D	; 13
+     c2c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     c30:	8a e0       	ldi	r24, 0x0A	; 10
+     c32:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> 8 : Update RTC Time"));
+     c36:	8c e2       	ldi	r24, 0x2C	; 44
+     c38:	93 e0       	ldi	r25, 0x03	; 3
+     c3a:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     c3e:	8d e0       	ldi	r24, 0x0D	; 13
+     c40:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     c44:	8a e0       	ldi	r24, 0x0A	; 10
+     c46:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   TX_NEWLINE;
+     c4a:	8d e0       	ldi	r24, 0x0D	; 13
+     c4c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     c50:	8a e0       	ldi	r24, 0x0A	; 10
+     c52:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR("> Select Option (0-8): "));
+     c56:	84 e1       	ldi	r24, 0x14	; 20
+     c58:	93 e0       	ldi	r25, 0x03	; 3
+     c5a:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   
+   option = receiveByte();
+     c5e:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+     c62:	e8 2e       	mov	r14, r24
+   transmitByte(option);
+     c64:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   
+   errorStatus = 0;
+   totalChar = 0;
+   pageNumber = 0;
+   
+   switch (option)
+     c68:	84 e3       	ldi	r24, 0x34	; 52
+     c6a:	8e 15       	cp	r24, r14
+     c6c:	70 f0       	brcs	.+28     	; 0xc8a <main+0x1a6>
+     c6e:	83 e3       	ldi	r24, 0x33	; 51
+     c70:	e8 16       	cp	r14, r24
+     c72:	08 f0       	brcs	.+2      	; 0xc76 <main+0x192>
+     c74:	6b c0       	rjmp	.+214    	; 0xd4c <main+0x268>
+     c76:	81 e3       	ldi	r24, 0x31	; 49
+     c78:	e8 16       	cp	r14, r24
+     c7a:	51 f1       	breq	.+84     	; 0xcd0 <main+0x1ec>
+     c7c:	8e 15       	cp	r24, r14
+     c7e:	b8 f1       	brcs	.+110    	; 0xcee <main+0x20a>
+     c80:	80 e3       	ldi	r24, 0x30	; 48
+     c82:	e8 16       	cp	r14, r24
+     c84:	09 f0       	breq	.+2      	; 0xc88 <main+0x1a4>
+     c86:	ce c0       	rjmp	.+412    	; 0xe24 <main+0x340>
+     c88:	10 c0       	rjmp	.+32     	; 0xcaa <main+0x1c6>
+     c8a:	86 e3       	ldi	r24, 0x36	; 54
+     c8c:	e8 16       	cp	r14, r24
+     c8e:	09 f4       	brne	.+2      	; 0xc92 <main+0x1ae>
+     c90:	c0 c0       	rjmp	.+384    	; 0xe12 <main+0x32e>
+     c92:	e8 16       	cp	r14, r24
+     c94:	08 f4       	brcc	.+2      	; 0xc98 <main+0x1b4>
+     c96:	ba c0       	rjmp	.+372    	; 0xe0c <main+0x328>
+     c98:	87 e3       	ldi	r24, 0x37	; 55
+     c9a:	e8 16       	cp	r14, r24
+     c9c:	09 f4       	brne	.+2      	; 0xca0 <main+0x1bc>
+     c9e:	bc c0       	rjmp	.+376    	; 0xe18 <main+0x334>
+     ca0:	88 e3       	ldi	r24, 0x38	; 56
+     ca2:	e8 16       	cp	r14, r24
+     ca4:	09 f0       	breq	.+2      	; 0xca8 <main+0x1c4>
+     ca6:	be c0       	rjmp	.+380    	; 0xe24 <main+0x340>
+     ca8:	ba c0       	rjmp	.+372    	; 0xe1e <main+0x33a>
+   {
+    
+	case '0': errorStatus = EEPROM_erase();
+     caa:	0e 94 ad 03 	call	0x75a	; 0x75a <EEPROM_erase>
+     cae:	18 2f       	mov	r17, r24
+   			  TX_NEWLINE;
+     cb0:	8d e0       	ldi	r24, 0x0D	; 13
+     cb2:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     cb6:	8a e0       	ldi	r24, 0x0A	; 10
+     cb8:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+			  if(errorStatus == 1)
+     cbc:	11 30       	cpi	r17, 0x01	; 1
+     cbe:	29 f4       	brne	.+10     	; 0xcca <main+0x1e6>
+     		     transmitString_F(PSTR(" EEPROM erase failed.."));
+     cc0:	8d ef       	ldi	r24, 0xFD	; 253
+     cc2:	92 e0       	ldi	r25, 0x02	; 2
+     cc4:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+     cc8:	b8 c0       	rjmp	.+368    	; 0xe3a <main+0x356>
+			  else
+			     transmitString_F(PSTR(" EEPROM erased successfully.."));
+     cca:	8f ed       	ldi	r24, 0xDF	; 223
+     ccc:	92 e0       	ldi	r25, 0x02	; 2
+     cce:	80 c0       	rjmp	.+256    	; 0xdd0 <main+0x2ec>
+   			  break;
+	case '1': TX_NEWLINE;
+     cd0:	8d e0       	ldi	r24, 0x0D	; 13
+     cd2:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     cd6:	8a e0       	ldi	r24, 0x0A	; 10
+     cd8:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   		 	  transmitString_F(PSTR(" Enter text: "));
+     cdc:	81 ed       	ldi	r24, 0xD1	; 209
+     cde:	92 e0       	ldi	r25, 0x02	; 2
+     ce0:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+			  errorStatus = EEPROM_write(0x00,0x00);
+     ce4:	80 e0       	ldi	r24, 0x00	; 0
+     ce6:	60 e0       	ldi	r22, 0x00	; 0
+     ce8:	0e 94 fd 03 	call	0x7fa	; 0x7fa <EEPROM_write>
+     cec:	a4 c0       	rjmp	.+328    	; 0xe36 <main+0x352>
+   			  break;
+	case '2': TX_NEWLINE;
+     cee:	8d e0       	ldi	r24, 0x0D	; 13
+     cf0:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     cf4:	8a e0       	ldi	r24, 0x0A	; 10
+     cf6:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   		 	  transmitString_F(PSTR(" How many bytes?(00-64): "));
+     cfa:	87 eb       	ldi	r24, 0xB7	; 183
+     cfc:	92 e0       	ldi	r25, 0x02	; 2
+     cfe:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+			  data = receiveByte(); transmitByte(data);
+     d02:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+     d06:	08 2f       	mov	r16, r24
+     d08:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+			  totalChar = (data & 0x0f) * 10;
+     d0c:	10 e0       	ldi	r17, 0x00	; 0
+     d0e:	0f 70       	andi	r16, 0x0F	; 15
+     d10:	10 70       	andi	r17, 0x00	; 0
+     d12:	c8 01       	movw	r24, r16
+     d14:	53 e0       	ldi	r21, 0x03	; 3
+     d16:	88 0f       	add	r24, r24
+     d18:	99 1f       	adc	r25, r25
+     d1a:	5a 95       	dec	r21
+     d1c:	e1 f7       	brne	.-8      	; 0xd16 <main+0x232>
+     d1e:	00 0f       	add	r16, r16
+     d20:	11 1f       	adc	r17, r17
+     d22:	08 0f       	add	r16, r24
+			  data = receiveByte(); transmitByte(data);
+     d24:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+     d28:	f8 2e       	mov	r15, r24
+     d2a:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+			  totalChar += (data & 0x0f);
+			  TX_NEWLINE;
+     d2e:	8d e0       	ldi	r24, 0x0D	; 13
+     d30:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     d34:	8a e0       	ldi	r24, 0x0A	; 10
+     d36:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+			  errorStatus = EEPROM_read(0x00,0x00,totalChar);
+     d3a:	8f e0       	ldi	r24, 0x0F	; 15
+     d3c:	f8 22       	and	r15, r24
+     d3e:	0f 0d       	add	r16, r15
+     d40:	80 e0       	ldi	r24, 0x00	; 0
+     d42:	60 e0       	ldi	r22, 0x00	; 0
+     d44:	40 2f       	mov	r20, r16
+     d46:	0e 94 45 04 	call	0x88a	; 0x88a <EEPROM_read>
+     d4a:	75 c0       	rjmp	.+234    	; 0xe36 <main+0x352>
+   			  break;
+	case '3': 
+	case '4': TX_NEWLINE;
+     d4c:	8d e0       	ldi	r24, 0x0D	; 13
+     d4e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     d52:	8a e0       	ldi	r24, 0x0A	; 10
+     d54:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   		 	  transmitString_F(PSTR(" Enter Page Number (000-511): "));
+     d58:	88 e9       	ldi	r24, 0x98	; 152
+     d5a:	92 e0       	ldi	r25, 0x02	; 2
+     d5c:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+			  data = receiveByte(); transmitByte(data);
+     d60:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+     d64:	08 2f       	mov	r16, r24
+     d66:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+			  pageNumber = (data & 0x0f) * 100;
+     d6a:	10 e0       	ldi	r17, 0x00	; 0
+     d6c:	0f 70       	andi	r16, 0x0F	; 15
+     d6e:	10 70       	andi	r17, 0x00	; 0
+     d70:	0c 9d       	mul	r16, r12
+     d72:	e0 01       	movw	r28, r0
+     d74:	0d 9d       	mul	r16, r13
+     d76:	d0 0d       	add	r29, r0
+     d78:	1c 9d       	mul	r17, r12
+     d7a:	d0 0d       	add	r29, r0
+     d7c:	11 24       	eor	r1, r1
+			  data = receiveByte(); transmitByte(data);
+     d7e:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+     d82:	08 2f       	mov	r16, r24
+     d84:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+			  pageNumber += (data & 0x0f) * 10;
+			  data = receiveByte(); transmitByte(data);
+     d88:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+     d8c:	f8 2e       	mov	r15, r24
+     d8e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	case '4': TX_NEWLINE;
+   		 	  transmitString_F(PSTR(" Enter Page Number (000-511): "));
+			  data = receiveByte(); transmitByte(data);
+			  pageNumber = (data & 0x0f) * 100;
+			  data = receiveByte(); transmitByte(data);
+			  pageNumber += (data & 0x0f) * 10;
+     d92:	10 e0       	ldi	r17, 0x00	; 0
+     d94:	0f 70       	andi	r16, 0x0F	; 15
+     d96:	10 70       	andi	r17, 0x00	; 0
+     d98:	c8 01       	movw	r24, r16
+     d9a:	33 e0       	ldi	r19, 0x03	; 3
+     d9c:	88 0f       	add	r24, r24
+     d9e:	99 1f       	adc	r25, r25
+     da0:	3a 95       	dec	r19
+     da2:	e1 f7       	brne	.-8      	; 0xd9c <main+0x2b8>
+     da4:	00 0f       	add	r16, r16
+     da6:	11 1f       	adc	r17, r17
+     da8:	80 0f       	add	r24, r16
+     daa:	91 1f       	adc	r25, r17
+     dac:	c8 0f       	add	r28, r24
+     dae:	d9 1f       	adc	r29, r25
+			  data = receiveByte(); transmitByte(data);
+			  pageNumber += (data & 0x0f);
+     db0:	8f e0       	ldi	r24, 0x0F	; 15
+     db2:	f8 22       	and	r15, r24
+     db4:	cf 0d       	add	r28, r15
+     db6:	d1 1d       	adc	r29, r1
+			  if(pageNumber > 511)
+     db8:	82 e0       	ldi	r24, 0x02	; 2
+     dba:	c0 30       	cpi	r28, 0x00	; 0
+     dbc:	d8 07       	cpc	r29, r24
+     dbe:	58 f0       	brcs	.+22     	; 0xdd6 <main+0x2f2>
+			  {
+			    TX_NEWLINE;
+     dc0:	8d e0       	ldi	r24, 0x0D	; 13
+     dc2:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     dc6:	8a e0       	ldi	r24, 0x0A	; 10
+     dc8:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   		 	  	transmitString_F(PSTR(" Address out of range.. "));
+     dcc:	8f e7       	ldi	r24, 0x7F	; 127
+     dce:	92 e0       	ldi	r25, 0x02	; 2
+     dd0:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+     dd4:	3c c0       	rjmp	.+120    	; 0xe4e <main+0x36a>
+				break;
+			  }	
+			  TX_NEWLINE;
+     dd6:	8d e0       	ldi	r24, 0x0D	; 13
+     dd8:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     ddc:	8a e0       	ldi	r24, 0x0A	; 10
+     dde:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+			  if(option == '3')
+     de2:	83 e3       	ldi	r24, 0x33	; 51
+     de4:	e8 16       	cp	r14, r24
+     de6:	71 f4       	brne	.+28     	; 0xe04 <main+0x320>
+			  {
+				 TX_NEWLINE;
+     de8:	8d e0       	ldi	r24, 0x0D	; 13
+     dea:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     dee:	8a e0       	ldi	r24, 0x0A	; 10
+     df0:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   		 	  	 transmitString_F(PSTR(" Enter text: "));
+     df4:	81 e7       	ldi	r24, 0x71	; 113
+     df6:	92 e0       	ldi	r25, 0x02	; 2
+     df8:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+				 errorStatus = EEPROM_writePage(pageNumber);
+     dfc:	ce 01       	movw	r24, r28
+     dfe:	0e 94 3b 04 	call	0x876	; 0x876 <EEPROM_writePage>
+     e02:	19 c0       	rjmp	.+50     	; 0xe36 <main+0x352>
+			  } 
+			  else
+			     errorStatus = EEPROM_readPage(pageNumber);
+     e04:	ce 01       	movw	r24, r28
+     e06:	0e 94 ba 04 	call	0x974	; 0x974 <EEPROM_readPage>
+     e0a:	15 c0       	rjmp	.+42     	; 0xe36 <main+0x352>
+   			  break;
+	case '5': RTC_displayDate();
+     e0c:	0e 94 31 0a 	call	0x1462	; 0x1462 <RTC_displayDate>
+     e10:	1e c0       	rjmp	.+60     	; 0xe4e <main+0x36a>
+		 	  break;
+	case '6': RTC_displayTime();
+     e12:	0e 94 84 0a 	call	0x1508	; 0x1508 <RTC_displayTime>
+     e16:	1b c0       	rjmp	.+54     	; 0xe4e <main+0x36a>
+		 	  break;
+	case '7': RTC_updateDate();
+     e18:	0e 94 02 08 	call	0x1004	; 0x1004 <RTC_updateDate>
+     e1c:	18 c0       	rjmp	.+48     	; 0xe4e <main+0x36a>
+		 	  break;
+	case '8': RTC_updateTime();
+     e1e:	0e 94 09 09 	call	0x1212	; 0x1212 <RTC_updateTime>
+     e22:	15 c0       	rjmp	.+42     	; 0xe4e <main+0x36a>
+		 	  break;
+	default:  TX_NEWLINE;
+     e24:	8d e0       	ldi	r24, 0x0D	; 13
+     e26:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     e2a:	8a e0       	ldi	r24, 0x0A	; 10
+     e2c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   		 	  transmitString_F(PSTR(" Invalid option!"));
+     e30:	80 e6       	ldi	r24, 0x60	; 96
+     e32:	92 e0       	ldi	r25, 0x02	; 2
+     e34:	04 c0       	rjmp	.+8      	; 0xe3e <main+0x35a>
+			  TX_NEWLINE;
+	}		  
+   
+    if(errorStatus == 1)
+     e36:	81 30       	cpi	r24, 0x01	; 1
+     e38:	51 f4       	brne	.+20     	; 0xe4e <main+0x36a>
+   {
+     transmitString_F(PSTR(" EEPROM operation failed.."));
+     e3a:	85 e4       	ldi	r24, 0x45	; 69
+     e3c:	92 e0       	ldi	r25, 0x02	; 2
+     e3e:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+	 TX_NEWLINE;
+     e42:	8d e0       	ldi	r24, 0x0D	; 13
+     e44:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     e48:	8a e0       	ldi	r24, 0x0A	; 10
+     e4a:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   }
+   
+   TX_NEWLINE;
+     e4e:	8d e0       	ldi	r24, 0x0D	; 13
+     e50:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     e54:	8a e0       	ldi	r24, 0x0A	; 10
+     e56:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+   transmitString_F(PSTR(" Finished.."));
+     e5a:	89 e3       	ldi	r24, 0x39	; 57
+     e5c:	92 e0       	ldi	r25, 0x02	; 2
+     e5e:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+   TX_NEWLINE;
+     e62:	8d e0       	ldi	r24, 0x0D	; 13
+     e64:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     e68:	8a e0       	ldi	r24, 0x0A	; 10
+     e6a:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+     e6e:	7b ce       	rjmp	.-778    	; 0xb66 <main+0x82>
+
+00000e70 <RTC_updateRegisters>:
+//******************************************************************
+//Function to update buffer rtc_register[] for next writing to RTC
+//****************************************************************** 
+void RTC_updateRegisters(void)
+{
+  SECONDS = ((time[6] & 0x07) << 4) | (time[7] & 0x0f);
+     e70:	80 91 0d 01 	lds	r24, 0x010D
+     e74:	90 e0       	ldi	r25, 0x00	; 0
+     e76:	87 70       	andi	r24, 0x07	; 7
+     e78:	90 70       	andi	r25, 0x00	; 0
+     e7a:	64 e0       	ldi	r22, 0x04	; 4
+     e7c:	88 0f       	add	r24, r24
+     e7e:	99 1f       	adc	r25, r25
+     e80:	6a 95       	dec	r22
+     e82:	e1 f7       	brne	.-8      	; 0xe7c <RTC_updateRegisters+0xc>
+     e84:	20 91 0e 01 	lds	r18, 0x010E
+     e88:	2f 70       	andi	r18, 0x0F	; 15
+     e8a:	28 2b       	or	r18, r24
+     e8c:	20 93 00 01 	sts	0x0100, r18
+  MINUTES = ((time[3] & 0x07) << 4) | (time[4] & 0x0f);
+     e90:	80 91 0a 01 	lds	r24, 0x010A
+     e94:	90 e0       	ldi	r25, 0x00	; 0
+     e96:	87 70       	andi	r24, 0x07	; 7
+     e98:	90 70       	andi	r25, 0x00	; 0
+     e9a:	54 e0       	ldi	r21, 0x04	; 4
+     e9c:	88 0f       	add	r24, r24
+     e9e:	99 1f       	adc	r25, r25
+     ea0:	5a 95       	dec	r21
+     ea2:	e1 f7       	brne	.-8      	; 0xe9c <RTC_updateRegisters+0x2c>
+     ea4:	20 91 0b 01 	lds	r18, 0x010B
+     ea8:	2f 70       	andi	r18, 0x0F	; 15
+     eaa:	28 2b       	or	r18, r24
+     eac:	20 93 01 01 	sts	0x0101, r18
+  HOURS = ((time[0] & 0x03) << 4) | (time[1] & 0x0f);  
+     eb0:	80 91 07 01 	lds	r24, 0x0107
+     eb4:	90 e0       	ldi	r25, 0x00	; 0
+     eb6:	83 70       	andi	r24, 0x03	; 3
+     eb8:	90 70       	andi	r25, 0x00	; 0
+     eba:	44 e0       	ldi	r20, 0x04	; 4
+     ebc:	88 0f       	add	r24, r24
+     ebe:	99 1f       	adc	r25, r25
+     ec0:	4a 95       	dec	r20
+     ec2:	e1 f7       	brne	.-8      	; 0xebc <RTC_updateRegisters+0x4c>
+     ec4:	20 91 08 01 	lds	r18, 0x0108
+     ec8:	2f 70       	andi	r18, 0x0F	; 15
+     eca:	28 2b       	or	r18, r24
+     ecc:	20 93 02 01 	sts	0x0102, r18
+  DAY = date[10];
+     ed0:	80 91 1c 01 	lds	r24, 0x011C
+     ed4:	80 93 03 01 	sts	0x0103, r24
+  DATE = ((date[0] & 0x03) << 4) | (date[1] & 0x0f);
+     ed8:	80 91 12 01 	lds	r24, 0x0112
+     edc:	90 e0       	ldi	r25, 0x00	; 0
+     ede:	83 70       	andi	r24, 0x03	; 3
+     ee0:	90 70       	andi	r25, 0x00	; 0
+     ee2:	34 e0       	ldi	r19, 0x04	; 4
+     ee4:	88 0f       	add	r24, r24
+     ee6:	99 1f       	adc	r25, r25
+     ee8:	3a 95       	dec	r19
+     eea:	e1 f7       	brne	.-8      	; 0xee4 <RTC_updateRegisters+0x74>
+     eec:	20 91 13 01 	lds	r18, 0x0113
+     ef0:	2f 70       	andi	r18, 0x0F	; 15
+     ef2:	28 2b       	or	r18, r24
+     ef4:	20 93 04 01 	sts	0x0104, r18
+  MONTH = ((date[3] & 0x01) << 4) | (date[4] & 0x0f);
+     ef8:	80 91 15 01 	lds	r24, 0x0115
+     efc:	90 e0       	ldi	r25, 0x00	; 0
+     efe:	81 70       	andi	r24, 0x01	; 1
+     f00:	90 70       	andi	r25, 0x00	; 0
+     f02:	24 e0       	ldi	r18, 0x04	; 4
+     f04:	88 0f       	add	r24, r24
+     f06:	99 1f       	adc	r25, r25
+     f08:	2a 95       	dec	r18
+     f0a:	e1 f7       	brne	.-8      	; 0xf04 <RTC_updateRegisters+0x94>
+     f0c:	20 91 16 01 	lds	r18, 0x0116
+     f10:	2f 70       	andi	r18, 0x0F	; 15
+     f12:	28 2b       	or	r18, r24
+     f14:	20 93 05 01 	sts	0x0105, r18
+  YEAR = ((date[8] & 0x0f) << 4) | (date[9] & 0x0f);
+     f18:	90 91 1a 01 	lds	r25, 0x011A
+     f1c:	92 95       	swap	r25
+     f1e:	90 7f       	andi	r25, 0xF0	; 240
+     f20:	80 91 1b 01 	lds	r24, 0x011B
+     f24:	8f 70       	andi	r24, 0x0F	; 15
+     f26:	98 2b       	or	r25, r24
+     f28:	90 93 06 01 	sts	0x0106, r25
+}  
+     f2c:	08 95       	ret
+
+00000f2e <RTC_displayDay>:
+//******************************************************************
+//Function to get the string for day 
+//****************************************************************** 
+void RTC_displayDay(void)
+{
+  transmitString_F(PSTR("    Day: "));
+     f2e:	82 e3       	ldi	r24, 0x32	; 50
+     f30:	96 e0       	ldi	r25, 0x06	; 6
+     f32:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+  
+  switch(DAY)
+     f36:	80 91 03 01 	lds	r24, 0x0103
+     f3a:	83 30       	cpi	r24, 0x03	; 3
+     f3c:	b9 f0       	breq	.+46     	; 0xf6c <RTC_displayDay+0x3e>
+     f3e:	84 30       	cpi	r24, 0x04	; 4
+     f40:	28 f4       	brcc	.+10     	; 0xf4c <RTC_displayDay+0x1e>
+     f42:	81 30       	cpi	r24, 0x01	; 1
+     f44:	69 f0       	breq	.+26     	; 0xf60 <RTC_displayDay+0x32>
+     f46:	82 30       	cpi	r24, 0x02	; 2
+     f48:	70 f4       	brcc	.+28     	; 0xf66 <RTC_displayDay+0x38>
+     f4a:	07 c0       	rjmp	.+14     	; 0xf5a <RTC_displayDay+0x2c>
+     f4c:	85 30       	cpi	r24, 0x05	; 5
+     f4e:	a1 f0       	breq	.+40     	; 0xf78 <RTC_displayDay+0x4a>
+     f50:	85 30       	cpi	r24, 0x05	; 5
+     f52:	78 f0       	brcs	.+30     	; 0xf72 <RTC_displayDay+0x44>
+     f54:	86 30       	cpi	r24, 0x06	; 6
+     f56:	b1 f4       	brne	.+44     	; 0xf84 <RTC_displayDay+0x56>
+     f58:	12 c0       	rjmp	.+36     	; 0xf7e <RTC_displayDay+0x50>
+  {
+   case 0:transmitString_F(PSTR("Sunday"));
+     f5a:	8b e2       	ldi	r24, 0x2B	; 43
+     f5c:	96 e0       	ldi	r25, 0x06	; 6
+     f5e:	14 c0       	rjmp	.+40     	; 0xf88 <RTC_displayDay+0x5a>
+          break; 
+   case 1:transmitString_F(PSTR("Monday"));
+     f60:	84 e2       	ldi	r24, 0x24	; 36
+     f62:	96 e0       	ldi	r25, 0x06	; 6
+     f64:	11 c0       	rjmp	.+34     	; 0xf88 <RTC_displayDay+0x5a>
+          break; 
+   case 2:transmitString_F(PSTR("Tuesday"));
+     f66:	8c e1       	ldi	r24, 0x1C	; 28
+     f68:	96 e0       	ldi	r25, 0x06	; 6
+     f6a:	0e c0       	rjmp	.+28     	; 0xf88 <RTC_displayDay+0x5a>
+          break; 
+   case 3:transmitString_F(PSTR("Wednesday"));
+     f6c:	82 e1       	ldi	r24, 0x12	; 18
+     f6e:	96 e0       	ldi	r25, 0x06	; 6
+     f70:	0b c0       	rjmp	.+22     	; 0xf88 <RTC_displayDay+0x5a>
+          break; 
+   case 4:transmitString_F(PSTR("Thursday"));
+     f72:	89 e0       	ldi	r24, 0x09	; 9
+     f74:	96 e0       	ldi	r25, 0x06	; 6
+     f76:	08 c0       	rjmp	.+16     	; 0xf88 <RTC_displayDay+0x5a>
+          break; 		  
+   case 5:transmitString_F(PSTR("Friday"));
+     f78:	82 e0       	ldi	r24, 0x02	; 2
+     f7a:	96 e0       	ldi	r25, 0x06	; 6
+     f7c:	05 c0       	rjmp	.+10     	; 0xf88 <RTC_displayDay+0x5a>
+          break; 		  
+   case 6:transmitString_F(PSTR("Saturday"));
+     f7e:	89 ef       	ldi	r24, 0xF9	; 249
+     f80:	95 e0       	ldi	r25, 0x05	; 5
+     f82:	02 c0       	rjmp	.+4      	; 0xf88 <RTC_displayDay+0x5a>
+          break; 
+   default:	transmitString_F(PSTR("Unknown"));  
+     f84:	81 ef       	ldi	r24, 0xF1	; 241
+     f86:	95 e0       	ldi	r25, 0x05	; 5
+     f88:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+     f8c:	08 95       	ret
+
+00000f8e <RTC_writeDate>:
+//******************************************************************   
+unsigned char RTC_writeDate(void)
+{
+  unsigned char errorStatus, i;
+  
+   errorStatus = i2c_start();
+     f8e:	0e 94 c5 04 	call	0x98a	; 0x98a <i2c_start>
+   if(errorStatus == 1)
+     f92:	81 30       	cpi	r24, 0x01	; 1
+     f94:	19 f4       	brne	.+6      	; 0xf9c <RTC_writeDate+0xe>
+   {
+     transmitString_F(PSTR("RTC start1 failed.."));
+     f96:	82 e8       	ldi	r24, 0x82	; 130
+     f98:	95 e0       	ldi	r25, 0x05	; 5
+     f9a:	2a c0       	rjmp	.+84     	; 0xff0 <RTC_writeDate+0x62>
+   	 i2c_stop();
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendAddress(DS1307_W);
+     f9c:	80 ed       	ldi	r24, 0xD0	; 208
+     f9e:	0e 94 e5 04 	call	0x9ca	; 0x9ca <i2c_sendAddress>
+   
+   if(errorStatus == 1)
+     fa2:	81 30       	cpi	r24, 0x01	; 1
+     fa4:	19 f4       	brne	.+6      	; 0xfac <RTC_writeDate+0x1e>
+   {
+     transmitString_F(PSTR("RTC sendAddress1 failed.."));
+     fa6:	88 e6       	ldi	r24, 0x68	; 104
+     fa8:	95 e0       	ldi	r25, 0x05	; 5
+     faa:	22 c0       	rjmp	.+68     	; 0xff0 <RTC_writeDate+0x62>
+	 i2c_stop();
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendData(0x03);
+     fac:	83 e0       	ldi	r24, 0x03	; 3
+     fae:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+     fb2:	81 30       	cpi	r24, 0x01	; 1
+     fb4:	19 f4       	brne	.+6      	; 0xfbc <RTC_writeDate+0x2e>
+   {
+     transmitString_F(PSTR("RTC write-1 failed.."));
+     fb6:	83 e5       	ldi	r24, 0x53	; 83
+     fb8:	95 e0       	ldi	r25, 0x05	; 5
+     fba:	1a c0       	rjmp	.+52     	; 0xff0 <RTC_writeDate+0x62>
+	 return(1);
+   } 
+
+    for(i=3;i<7;i++)
+    {
+	  errorStatus = i2c_sendData(rtc_register[i]);  
+     fbc:	80 91 03 01 	lds	r24, 0x0103
+     fc0:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   	  if(errorStatus == 1)
+     fc4:	81 30       	cpi	r24, 0x01	; 1
+     fc6:	91 f0       	breq	.+36     	; 0xfec <RTC_writeDate+0x5e>
+	 return(1);
+   } 
+
+    for(i=3;i<7;i++)
+    {
+	  errorStatus = i2c_sendData(rtc_register[i]);  
+     fc8:	80 91 04 01 	lds	r24, 0x0104
+     fcc:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   	  if(errorStatus == 1)
+     fd0:	81 30       	cpi	r24, 0x01	; 1
+     fd2:	61 f0       	breq	.+24     	; 0xfec <RTC_writeDate+0x5e>
+	 return(1);
+   } 
+
+    for(i=3;i<7;i++)
+    {
+	  errorStatus = i2c_sendData(rtc_register[i]);  
+     fd4:	80 91 05 01 	lds	r24, 0x0105
+     fd8:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   	  if(errorStatus == 1)
+     fdc:	81 30       	cpi	r24, 0x01	; 1
+     fde:	31 f0       	breq	.+12     	; 0xfec <RTC_writeDate+0x5e>
+	 return(1);
+   } 
+
+    for(i=3;i<7;i++)
+    {
+	  errorStatus = i2c_sendData(rtc_register[i]);  
+     fe0:	80 91 06 01 	lds	r24, 0x0106
+     fe4:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   	  if(errorStatus == 1)
+     fe8:	81 30       	cpi	r24, 0x01	; 1
+     fea:	41 f4       	brne	.+16     	; 0xffc <RTC_writeDate+0x6e>
+   	  {
+       		transmitString_F(PSTR("RTC write date failed.."));
+     fec:	8b e3       	ldi	r24, 0x3B	; 59
+     fee:	95 e0       	ldi	r25, 0x05	; 5
+     ff0:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+			i2c_stop();
+     ff4:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+     ff8:	81 e0       	ldi	r24, 0x01	; 1
+     ffa:	08 95       	ret
+	   		return(1);
+   	  }
+    }
+	
+	i2c_stop();
+     ffc:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+    1000:	80 e0       	ldi	r24, 0x00	; 0
+	return(0);
+}
+    1002:	08 95       	ret
+
+00001004 <RTC_updateDate>:
+  
+//******************************************************************
+//Function to update RTC date by entering it at hyper terminal
+//******************************************************************   
+void RTC_updateDate(void)
+{
+    1004:	1f 93       	push	r17
+  unsigned char data;
+  TX_NEWLINE;
+    1006:	8d e0       	ldi	r24, 0x0D	; 13
+    1008:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    100c:	8a e0       	ldi	r24, 0x0A	; 10
+    100e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  transmitString_F(PSTR("Enter Date (dd/mm/yy):")); 
+    1012:	85 ed       	ldi	r24, 0xD5	; 213
+    1014:	94 e0       	ldi	r25, 0x04	; 4
+    1016:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+  
+    data = receiveByte(); 	   				  		//receive date
+    101a:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    101e:	18 2f       	mov	r17, r24
+	transmitByte(data); 	   	  	  				
+    1020:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x33)
+    1024:	81 2f       	mov	r24, r17
+    1026:	80 53       	subi	r24, 0x30	; 48
+    1028:	84 30       	cpi	r24, 0x04	; 4
+    102a:	08 f0       	brcs	.+2      	; 0x102e <RTC_updateDate+0x2a>
+    102c:	b1 c0       	rjmp	.+354    	; 0x1190 <__stack+0x91>
+	   goto DATE_ERROR;
+	   
+	date[0]= data;
+    102e:	10 93 12 01 	sts	0x0112, r17
+	 
+	data = receiveByte();
+    1032:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    1036:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    1038:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x39)
+    103c:	81 2f       	mov	r24, r17
+    103e:	80 53       	subi	r24, 0x30	; 48
+    1040:	8a 30       	cpi	r24, 0x0A	; 10
+    1042:	08 f0       	brcs	.+2      	; 0x1046 <RTC_updateDate+0x42>
+    1044:	a5 c0       	rjmp	.+330    	; 0x1190 <__stack+0x91>
+	   goto DATE_ERROR;
+	   
+	date[1]= data;
+    1046:	10 93 13 01 	sts	0x0113, r17
+	
+	if(((time[8] & 0x0f) + ((time[9] & 0x03)*10)) > 31)
+    104a:	80 91 10 01 	lds	r24, 0x0110
+    104e:	90 e0       	ldi	r25, 0x00	; 0
+    1050:	83 70       	andi	r24, 0x03	; 3
+    1052:	90 70       	andi	r25, 0x00	; 0
+    1054:	9c 01       	movw	r18, r24
+    1056:	a3 e0       	ldi	r26, 0x03	; 3
+    1058:	22 0f       	add	r18, r18
+    105a:	33 1f       	adc	r19, r19
+    105c:	aa 95       	dec	r26
+    105e:	e1 f7       	brne	.-8      	; 0x1058 <RTC_updateDate+0x54>
+    1060:	88 0f       	add	r24, r24
+    1062:	99 1f       	adc	r25, r25
+    1064:	28 0f       	add	r18, r24
+    1066:	39 1f       	adc	r19, r25
+    1068:	80 91 0f 01 	lds	r24, 0x010F
+    106c:	8f 70       	andi	r24, 0x0F	; 15
+    106e:	28 0f       	add	r18, r24
+    1070:	31 1d       	adc	r19, r1
+    1072:	20 32       	cpi	r18, 0x20	; 32
+    1074:	31 05       	cpc	r19, r1
+    1076:	0c f0       	brlt	.+2      	; 0x107a <RTC_updateDate+0x76>
+    1078:	8b c0       	rjmp	.+278    	; 0x1190 <__stack+0x91>
+	   goto DATE_ERROR;
+	
+	data = receiveByte();  			   			  //receive special char (/,-, etc.)
+    107a:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    107e:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    1080:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data != '/' && data != '-' && data != ' ')
+    1084:	1f 32       	cpi	r17, 0x2F	; 47
+    1086:	29 f0       	breq	.+10     	; 0x1092 <RTC_updateDate+0x8e>
+    1088:	1d 32       	cpi	r17, 0x2D	; 45
+    108a:	19 f0       	breq	.+6      	; 0x1092 <RTC_updateDate+0x8e>
+    108c:	10 32       	cpi	r17, 0x20	; 32
+    108e:	09 f0       	breq	.+2      	; 0x1092 <RTC_updateDate+0x8e>
+    1090:	7f c0       	rjmp	.+254    	; 0x1190 <__stack+0x91>
+	   goto DATE_ERROR;
+	date[2] = data;
+    1092:	10 93 14 01 	sts	0x0114, r17
+	   
+	
+	 data = receiveByte();			   			  //receive month
+    1096:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    109a:	18 2f       	mov	r17, r24
+	 transmitByte(data);
+    109c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x31)
+    10a0:	81 2f       	mov	r24, r17
+    10a2:	80 53       	subi	r24, 0x30	; 48
+    10a4:	82 30       	cpi	r24, 0x02	; 2
+    10a6:	08 f0       	brcs	.+2      	; 0x10aa <RTC_updateDate+0xa6>
+    10a8:	73 c0       	rjmp	.+230    	; 0x1190 <__stack+0x91>
+	  goto DATE_ERROR;
+	  
+	date[3]= data; 
+    10aa:	10 93 15 01 	sts	0x0115, r17
+	
+	data = receiveByte();
+    10ae:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    10b2:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    10b4:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x39)
+    10b8:	81 2f       	mov	r24, r17
+    10ba:	80 53       	subi	r24, 0x30	; 48
+    10bc:	8a 30       	cpi	r24, 0x0A	; 10
+    10be:	08 f0       	brcs	.+2      	; 0x10c2 <RTC_updateDate+0xbe>
+    10c0:	67 c0       	rjmp	.+206    	; 0x1190 <__stack+0x91>
+	  goto DATE_ERROR;
+	  
+	date[4] = data; 
+    10c2:	10 93 16 01 	sts	0x0116, r17
+	
+	if(((date[4] & 0x0f) + ((date[3] & 0x03)*10)) > 12)
+    10c6:	1f 70       	andi	r17, 0x0F	; 15
+    10c8:	80 91 15 01 	lds	r24, 0x0115
+    10cc:	90 e0       	ldi	r25, 0x00	; 0
+    10ce:	83 70       	andi	r24, 0x03	; 3
+    10d0:	90 70       	andi	r25, 0x00	; 0
+    10d2:	9c 01       	movw	r18, r24
+    10d4:	e3 e0       	ldi	r30, 0x03	; 3
+    10d6:	22 0f       	add	r18, r18
+    10d8:	33 1f       	adc	r19, r19
+    10da:	ea 95       	dec	r30
+    10dc:	e1 f7       	brne	.-8      	; 0x10d6 <RTC_updateDate+0xd2>
+    10de:	88 0f       	add	r24, r24
+    10e0:	99 1f       	adc	r25, r25
+    10e2:	28 0f       	add	r18, r24
+    10e4:	39 1f       	adc	r19, r25
+    10e6:	21 0f       	add	r18, r17
+    10e8:	31 1d       	adc	r19, r1
+    10ea:	2d 30       	cpi	r18, 0x0D	; 13
+    10ec:	31 05       	cpc	r19, r1
+    10ee:	0c f0       	brlt	.+2      	; 0x10f2 <RTC_updateDate+0xee>
+    10f0:	4f c0       	rjmp	.+158    	; 0x1190 <__stack+0x91>
+	   goto DATE_ERROR;
+	   
+	data = receiveByte();  			   			  //receive special char (/,-, etc.)
+    10f2:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    10f6:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    10f8:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data != '/' && data != '-' && data != ' ')
+    10fc:	1f 32       	cpi	r17, 0x2F	; 47
+    10fe:	29 f0       	breq	.+10     	; 0x110a <__stack+0xb>
+    1100:	1d 32       	cpi	r17, 0x2D	; 45
+    1102:	19 f0       	breq	.+6      	; 0x110a <__stack+0xb>
+    1104:	10 32       	cpi	r17, 0x20	; 32
+    1106:	09 f0       	breq	.+2      	; 0x110a <__stack+0xb>
+    1108:	43 c0       	rjmp	.+134    	; 0x1190 <__stack+0x91>
+	   goto DATE_ERROR;
+	date[5] = data;
+    110a:	10 93 17 01 	sts	0x0117, r17
+	
+	date[6] = '2'; 	   	   	  	  //year is 20xx
+    110e:	82 e3       	ldi	r24, 0x32	; 50
+    1110:	80 93 18 01 	sts	0x0118, r24
+	date[7] = '0';
+    1114:	80 e3       	ldi	r24, 0x30	; 48
+    1116:	80 93 19 01 	sts	0x0119, r24
+	
+	data = receiveByte();			   			  //receive seconds
+    111a:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    111e:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    1120:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x39)
+    1124:	81 2f       	mov	r24, r17
+    1126:	80 53       	subi	r24, 0x30	; 48
+    1128:	8a 30       	cpi	r24, 0x0A	; 10
+    112a:	90 f5       	brcc	.+100    	; 0x1190 <__stack+0x91>
+	   goto DATE_ERROR;
+	   
+	date[8]= data; 
+    112c:	10 93 1a 01 	sts	0x011A, r17
+	
+	data = receiveByte();
+    1130:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    1134:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    1136:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x39)
+    113a:	81 2f       	mov	r24, r17
+    113c:	80 53       	subi	r24, 0x30	; 48
+    113e:	8a 30       	cpi	r24, 0x0A	; 10
+    1140:	38 f5       	brcc	.+78     	; 0x1190 <__stack+0x91>
+	   goto DATE_ERROR;
+	   
+	date[9]= data; 
+    1142:	10 93 1b 01 	sts	0x011B, r17
+	
+	TX_NEWLINE;
+    1146:	8d e0       	ldi	r24, 0x0D	; 13
+    1148:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    114c:	8a e0       	ldi	r24, 0x0A	; 10
+    114e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    transmitString_F(PSTR("Enter Day (Sunday:0, Monday:1...) (0-6):")); 
+    1152:	8c ea       	ldi	r24, 0xAC	; 172
+    1154:	94 e0       	ldi	r25, 0x04	; 4
+    1156:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+	
+	data = receiveByte();				   //receive Day of the week
+    115a:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    115e:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    1160:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x36)
+    1164:	81 2f       	mov	r24, r17
+    1166:	80 53       	subi	r24, 0x30	; 48
+    1168:	87 30       	cpi	r24, 0x07	; 7
+    116a:	90 f4       	brcc	.+36     	; 0x1190 <__stack+0x91>
+	   goto DATE_ERROR;
+	   
+	date[10] = data & 0x0f;
+    116c:	1f 70       	andi	r17, 0x0F	; 15
+    116e:	10 93 1c 01 	sts	0x011C, r17
+		 	  
+  RTC_updateRegisters(); 
+    1172:	0e 94 38 07 	call	0xe70	; 0xe70 <RTC_updateRegisters>
+  data = RTC_writeDate();
+    1176:	0e 94 c7 07 	call	0xf8e	; 0xf8e <RTC_writeDate>
+  
+  if(data == 0)
+    117a:	88 23       	and	r24, r24
+    117c:	99 f4       	brne	.+38     	; 0x11a4 <__stack+0xa5>
+  {
+     TX_NEWLINE;
+    117e:	8d e0       	ldi	r24, 0x0D	; 13
+    1180:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    1184:	8a e0       	ldi	r24, 0x0A	; 10
+    1186:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  	 transmitString_F(PSTR("Date Updated sucessfully..")); 
+    118a:	81 e9       	ldi	r24, 0x91	; 145
+    118c:	94 e0       	ldi	r25, 0x04	; 4
+    118e:	08 c0       	rjmp	.+16     	; 0x11a0 <__stack+0xa1>
+  }	  
+  return;
+  
+DATE_ERROR:
+
+  TX_NEWLINE;
+    1190:	8d e0       	ldi	r24, 0x0D	; 13
+    1192:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    1196:	8a e0       	ldi	r24, 0x0A	; 10
+    1198:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  transmitString_F(PSTR("Invalid Entry..")); 
+    119c:	81 e8       	ldi	r24, 0x81	; 129
+    119e:	94 e0       	ldi	r25, 0x04	; 4
+    11a0:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+  return;
+}  
+    11a4:	1f 91       	pop	r17
+    11a6:	08 95       	ret
+
+000011a8 <RTC_writeTime>:
+//******************************************************************   
+unsigned char RTC_writeTime(void)
+{
+  unsigned char errorStatus, i;
+  
+   errorStatus = i2c_start();
+    11a8:	0e 94 c5 04 	call	0x98a	; 0x98a <i2c_start>
+   if(errorStatus == 1)
+    11ac:	81 30       	cpi	r24, 0x01	; 1
+    11ae:	19 f4       	brne	.+6      	; 0x11b6 <RTC_writeTime+0xe>
+   {
+     transmitString_F(PSTR("RTC start1 failed.."));
+    11b0:	8d ed       	ldi	r24, 0xDD	; 221
+    11b2:	95 e0       	ldi	r25, 0x05	; 5
+    11b4:	24 c0       	rjmp	.+72     	; 0x11fe <RTC_writeTime+0x56>
+   	 i2c_stop();
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendAddress(DS1307_W);
+    11b6:	80 ed       	ldi	r24, 0xD0	; 208
+    11b8:	0e 94 e5 04 	call	0x9ca	; 0x9ca <i2c_sendAddress>
+   
+   if(errorStatus == 1)
+    11bc:	81 30       	cpi	r24, 0x01	; 1
+    11be:	19 f4       	brne	.+6      	; 0x11c6 <RTC_writeTime+0x1e>
+   {
+     transmitString_F(PSTR("RTC sendAddress1 failed.."));
+    11c0:	83 ec       	ldi	r24, 0xC3	; 195
+    11c2:	95 e0       	ldi	r25, 0x05	; 5
+    11c4:	1c c0       	rjmp	.+56     	; 0x11fe <RTC_writeTime+0x56>
+	 i2c_stop();
+	 return(1);
+   } 
+   
+   errorStatus = i2c_sendData(0x00);
+    11c6:	80 e0       	ldi	r24, 0x00	; 0
+    11c8:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+    11cc:	81 30       	cpi	r24, 0x01	; 1
+    11ce:	19 f4       	brne	.+6      	; 0x11d6 <RTC_writeTime+0x2e>
+   {
+     transmitString_F(PSTR("RTC write-1 failed.."));
+    11d0:	8e ea       	ldi	r24, 0xAE	; 174
+    11d2:	95 e0       	ldi	r25, 0x05	; 5
+    11d4:	14 c0       	rjmp	.+40     	; 0x11fe <RTC_writeTime+0x56>
+	 return(1);
+   } 
+
+    for(i=0;i<3;i++)
+    {
+	  errorStatus = i2c_sendData(rtc_register[i]);  
+    11d6:	80 91 00 01 	lds	r24, 0x0100
+    11da:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   	  if(errorStatus == 1)
+    11de:	81 30       	cpi	r24, 0x01	; 1
+    11e0:	61 f0       	breq	.+24     	; 0x11fa <RTC_writeTime+0x52>
+	 return(1);
+   } 
+
+    for(i=0;i<3;i++)
+    {
+	  errorStatus = i2c_sendData(rtc_register[i]);  
+    11e2:	80 91 01 01 	lds	r24, 0x0101
+    11e6:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   	  if(errorStatus == 1)
+    11ea:	81 30       	cpi	r24, 0x01	; 1
+    11ec:	31 f0       	breq	.+12     	; 0x11fa <RTC_writeTime+0x52>
+	 return(1);
+   } 
+
+    for(i=0;i<3;i++)
+    {
+	  errorStatus = i2c_sendData(rtc_register[i]);  
+    11ee:	80 91 02 01 	lds	r24, 0x0102
+    11f2:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   	  if(errorStatus == 1)
+    11f6:	81 30       	cpi	r24, 0x01	; 1
+    11f8:	41 f4       	brne	.+16     	; 0x120a <RTC_writeTime+0x62>
+   	  {
+       		transmitString_F(PSTR("RTC write time failed.."));
+    11fa:	86 e9       	ldi	r24, 0x96	; 150
+    11fc:	95 e0       	ldi	r25, 0x05	; 5
+    11fe:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+			i2c_stop();
+    1202:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+    1206:	81 e0       	ldi	r24, 0x01	; 1
+    1208:	08 95       	ret
+	   		return(1);
+   	  }
+    }
+	
+	i2c_stop();
+    120a:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+    120e:	80 e0       	ldi	r24, 0x00	; 0
+	return(0);
+}
+    1210:	08 95       	ret
+
+00001212 <RTC_updateTime>:
+  
+//******************************************************************
+//Function to update RTC time by entering it at hyper terminal
+//******************************************************************   
+void RTC_updateTime(void)
+{
+    1212:	1f 93       	push	r17
+  unsigned char data;
+  TX_NEWLINE;
+    1214:	8d e0       	ldi	r24, 0x0D	; 13
+    1216:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    121a:	8a e0       	ldi	r24, 0x0A	; 10
+    121c:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  transmitString_F(PSTR("Enter Time in 24h format(hh:mm:ss):")); 
+    1220:	87 e1       	ldi	r24, 0x17	; 23
+    1222:	95 e0       	ldi	r25, 0x05	; 5
+    1224:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+  
+    data = receiveByte(); 	   	  	  				//receive hours
+    1228:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    122c:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    122e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x32)
+    1232:	81 2f       	mov	r24, r17
+    1234:	80 53       	subi	r24, 0x30	; 48
+    1236:	83 30       	cpi	r24, 0x03	; 3
+    1238:	08 f0       	brcs	.+2      	; 0x123c <RTC_updateTime+0x2a>
+    123a:	66 c0       	rjmp	.+204    	; 0x1308 <RTC_updateTime+0xf6>
+	   goto TIME_ERROR;
+	   
+	time[0]= data;
+    123c:	10 93 07 01 	sts	0x0107, r17
+	 
+	data = receiveByte();
+    1240:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    1244:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    1246:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x39)
+    124a:	81 2f       	mov	r24, r17
+    124c:	80 53       	subi	r24, 0x30	; 48
+    124e:	8a 30       	cpi	r24, 0x0A	; 10
+    1250:	08 f0       	brcs	.+2      	; 0x1254 <RTC_updateTime+0x42>
+    1252:	5a c0       	rjmp	.+180    	; 0x1308 <RTC_updateTime+0xf6>
+	   goto TIME_ERROR;
+	 
+	time[1]= data;
+    1254:	10 93 08 01 	sts	0x0108, r17
+	
+	transmitByte(':');
+    1258:	8a e3       	ldi	r24, 0x3A	; 58
+    125a:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	
+	if(((time[1] & 0x0f) + ((time[0] & 0x03)*10)) > 23)
+    125e:	80 91 07 01 	lds	r24, 0x0107
+    1262:	90 e0       	ldi	r25, 0x00	; 0
+    1264:	83 70       	andi	r24, 0x03	; 3
+    1266:	90 70       	andi	r25, 0x00	; 0
+    1268:	9c 01       	movw	r18, r24
+    126a:	13 e0       	ldi	r17, 0x03	; 3
+    126c:	22 0f       	add	r18, r18
+    126e:	33 1f       	adc	r19, r19
+    1270:	1a 95       	dec	r17
+    1272:	e1 f7       	brne	.-8      	; 0x126c <RTC_updateTime+0x5a>
+    1274:	88 0f       	add	r24, r24
+    1276:	99 1f       	adc	r25, r25
+    1278:	28 0f       	add	r18, r24
+    127a:	39 1f       	adc	r19, r25
+    127c:	80 91 08 01 	lds	r24, 0x0108
+    1280:	8f 70       	andi	r24, 0x0F	; 15
+    1282:	28 0f       	add	r18, r24
+    1284:	31 1d       	adc	r19, r1
+    1286:	28 31       	cpi	r18, 0x18	; 24
+    1288:	31 05       	cpc	r19, r1
+    128a:	f4 f5       	brge	.+124    	; 0x1308 <RTC_updateTime+0xf6>
+	   goto TIME_ERROR;
+	 
+	 data = receiveByte();			   			  //receive minutes
+    128c:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    1290:	18 2f       	mov	r17, r24
+	 transmitByte(data);
+    1292:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x35)
+    1296:	81 2f       	mov	r24, r17
+    1298:	80 53       	subi	r24, 0x30	; 48
+    129a:	86 30       	cpi	r24, 0x06	; 6
+    129c:	a8 f5       	brcc	.+106    	; 0x1308 <RTC_updateTime+0xf6>
+	   goto TIME_ERROR;
+	   
+	time[3]= data; 
+    129e:	10 93 0a 01 	sts	0x010A, r17
+	
+	data = receiveByte();
+    12a2:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    12a6:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    12a8:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x39)
+    12ac:	81 2f       	mov	r24, r17
+    12ae:	80 53       	subi	r24, 0x30	; 48
+    12b0:	8a 30       	cpi	r24, 0x0A	; 10
+    12b2:	50 f5       	brcc	.+84     	; 0x1308 <RTC_updateTime+0xf6>
+	   goto TIME_ERROR;
+	   
+	time[4]= data; 
+    12b4:	10 93 0b 01 	sts	0x010B, r17
+	
+	transmitByte(':');
+    12b8:	8a e3       	ldi	r24, 0x3A	; 58
+    12ba:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	
+	 data = receiveByte();			   			  //receive seconds
+    12be:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    12c2:	18 2f       	mov	r17, r24
+	 transmitByte(data);
+    12c4:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x35)
+    12c8:	81 2f       	mov	r24, r17
+    12ca:	80 53       	subi	r24, 0x30	; 48
+    12cc:	86 30       	cpi	r24, 0x06	; 6
+    12ce:	e0 f4       	brcc	.+56     	; 0x1308 <RTC_updateTime+0xf6>
+	   goto TIME_ERROR;
+	   
+	time[6]= data; 
+    12d0:	10 93 0d 01 	sts	0x010D, r17
+	
+	data = receiveByte();
+    12d4:	0e 94 a1 0a 	call	0x1542	; 0x1542 <receiveByte>
+    12d8:	18 2f       	mov	r17, r24
+	transmitByte(data);
+    12da:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+	if(data < 0x30 || data > 0x39)
+    12de:	81 2f       	mov	r24, r17
+    12e0:	80 53       	subi	r24, 0x30	; 48
+    12e2:	8a 30       	cpi	r24, 0x0A	; 10
+    12e4:	88 f4       	brcc	.+34     	; 0x1308 <RTC_updateTime+0xf6>
+	   goto TIME_ERROR;
+	   
+	time[7]= data; 
+    12e6:	10 93 0e 01 	sts	0x010E, r17
+	
+	 	  
+  RTC_updateRegisters(); 
+    12ea:	0e 94 38 07 	call	0xe70	; 0xe70 <RTC_updateRegisters>
+  data = RTC_writeTime();
+    12ee:	0e 94 d4 08 	call	0x11a8	; 0x11a8 <RTC_writeTime>
+  
+  if(data == 0)
+    12f2:	88 23       	and	r24, r24
+    12f4:	99 f4       	brne	.+38     	; 0x131c <RTC_updateTime+0x10a>
+  {
+     TX_NEWLINE;
+    12f6:	8d e0       	ldi	r24, 0x0D	; 13
+    12f8:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    12fc:	8a e0       	ldi	r24, 0x0A	; 10
+    12fe:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  	 transmitString_F(PSTR("Time Updated sucessfully..")); 
+    1302:	8c ef       	ldi	r24, 0xFC	; 252
+    1304:	94 e0       	ldi	r25, 0x04	; 4
+    1306:	08 c0       	rjmp	.+16     	; 0x1318 <RTC_updateTime+0x106>
+  }	  
+  return;
+  
+TIME_ERROR:
+
+  TX_NEWLINE;
+    1308:	8d e0       	ldi	r24, 0x0D	; 13
+    130a:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    130e:	8a e0       	ldi	r24, 0x0A	; 10
+    1310:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  transmitString_F(PSTR("Invalid Entry..")); 
+    1314:	8c ee       	ldi	r24, 0xEC	; 236
+    1316:	94 e0       	ldi	r25, 0x04	; 4
+    1318:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+  return;
+}  
+    131c:	1f 91       	pop	r17
+    131e:	08 95       	ret
+
+00001320 <RTC_setStartAddress>:
+//***************************************************************************
+void RTC_setStartAddress(void)
+{
+   unsigned char errorStatus;
+   
+   errorStatus = i2c_start();
+    1320:	0e 94 c5 04 	call	0x98a	; 0x98a <i2c_start>
+   if(errorStatus == 1)
+    1324:	81 30       	cpi	r24, 0x01	; 1
+    1326:	19 f4       	brne	.+6      	; 0x132e <RTC_setStartAddress+0xe>
+   {
+     transmitString_F(PSTR("RTC start1 failed.."));
+    1328:	83 e0       	ldi	r24, 0x03	; 3
+    132a:	97 e0       	ldi	r25, 0x07	; 7
+    132c:	0f c0       	rjmp	.+30     	; 0x134c <RTC_setStartAddress+0x2c>
+   	 i2c_stop();
+	 return;
+   } 
+   
+   errorStatus = i2c_sendAddress(DS1307_W);
+    132e:	80 ed       	ldi	r24, 0xD0	; 208
+    1330:	0e 94 e5 04 	call	0x9ca	; 0x9ca <i2c_sendAddress>
+   
+   if(errorStatus == 1)
+    1334:	81 30       	cpi	r24, 0x01	; 1
+    1336:	19 f4       	brne	.+6      	; 0x133e <RTC_setStartAddress+0x1e>
+   {
+     transmitString_F(PSTR("RTC sendAddress1 failed.."));
+    1338:	89 ee       	ldi	r24, 0xE9	; 233
+    133a:	96 e0       	ldi	r25, 0x06	; 6
+    133c:	07 c0       	rjmp	.+14     	; 0x134c <RTC_setStartAddress+0x2c>
+	 i2c_stop();
+	 return;
+   } 
+   
+   errorStatus = i2c_sendData(0x00);
+    133e:	80 e0       	ldi	r24, 0x00	; 0
+    1340:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+    1344:	81 30       	cpi	r24, 0x01	; 1
+    1346:	21 f4       	brne	.+8      	; 0x1350 <RTC_setStartAddress+0x30>
+   {
+     transmitString_F(PSTR("RTC write-2 failed.."));
+    1348:	84 ed       	ldi	r24, 0xD4	; 212
+    134a:	96 e0       	ldi	r25, 0x06	; 6
+    134c:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+	 i2c_stop();
+	 return;
+   } 
+
+   i2c_stop();
+    1350:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+    1354:	08 95       	ret
+
+00001356 <RTC_read>:
+
+//***********************************************************************
+//Function to read RTC registers and store them in buffer rtc_register[]
+//***********************************************************************    
+void RTC_read(void)
+{
+    1356:	1f 93       	push	r17
+    1358:	cf 93       	push	r28
+    135a:	df 93       	push	r29
+
+  unsigned char errorStatus, i, data;
+  
+  errorStatus = i2c_start();
+    135c:	0e 94 c5 04 	call	0x98a	; 0x98a <i2c_start>
+   if(errorStatus == 1)
+    1360:	81 30       	cpi	r24, 0x01	; 1
+    1362:	19 f4       	brne	.+6      	; 0x136a <RTC_read+0x14>
+   {
+     transmitString_F(PSTR("RTC start1 failed.."));
+    1364:	80 ec       	ldi	r24, 0xC0	; 192
+    1366:	96 e0       	ldi	r25, 0x06	; 6
+    1368:	2d c0       	rjmp	.+90     	; 0x13c4 <RTC_read+0x6e>
+   	 i2c_stop();
+	 return;
+   } 
+   
+   errorStatus = i2c_sendAddress(DS1307_W);
+    136a:	80 ed       	ldi	r24, 0xD0	; 208
+    136c:	0e 94 e5 04 	call	0x9ca	; 0x9ca <i2c_sendAddress>
+   
+   if(errorStatus == 1)
+    1370:	81 30       	cpi	r24, 0x01	; 1
+    1372:	19 f4       	brne	.+6      	; 0x137a <RTC_read+0x24>
+   {
+     transmitString_F(PSTR("RTC sendAddress1 failed.."));
+    1374:	86 ea       	ldi	r24, 0xA6	; 166
+    1376:	96 e0       	ldi	r25, 0x06	; 6
+    1378:	25 c0       	rjmp	.+74     	; 0x13c4 <RTC_read+0x6e>
+	 i2c_stop();
+	 return;
+   } 
+   
+   errorStatus = i2c_sendData(0x00);
+    137a:	80 e0       	ldi	r24, 0x00	; 0
+    137c:	0e 94 00 05 	call	0xa00	; 0xa00 <i2c_sendData>
+   if(errorStatus == 1)
+    1380:	81 30       	cpi	r24, 0x01	; 1
+    1382:	19 f4       	brne	.+6      	; 0x138a <RTC_read+0x34>
+   {
+     transmitString_F(PSTR("RTC write-1 failed.."));
+    1384:	81 e9       	ldi	r24, 0x91	; 145
+    1386:	96 e0       	ldi	r25, 0x06	; 6
+    1388:	1d c0       	rjmp	.+58     	; 0x13c4 <RTC_read+0x6e>
+	 i2c_stop();
+	 return;
+   } 
+
+    errorStatus = i2c_repeatStart();
+    138a:	0e 94 d5 04 	call	0x9aa	; 0x9aa <i2c_repeatStart>
+   if(errorStatus == 1)
+    138e:	81 30       	cpi	r24, 0x01	; 1
+    1390:	19 f4       	brne	.+6      	; 0x1398 <RTC_read+0x42>
+   {
+     transmitString_F(PSTR("RTC repeat start failed.."));
+    1392:	87 e7       	ldi	r24, 0x77	; 119
+    1394:	96 e0       	ldi	r25, 0x06	; 6
+    1396:	16 c0       	rjmp	.+44     	; 0x13c4 <RTC_read+0x6e>
+   	 i2c_stop();
+	 return;
+   } 
+   
+    errorStatus = i2c_sendAddress(DS1307_R);
+    1398:	81 ed       	ldi	r24, 0xD1	; 209
+    139a:	0e 94 e5 04 	call	0x9ca	; 0x9ca <i2c_sendAddress>
+   
+   if(errorStatus == 1)
+    139e:	81 30       	cpi	r24, 0x01	; 1
+    13a0:	19 f4       	brne	.+6      	; 0x13a8 <RTC_read+0x52>
+   {
+     transmitString_F(PSTR("RTC sendAddress2 failed.."));
+    13a2:	8d e5       	ldi	r24, 0x5D	; 93
+    13a4:	96 e0       	ldi	r25, 0x06	; 6
+    13a6:	0e c0       	rjmp	.+28     	; 0x13c4 <RTC_read+0x6e>
+	 i2c_stop();
+	 return;
+    13a8:	c0 e0       	ldi	r28, 0x00	; 0
+    13aa:	d1 e0       	ldi	r29, 0x01	; 1
+    13ac:	10 e0       	ldi	r17, 0x00	; 0
+   } 
+ 
+    for(i=0;i<7;i++)
+   {
+      if(i == 6)  	 //no Acknowledge after receiving the last byte
+    13ae:	16 30       	cpi	r17, 0x06	; 6
+    13b0:	19 f4       	brne	.+6      	; 0x13b8 <RTC_read+0x62>
+	   	  data = i2c_receiveData_NACK();
+    13b2:	0e 94 23 05 	call	0xa46	; 0xa46 <i2c_receiveData_NACK>
+    13b6:	02 c0       	rjmp	.+4      	; 0x13bc <RTC_read+0x66>
+	  else
+	  	  data = i2c_receiveData_ACK();
+    13b8:	0e 94 12 05 	call	0xa24	; 0xa24 <i2c_receiveData_ACK>
+		  
+   	  if(data == ERROR_CODE)
+    13bc:	8e 37       	cpi	r24, 0x7E	; 126
+    13be:	29 f4       	brne	.+10     	; 0x13ca <RTC_read+0x74>
+   	  {
+       		transmitString_F(PSTR("RTC receive failed.."));
+    13c0:	88 e4       	ldi	r24, 0x48	; 72
+    13c2:	96 e0       	ldi	r25, 0x06	; 6
+    13c4:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+    13c8:	04 c0       	rjmp	.+8      	; 0x13d2 <RTC_read+0x7c>
+			i2c_stop();
+	   		return;
+   	  }
+	  
+	  rtc_register[i] = data;
+    13ca:	89 93       	st	Y+, r24
+     transmitString_F(PSTR("RTC sendAddress2 failed.."));
+	 i2c_stop();
+	 return;
+   } 
+ 
+    for(i=0;i<7;i++)
+    13cc:	1f 5f       	subi	r17, 0xFF	; 255
+    13ce:	17 30       	cpi	r17, 0x07	; 7
+    13d0:	71 f7       	brne	.-36     	; 0x13ae <RTC_read+0x58>
+   	  }
+	  
+	  rtc_register[i] = data;
+	}
+	
+	i2c_stop();
+    13d2:	0e 94 34 05 	call	0xa68	; 0xa68 <i2c_stop>
+}	  
+    13d6:	df 91       	pop	r29
+    13d8:	cf 91       	pop	r28
+    13da:	1f 91       	pop	r17
+    13dc:	08 95       	ret
+
+000013de <RTC_getDate>:
+//******************************************************************
+//Function to form date string for sending it to LCD & UART
+//****************************************************************** 
+void RTC_getDate(void)
+{
+  RTC_read();
+    13de:	0e 94 ab 09 	call	0x1356	; 0x1356 <RTC_read>
+  date[11] = 0x00;
+    13e2:	10 92 1d 01 	sts	0x011D, r1
+  date[10] = 0x00;
+    13e6:	10 92 1c 01 	sts	0x011C, r1
+  date[9] = (YEAR & 0x0f) | 0x30;
+    13ea:	90 91 06 01 	lds	r25, 0x0106
+    13ee:	89 2f       	mov	r24, r25
+    13f0:	8f 70       	andi	r24, 0x0F	; 15
+    13f2:	80 63       	ori	r24, 0x30	; 48
+    13f4:	80 93 1b 01 	sts	0x011B, r24
+  date[8] = ((YEAR & 0xf0) >> 4) | 0x30;
+    13f8:	92 95       	swap	r25
+    13fa:	9f 70       	andi	r25, 0x0F	; 15
+    13fc:	90 63       	ori	r25, 0x30	; 48
+    13fe:	90 93 1a 01 	sts	0x011A, r25
+  date[7] = '0';
+    1402:	80 e3       	ldi	r24, 0x30	; 48
+    1404:	80 93 19 01 	sts	0x0119, r24
+  date[6] = '2';
+    1408:	82 e3       	ldi	r24, 0x32	; 50
+    140a:	80 93 18 01 	sts	0x0118, r24
+  date[5] = '/';
+    140e:	3f e2       	ldi	r19, 0x2F	; 47
+    1410:	30 93 17 01 	sts	0x0117, r19
+  date[4] = (MONTH & 0x0f) | 0x30;
+    1414:	80 91 05 01 	lds	r24, 0x0105
+    1418:	28 2f       	mov	r18, r24
+    141a:	2f 70       	andi	r18, 0x0F	; 15
+    141c:	20 63       	ori	r18, 0x30	; 48
+    141e:	20 93 16 01 	sts	0x0116, r18
+  date[3] = ((MONTH & 0x10) >> 4) | 0x30;
+    1422:	90 e0       	ldi	r25, 0x00	; 0
+    1424:	80 71       	andi	r24, 0x10	; 16
+    1426:	90 70       	andi	r25, 0x00	; 0
+    1428:	44 e0       	ldi	r20, 0x04	; 4
+    142a:	95 95       	asr	r25
+    142c:	87 95       	ror	r24
+    142e:	4a 95       	dec	r20
+    1430:	e1 f7       	brne	.-8      	; 0x142a <RTC_getDate+0x4c>
+    1432:	80 63       	ori	r24, 0x30	; 48
+    1434:	80 93 15 01 	sts	0x0115, r24
+  date[2] = '/';
+    1438:	30 93 14 01 	sts	0x0114, r19
+  date[1] = (DATE & 0x0f) | 0x30;
+    143c:	80 91 04 01 	lds	r24, 0x0104
+    1440:	28 2f       	mov	r18, r24
+    1442:	2f 70       	andi	r18, 0x0F	; 15
+    1444:	20 63       	ori	r18, 0x30	; 48
+    1446:	20 93 13 01 	sts	0x0113, r18
+  date[0] = ((DATE & 0x30) >> 4) | 0x30;
+    144a:	90 e0       	ldi	r25, 0x00	; 0
+    144c:	80 73       	andi	r24, 0x30	; 48
+    144e:	90 70       	andi	r25, 0x00	; 0
+    1450:	24 e0       	ldi	r18, 0x04	; 4
+    1452:	95 95       	asr	r25
+    1454:	87 95       	ror	r24
+    1456:	2a 95       	dec	r18
+    1458:	e1 f7       	brne	.-8      	; 0x1452 <RTC_getDate+0x74>
+    145a:	80 63       	ori	r24, 0x30	; 48
+    145c:	80 93 12 01 	sts	0x0112, r24
+}  
+    1460:	08 95       	ret
+
+00001462 <RTC_displayDate>:
+//******************************************************************
+//Function to display date on LCD and send it to PC (UART)
+//****************************************************************** 
+void RTC_displayDate(void)
+{
+  RTC_getDate();
+    1462:	0e 94 ef 09 	call	0x13de	; 0x13de <RTC_getDate>
+  TX_NEWLINE;
+    1466:	8d e0       	ldi	r24, 0x0D	; 13
+    1468:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    146c:	8a e0       	ldi	r24, 0x0A	; 10
+    146e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  transmitString_F(PSTR("Date:")); 
+    1472:	8c e3       	ldi	r24, 0x3C	; 60
+    1474:	96 e0       	ldi	r25, 0x06	; 6
+    1476:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+  transmitString(date);  
+    147a:	82 e1       	ldi	r24, 0x12	; 18
+    147c:	91 e0       	ldi	r25, 0x01	; 1
+    147e:	0e 94 b4 0a 	call	0x1568	; 0x1568 <transmitString>
+  RTC_displayDay();   
+    1482:	0e 94 97 07 	call	0xf2e	; 0xf2e <RTC_displayDay>
+}
+    1486:	08 95       	ret
+
+00001488 <RTC_getTime>:
+//******************************************************************
+//Function to form time string for sending it to LCD & UART
+//****************************************************************** 
+void RTC_getTime(void)
+{
+   RTC_read();
+    1488:	0e 94 ab 09 	call	0x1356	; 0x1356 <RTC_read>
+   time[8] = 0x00;	  //NIL
+    148c:	10 92 0f 01 	sts	0x010F, r1
+   time[7] = (SECONDS & 0x0f) | 0x30;		//seconds(1's)
+    1490:	80 91 00 01 	lds	r24, 0x0100
+    1494:	28 2f       	mov	r18, r24
+    1496:	2f 70       	andi	r18, 0x0F	; 15
+    1498:	20 63       	ori	r18, 0x30	; 48
+    149a:	20 93 0e 01 	sts	0x010E, r18
+   time[6] = ((SECONDS & 0x70) >> 4) | 0x30;		//seconds(10's)
+    149e:	90 e0       	ldi	r25, 0x00	; 0
+    14a0:	80 77       	andi	r24, 0x70	; 112
+    14a2:	90 70       	andi	r25, 0x00	; 0
+    14a4:	74 e0       	ldi	r23, 0x04	; 4
+    14a6:	95 95       	asr	r25
+    14a8:	87 95       	ror	r24
+    14aa:	7a 95       	dec	r23
+    14ac:	e1 f7       	brne	.-8      	; 0x14a6 <RTC_getTime+0x1e>
+    14ae:	80 63       	ori	r24, 0x30	; 48
+    14b0:	80 93 0d 01 	sts	0x010D, r24
+   time[5] = ':';
+    14b4:	3a e3       	ldi	r19, 0x3A	; 58
+    14b6:	30 93 0c 01 	sts	0x010C, r19
+   
+   time[4] = (MINUTES & 0x0f) | 0x30;
+    14ba:	80 91 01 01 	lds	r24, 0x0101
+    14be:	28 2f       	mov	r18, r24
+    14c0:	2f 70       	andi	r18, 0x0F	; 15
+    14c2:	20 63       	ori	r18, 0x30	; 48
+    14c4:	20 93 0b 01 	sts	0x010B, r18
+   time[3] = ((MINUTES & 0x70) >> 4) | 0x30;
+    14c8:	90 e0       	ldi	r25, 0x00	; 0
+    14ca:	80 77       	andi	r24, 0x70	; 112
+    14cc:	90 70       	andi	r25, 0x00	; 0
+    14ce:	64 e0       	ldi	r22, 0x04	; 4
+    14d0:	95 95       	asr	r25
+    14d2:	87 95       	ror	r24
+    14d4:	6a 95       	dec	r22
+    14d6:	e1 f7       	brne	.-8      	; 0x14d0 <RTC_getTime+0x48>
+    14d8:	80 63       	ori	r24, 0x30	; 48
+    14da:	80 93 0a 01 	sts	0x010A, r24
+   time[2] = ':'; 
+    14de:	30 93 09 01 	sts	0x0109, r19
+   
+   time[1] = (HOURS & 0x0f) | 0x30;	
+    14e2:	80 91 02 01 	lds	r24, 0x0102
+    14e6:	28 2f       	mov	r18, r24
+    14e8:	2f 70       	andi	r18, 0x0F	; 15
+    14ea:	20 63       	ori	r18, 0x30	; 48
+    14ec:	20 93 08 01 	sts	0x0108, r18
+   time[0] = ((HOURS & 0x30) >> 4) | 0x30;
+    14f0:	90 e0       	ldi	r25, 0x00	; 0
+    14f2:	80 73       	andi	r24, 0x30	; 48
+    14f4:	90 70       	andi	r25, 0x00	; 0
+    14f6:	54 e0       	ldi	r21, 0x04	; 4
+    14f8:	95 95       	asr	r25
+    14fa:	87 95       	ror	r24
+    14fc:	5a 95       	dec	r21
+    14fe:	e1 f7       	brne	.-8      	; 0x14f8 <RTC_getTime+0x70>
+    1500:	80 63       	ori	r24, 0x30	; 48
+    1502:	80 93 07 01 	sts	0x0107, r24
+}
+    1506:	08 95       	ret
+
+00001508 <RTC_displayTime>:
+//******************************************************************
+//Function to display time on LCD and send it to PC (thru UART)
+//****************************************************************** 
+void RTC_displayTime(void)
+{
+  RTC_getTime();
+    1508:	0e 94 44 0a 	call	0x1488	; 0x1488 <RTC_getTime>
+ 
+  TX_NEWLINE;
+    150c:	8d e0       	ldi	r24, 0x0D	; 13
+    150e:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+    1512:	8a e0       	ldi	r24, 0x0A	; 10
+    1514:	0e 94 a6 0a 	call	0x154c	; 0x154c <transmitByte>
+  transmitString_F(PSTR("Time:")); 
+    1518:	82 e4       	ldi	r24, 0x42	; 66
+    151a:	96 e0       	ldi	r25, 0x06	; 6
+    151c:	0e 94 aa 0a 	call	0x1554	; 0x1554 <transmitString_F>
+  transmitString(time);     
+    1520:	87 e0       	ldi	r24, 0x07	; 7
+    1522:	91 e0       	ldi	r25, 0x01	; 1
+    1524:	0e 94 b4 0a 	call	0x1568	; 0x1568 <transmitString>
+}
+    1528:	08 95       	ret
+
+0000152a <uart0_init>:
+//char size: 8 bit
+//parity: Disabled
+//**************************************************
+void uart0_init(void)
+{
+ UCSR0B = 0x00; //disable while setting baud rate
+    152a:	1a b8       	out	0x0a, r1	; 10
+ UCSR0A = 0x00;
+    152c:	1b b8       	out	0x0b, r1	; 11
+ UCSR0C = 0x06;
+    152e:	86 e0       	ldi	r24, 0x06	; 6
+    1530:	80 93 95 00 	sts	0x0095, r24
+ UBRR0L = 0x33; //set baud rate lo
+    1534:	83 e3       	ldi	r24, 0x33	; 51
+    1536:	89 b9       	out	0x09, r24	; 9
+ UBRR0H = 0x00; //set baud rate hi
+    1538:	10 92 90 00 	sts	0x0090, r1
+ UCSR0B = 0x98;
+    153c:	88 e9       	ldi	r24, 0x98	; 152
+    153e:	8a b9       	out	0x0a, r24	; 10
+}
+    1540:	08 95       	ret
+
+00001542 <receiveByte>:
+//*************************************************
+unsigned char receiveByte( void )
+{
+	unsigned char data, status;
+	
+	while(!(UCSR0A & (1<<RXC0))); 	// Wait for incomming data
+    1542:	5f 9b       	sbis	0x0b, 7	; 11
+    1544:	fe cf       	rjmp	.-4      	; 0x1542 <receiveByte>
+	
+	status = UCSR0A;
+    1546:	8b b1       	in	r24, 0x0b	; 11
+	data = UDR0;
+    1548:	8c b1       	in	r24, 0x0c	; 12
+		   
+	return(data);
+}
+    154a:	08 95       	ret
+
+0000154c <transmitByte>:
+//***************************************************
+//Function to transmit a single byte
+//***************************************************
+void transmitByte( unsigned char data )
+{
+	while ( !(UCSR0A & (1<<UDRE0)) )
+    154c:	5d 9b       	sbis	0x0b, 5	; 11
+    154e:	fe cf       	rjmp	.-4      	; 0x154c <transmitByte>
+		; 			                /* Wait for empty transmit buffer */
+	UDR0 = data; 			        /* Start transmition */
+    1550:	8c b9       	out	0x0c, r24	; 12
+}
+    1552:	08 95       	ret
+
+00001554 <transmitString_F>:
+
+//***************************************************
+//Function to transmit a string in Flash
+//***************************************************
+void transmitString_F(char* string)
+{
+    1554:	fc 01       	movw	r30, r24
+    1556:	04 c0       	rjmp	.+8      	; 0x1560 <transmitString_F+0xc>
+//***************************************************
+//Function to transmit a single byte
+//***************************************************
+void transmitByte( unsigned char data )
+{
+	while ( !(UCSR0A & (1<<UDRE0)) )
+    1558:	5d 9b       	sbis	0x0b, 5	; 11
+    155a:	fe cf       	rjmp	.-4      	; 0x1558 <transmitString_F+0x4>
+//Function to transmit a string in Flash
+//***************************************************
+void transmitString_F(char* string)
+{
+  while (pgm_read_byte(&(*string)))
+   transmitByte(pgm_read_byte(&(*string++)));
+    155c:	31 96       	adiw	r30, 0x01	; 1
+//***************************************************
+void transmitByte( unsigned char data )
+{
+	while ( !(UCSR0A & (1<<UDRE0)) )
+		; 			                /* Wait for empty transmit buffer */
+	UDR0 = data; 			        /* Start transmition */
+    155e:	8c b9       	out	0x0c, r24	; 12
+//***************************************************
+//Function to transmit a string in Flash
+//***************************************************
+void transmitString_F(char* string)
+{
+  while (pgm_read_byte(&(*string)))
+    1560:	84 91       	lpm	r24, Z+
+    1562:	88 23       	and	r24, r24
+    1564:	c9 f7       	brne	.-14     	; 0x1558 <transmitString_F+0x4>
+   transmitByte(pgm_read_byte(&(*string++)));
+}
+    1566:	08 95       	ret
+
+00001568 <transmitString>:
+
+//***************************************************
+//Function to transmit a string in RAM
+//***************************************************
+void transmitString(char* string)
+{
+    1568:	fc 01       	movw	r30, r24
+    156a:	04 c0       	rjmp	.+8      	; 0x1574 <transmitString+0xc>
+//***************************************************
+//Function to transmit a single byte
+//***************************************************
+void transmitByte( unsigned char data )
+{
+	while ( !(UCSR0A & (1<<UDRE0)) )
+    156c:	5d 9b       	sbis	0x0b, 5	; 11
+    156e:	fe cf       	rjmp	.-4      	; 0x156c <transmitString+0x4>
+//Function to transmit a string in RAM
+//***************************************************
+void transmitString(char* string)
+{
+    while (*string)
+		transmitByte(*string++);
+    1570:	31 96       	adiw	r30, 0x01	; 1
+//***************************************************
+void transmitByte( unsigned char data )
+{
+	while ( !(UCSR0A & (1<<UDRE0)) )
+		; 			                /* Wait for empty transmit buffer */
+	UDR0 = data; 			        /* Start transmition */
+    1572:	8c b9       	out	0x0c, r24	; 12
+//***************************************************
+//Function to transmit a string in RAM
+//***************************************************
+void transmitString(char* string)
+{
+    while (*string)
+    1574:	80 81       	ld	r24, Z
+    1576:	88 23       	and	r24, r24
+    1578:	c9 f7       	brne	.-14     	; 0x156c <transmitString+0x4>
+		transmitByte(*string++);
+}
+    157a:	08 95       	ret
+
+0000157c <_exit>:
+    157c:	f8 94       	cli
+
+0000157e <__stop_program>:
+    157e:	ff cf       	rjmp	.-2      	; 0x157e <__stop_program>
