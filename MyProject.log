@@ -1,0 +1,332 @@
+0	1	mBAVR.exe -MSF -DBG -pATMEGA128 -LHF -GC -Y -DL -SSA -RA -O11111114 -fo8 -N"H:\button_test2\MyProject.mbpav" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\" -SP"H:\button_test2\" -SP"C:\Program Files\mikroBasic PRO for AVR\defs\" -SP"C:\Program Files\mikroBasic PRO for AVR\uses\lte64kw\" -SP"C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\defs\" -SP"C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw\" -SP"C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs\" -SP"C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\" -SP"G:\button_test2\" -SP"C:\Documents and Settings\saeed\My Documents\Timer\button_test2\" -SP"E:\microc_test\button_test\button_test2\" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CType.mcl" "__Lib_String.mcl" "__Lib_CStdlib.mcl" "__Lib_MemManager.mcl" "__Lib_Conversions.mcl" "__Lib_Time.mcl" "__Lib_Trigon.mcl" "__Lib_Trigonometry.mcl" "__Lib_Button.mcl" "__Lib_Keypad4x4.mcl" "__Lib_Manchester.mcl" "__Lib_OneWire.mcl" "__Lib_PS2.mcl" "__Lib_Sound.mcl" "__Lib_SoftI2C.mcl" "__Lib_SoftSPI.mcl" "__Lib_SoftUART.mcl" "__Lib_ADC.mcl" "__Lib_EEPROM_eew.mcl" "__Lib_FLASH_rwe_ext_eio.mcl" "__Lib_PWM_0_presc.mcl" "__Lib_PWM1_2.mcl" "__Lib_PWM16bit.mcl" "__Lib_SPI_b1320_x2.mcl" "__Lib_TWI_eio.mcl" "__Lib_UART_e01_d23.mcl" "__Lib_PortExpander.mcl" "__Lib_CANSPI.mcl" "__Lib_CF.mcl" "__Lib_CFFat16.mcl" "__Lib_GlcdFonts.mcl" "__Lib_Glcd.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl" "__Lib_Mmc.mcl" "__Lib_MmcFat16.mcl" "__Lib_MmcFat16_Defs.mcl" "__Lib_RS485.mcl" "__Lib_S1D13700.mcl" "__Lib_T6963C.mcl" "__Lib_T6963C_Consts.mcl" "__Lib_SPIGlcd.mcl" "__Lib_SPILcd.mcl" "__Lib_SPILcd8.mcl" "__Lib_SPIT6963C.mcl" "__Lib_SPIT6963C_Const.mcl" "__Lib_TFT.mcl" "__Lib_TFT_Defs.mcl" "__Lib_TFT_16bit.mcl" "__Lib_TFT_16bit_Defs.mcl" "__Lib_TouchPanel_TFT_C.mcl" "__Lib_TouchPanel.mcl" "__Lib_EthEnc28j60.mcl" "__Lib_EthEnc24j600.mcl" "MyProject.mbas"	 
+warning: 0	1501	Specified search path does not exist: 'C:\Program Files\mikroBasic PRO for AVR\defs'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Program Files\mikroBasic PRO for AVR\uses\lte64kw'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\defs'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw'	 
+warning: 0	1501	Specified search path does not exist: 'G:\button_test2'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\saeed\My Documents\Timer\button_test2'	 
+diagnostics: 0	133	Compilation Started	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\ATMEGA128.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\ATMEGA128.mbas"	ATMEGA128.mbas
+hint: 1831	1010	Hint: Unit "ATMEGA128.mbas" has been recompiled	ATMEGA128.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\ATMEGA128.mbas
+diagnostics: 0	133	Compilation Started	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_Delays.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_Delays.mbas"	__Lib_Delays.mbas
+hint: 259	1010	Hint: Unit "__Lib_Delays.mbas" has been recompiled	__Lib_Delays.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_Delays.mbas
+diagnostics: 0	133	Compilation Started	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_MmcFat16_Defs.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_MmcFat16_Defs.mbas"	__Lib_MmcFat16_Defs.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_MmcFat16_Defs.mbas"	__Lib_MmcFat16_Defs.mbas
+hint: 193	1010	Hint: Unit "__Lib_MmcFat16_Defs.mbas" has been recompiled	__Lib_MmcFat16_Defs.mbas
+hint: 193	1010	Hint: Unit "__Lib_MmcFat16_Defs.mbas" has been recompiled	__Lib_MmcFat16_Defs.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_MmcFat16_Defs.mbas
+diagnostics: 0	133	Compilation Started	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_Defs.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_Defs.mbas"	__Lib_TFT_Defs.mbas
+hint: 2200	1010	Hint: Unit "__Lib_TFT_Defs.mbas" has been recompiled	__Lib_TFT_Defs.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_Defs.mbas
+diagnostics: 0	133	Compilation Started	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_16bit_Defs.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_16bit_Defs.mbas"	__Lib_TFT_16bit_Defs.mbas
+hint: 2071	1010	Hint: Unit "__Lib_TFT_16bit_Defs.mbas" has been recompiled	__Lib_TFT_16bit_Defs.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_16bit_Defs.mbas
+diagnostics: 0	133	Compilation Started	H:\button_test2\MyProject.mbas
+hint: 1	1015	Hint: Compiling unit "H:\button_test2\MyProject.mbas"	MyProject.mbas
+hint: 197	1021	Hint: interrupt handler (Timer2_Compare at 0x0012)	MyProject.mbas
+hint: 201	1021	Hint: interrupt handler (Timer0_overflow at 0x0020)	MyProject.mbas
+warning: 268	1509	Warning: Implicit typecast performed from "longint" to "float"	MyProject.mbas
+warning: 268	1509	Warning: Implicit typecast performed from "byte" to "float"	MyProject.mbas
+warning: 268	1509	Warning: Implicit typecast performed from "integer" to "double"	MyProject.mbas
+warning: 268	1509	Warning: Implicit typecast performed from "integer" to "double"	MyProject.mbas
+warning: 268	1509	Warning: Implicit typecast performed from "double" to "integer"	MyProject.mbas
+warning: 279	1509	Warning: Implicit typecast performed from "longint" to "double"	MyProject.mbas
+warning: 280	1516	Warning: Source size (4) does not match destination size (23)	MyProject.mbas
+warning: 299	1509	Warning: Implicit typecast performed from "longint" to "double"	MyProject.mbas
+warning: 300	1516	Warning: Source size (4) does not match destination size (23)	MyProject.mbas
+warning: 598	1509	Warning: Implicit typecast performed from "longint" to "double"	MyProject.mbas
+warning: 648	1509	Warning: Implicit typecast performed from "longint" to "double"	MyProject.mbas
+warning: 1068	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1071	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1093	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1096	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1117	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1120	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1132	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1135	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1217	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1220	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1237	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1240	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1252	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1255	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1270	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1273	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1407	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1410	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1427	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1430	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1442	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1445	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1464	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1467	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1499	1516	Warning: Source size (1) does not match destination size (3)	MyProject.mbas
+warning: 1617	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1620	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1637	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1640	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1652	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1655	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1682	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1685	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1744	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1745	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1746	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1758	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1769	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1780	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1791	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1802	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1813	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1824	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1833	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1836	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1853	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1856	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1868	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1871	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1881	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1882	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1888	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1891	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 1901	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1902	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1925	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1926	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1927	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 1940	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1951	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1962	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1973	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1984	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 1995	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 2006	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 2015	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2018	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2035	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2038	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2050	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2053	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2063	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 2064	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 2070	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2073	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2083	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 2084	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 2110	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 2111	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 2112	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 2215	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2218	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2235	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2238	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2250	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2253	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2270	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2273	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2307	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 2348	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 2390	1516	Warning: Source size (2) does not match destination size (3)	MyProject.mbas
+warning: 2438	1516	Warning: Source size (3) does not match destination size (2)	MyProject.mbas
+warning: 2488	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2491	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2509	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2512	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2524	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2527	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2554	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2557	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2612	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2615	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2632	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2635	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2647	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2650	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2669	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2672	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2813	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2816	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2833	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2836	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2848	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2851	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2870	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 2873	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3048	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3051	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3063	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3066	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3172	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3175	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3271	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3274	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3510	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3513	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3526	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3529	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3897	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 3900	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4059	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4062	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4419	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4422	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4566	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4569	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4878	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4882	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4900	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4903	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4911	1516	Warning: Source size (23) does not match destination size (19)	MyProject.mbas
+warning: 4944	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4947	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4985	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 4988	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5068	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5072	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5090	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5093	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5130	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5133	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5171	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5174	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5265	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5269	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5287	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5290	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5390	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5393	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5493	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5496	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5561	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5568	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5575	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5579	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5619	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5624	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5663	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5670	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5686	1516	Warning: Source size (19) does not match destination size (16)	MyProject.mbas
+warning: 5687	1516	Warning: Source size (16) does not match destination size (11)	MyProject.mbas
+warning: 5792	1516	Warning: Source size (17) does not match destination size (16)	MyProject.mbas
+warning: 5813	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5817	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5835	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5838	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5844	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5847	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5854	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5857	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5943	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5947	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5965	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 5968	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6068	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6071	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6171	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6174	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6263	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6267	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6285	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6288	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6388	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6391	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6491	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6494	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6620	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6624	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6640	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6643	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6726	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6729	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6810	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 6813	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+hint: 7092	1021	Hint: interrupt handler (interrupt_ISR at 0x0006)	MyProject.mbas
+warning: 7121	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 7128	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+hint: 7150	1021	Hint: interrupt handler (interrupt_ISR_0 at 0x0002)	MyProject.mbas
+hint: 440	1001	Hint: Variable "device_address" has been declared, but not used	MyProject.mbas
+hint: 2294	1001	Hint: Variable "Pwm_1" has been declared, but not used	MyProject.mbas
+hint: 2592	1001	Hint: Variable "week_day" has been declared, but not used	MyProject.mbas
+hint: 3028	1001	Hint: Variable "txt1" has been declared, but not used	MyProject.mbas
+hint: 3030	1001	Hint: Variable "kp" has been declared, but not used	MyProject.mbas
+hint: 3030	1001	Hint: Variable "ok" has been declared, but not used	MyProject.mbas
+hint: 3129	1001	Hint: Variable "txt1" has been declared, but not used	MyProject.mbas
+hint: 3132	1001	Hint: Variable "kp2" has been declared, but not used	MyProject.mbas
+hint: 3132	1001	Hint: Variable "ok2" has been declared, but not used	MyProject.mbas
+hint: 3135	1001	Hint: Variable "minutes_1" has been declared, but not used	MyProject.mbas
+hint: 3135	1001	Hint: Variable "on_off22" has been declared, but not used	MyProject.mbas
+hint: 3458	1001	Hint: Variable "txt1" has been declared, but not used	MyProject.mbas
+hint: 3461	1001	Hint: Variable "kp2" has been declared, but not used	MyProject.mbas
+hint: 3461	1001	Hint: Variable "ok2" has been declared, but not used	MyProject.mbas
+hint: 3463	1001	Hint: Variable "minutes_1" has been declared, but not used	MyProject.mbas
+hint: 3836	1001	Hint: Variable "txt1" has been declared, but not used	MyProject.mbas
+hint: 3839	1001	Hint: Variable "kp2" has been declared, but not used	MyProject.mbas
+hint: 3839	1001	Hint: Variable "ok2" has been declared, but not used	MyProject.mbas
+hint: 4364	1001	Hint: Variable "txt1" has been declared, but not used	MyProject.mbas
+hint: 4367	1001	Hint: Variable "kp2" has been declared, but not used	MyProject.mbas
+hint: 4367	1001	Hint: Variable "ok2" has been declared, but not used	MyProject.mbas
+hint: 4854	1001	Hint: Variable "ok1" has been declared, but not used	MyProject.mbas
+hint: 5046	1001	Hint: Variable "ok1" has been declared, but not used	MyProject.mbas
+hint: 5239	1001	Hint: Variable "ok1" has been declared, but not used	MyProject.mbas
+hint: 5559	1001	Hint: Variable "kp1" has been declared, but not used	MyProject.mbas
+hint: 5559	1001	Hint: Variable "sate" has been declared, but not used	MyProject.mbas
+hint: 5917	1001	Hint: Variable "ok1" has been declared, but not used	MyProject.mbas
+hint: 6237	1001	Hint: Variable "ok1" has been declared, but not used	MyProject.mbas
+hint: 7032	1001	Hint: Variable "hx" has been declared, but not used	MyProject.mbas
+hint: 7033	1001	Hint: Variable "hx1" has been declared, but not used	MyProject.mbas
+hint: 7034	1001	Hint: Variable "txt_sub" has been declared, but not used	MyProject.mbas
+hint: 276	1011	Hint: Variable "ii" has been eliminated by optimizer	MyProject.mbas
+hint: 277	1011	Hint: Variable "jjyear" has been eliminated by optimizer	MyProject.mbas
+hint: 412	1011	Hint: Variable "error" has been eliminated by optimizer	MyProject.mbas
+hint: 439	1011	Hint: Variable "hi_" has been eliminated by optimizer	MyProject.mbas
+hint: 440	1011	Hint: Variable "device_address" has been eliminated by optimizer	MyProject.mbas
+hint: 814	1011	Hint: Variable "farvardin1st_iMonth" has been eliminated by optimizer	MyProject.mbas
+hint: 814	1011	Hint: Variable "farvardin1st_iDay" has been eliminated by optimizer	MyProject.mbas
+hint: 2294	1011	Hint: Variable "Pwm_1" has been eliminated by optimizer	MyProject.mbas
+hint: 3028	1011	Hint: Variable "txt1" has been eliminated by optimizer	MyProject.mbas
+hint: 3030	1011	Hint: Variable "kp" has been eliminated by optimizer	MyProject.mbas
+hint: 3030	1011	Hint: Variable "ok" has been eliminated by optimizer	MyProject.mbas
+hint: 3129	1011	Hint: Variable "txt1" has been eliminated by optimizer	MyProject.mbas
+hint: 3132	1011	Hint: Variable "kp2" has been eliminated by optimizer	MyProject.mbas
+hint: 3132	1011	Hint: Variable "ok2" has been eliminated by optimizer	MyProject.mbas
+hint: 3135	1011	Hint: Variable "minutes_1" has been eliminated by optimizer	MyProject.mbas
+hint: 3135	1011	Hint: Variable "on_off22" has been eliminated by optimizer	MyProject.mbas
+hint: 3458	1011	Hint: Variable "txt1" has been eliminated by optimizer	MyProject.mbas
+hint: 3461	1011	Hint: Variable "kp2" has been eliminated by optimizer	MyProject.mbas
+hint: 3461	1011	Hint: Variable "ok2" has been eliminated by optimizer	MyProject.mbas
+hint: 3463	1011	Hint: Variable "minutes_1" has been eliminated by optimizer	MyProject.mbas
+hint: 3836	1011	Hint: Variable "txt1" has been eliminated by optimizer	MyProject.mbas
+hint: 3839	1011	Hint: Variable "kp2" has been eliminated by optimizer	MyProject.mbas
+hint: 3839	1011	Hint: Variable "ok2" has been eliminated by optimizer	MyProject.mbas
+hint: 4364	1011	Hint: Variable "txt1" has been eliminated by optimizer	MyProject.mbas
+hint: 4367	1011	Hint: Variable "kp2" has been eliminated by optimizer	MyProject.mbas
+hint: 4367	1011	Hint: Variable "ok2" has been eliminated by optimizer	MyProject.mbas
+hint: 4369	1011	Hint: Variable "minutes_1" has been eliminated by optimizer	MyProject.mbas
+hint: 4369	1011	Hint: Variable "on_off22" has been eliminated by optimizer	MyProject.mbas
+hint: 4854	1011	Hint: Variable "ok1" has been eliminated by optimizer	MyProject.mbas
+hint: 5046	1011	Hint: Variable "ok1" has been eliminated by optimizer	MyProject.mbas
+hint: 5239	1011	Hint: Variable "ok1" has been eliminated by optimizer	MyProject.mbas
+hint: 5917	1011	Hint: Variable "ok1" has been eliminated by optimizer	MyProject.mbas
+hint: 6237	1011	Hint: Variable "ok1" has been eliminated by optimizer	MyProject.mbas
+hint: 7032	1011	Hint: Variable "hx" has been eliminated by optimizer	MyProject.mbas
+hint: 7033	1011	Hint: Variable "hx1" has been eliminated by optimizer	MyProject.mbas
+hint: 7034	1011	Hint: Variable "txt_sub" has been eliminated by optimizer	MyProject.mbas
+hint: 7669	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
+diagnostics: 0	134	Compiled Successfully	H:\button_test2\MyProject.mbas
+diagnostics: 0	139	All files Compiled in 6942 ms	 
+hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
+hint: 0	1144	Static RAM (bytes): 3320   Dynamic RAM (bytes): 776	Static RAM (bytes): 3320   Dynamic RAM (bytes): 776
+hint: 0	1144	Used ROM (bytes): 88824 (68%)  Free ROM (bytes): 42248 (32%)	Used ROM (bytes): 88824 (68%)  Free ROM (bytes): 42248 (32%)
+diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
+hint: 0	1004	COFF file successfully generated	COFF file successfully generated
+diagnostics: 0	140	Linked in 8580 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 16427 ms	 
+diagnostics: 0	103	Finished successfully: 08 Ёж—не 2016, 23:41:35	MyProject.mbpav
