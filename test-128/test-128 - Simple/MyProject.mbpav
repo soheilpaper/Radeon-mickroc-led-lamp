@@ -1,0 +1,116 @@
+[DEVICE]
+Name=ATMEGA128
+Clock=8000000
+[MEMORY_MODEL]
+Value=-1
+[BUILD_TYPE]
+Value=0
+[BOOT_TYPE]
+Value=0
+[ACTIVE_TAB]
+Value=MyProject.mbas
+[USE_EEPROM]
+Value=0
+[USE_HEAP]
+Value=0
+[HEAP_SIZE]
+Value=2000
+[EEPROM_DEFINITION]
+Value=
+[FILES]
+Count=1
+File0=MyProject.mbas
+[BINARIES]
+Count=0
+[IMAGES]
+Count=0
+ActiveImageIndex=-1
+[OPENED_FILES]
+Count=1
+File0=MyProject.mbas
+[EEPROM]
+Count=0
+[ACTIVE_COMMENTS_FILES]
+Count=0
+[OTHER_FILES]
+Count=0
+[SEARCH_PATH]
+Count=13
+Path0=C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\defs\
+Path1=C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw\
+Path2=H:\button_test2\test-128\test-128 - Simple\
+Path3=C:\Program Files\mikroBasic PRO for AVR\defs\
+Path4=C:\Program Files\mikroBasic PRO for AVR\uses\lte64kw\
+Path5=H:\button_test2\test-128 - Simple\
+Path6=C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs\
+Path7=C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\
+Path8=C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\
+Path9=C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\
+Path10=H:\button_test2\test-128 - Copy\
+Path11=H:\button_test2\test-128\
+Path12=G:\button_test2\test-128\
+[HEADER_PATH]
+Count=0
+[HEADERS]
+Count=0
+[PLDS]
+Count=0
+[Useses]
+Count=54
+File0=ADC
+File1=Button
+File2=CAN_SPI
+File3=Compact_Flash
+File4=Compact_Flash_FAT16
+File5=Conversions
+File6=C_Stdlib
+File7=C_Type
+File8=EEPROM
+File9=EPSON_S1D13700
+File10=FLASH
+File11=Glcd
+File12=Glcd_Fonts
+File13=Keypad4x4
+File14=Lcd
+File15=Lcd_Constants
+File16=Manchester
+File17=MemManager
+File18=Mmc
+File19=Mmc_FAT16
+File20=Mmc_FAT16_Defs
+File21=One_Wire
+File22=Port_Expander
+File23=PS2
+File24=PWM1
+File25=PWM16bit
+File26=PWM2
+File27=RS485
+File28=Software_I2C
+File29=Software_SPI
+File30=Software_UART
+File31=Sound
+File32=SPI
+File33=SPIT6963C_Const
+File34=SPI_Ethernet
+File35=SPI_Ethernet_24j600
+File36=SPI_Glcd
+File37=SPI_Lcd
+File38=SPI_Lcd8
+File39=SPI_T6963C
+File40=String
+File41=T6963C
+File42=T6963C_Consts
+File43=TFT
+File44=TFT_16bit
+File45=TFT_16bit_Defs
+File46=TFT_Defs
+File47=TFT_TouchPanel
+File48=Time
+File49=TouchPanel
+File50=Trigon
+File51=Trigonometry
+File52=TWI
+File53=UART
+[EXPANDED NODES]
+Node1=Sources
+Count=1

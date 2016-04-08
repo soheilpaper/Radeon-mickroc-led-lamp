@@ -1,0 +1,71 @@
+0	1	mBAVR.exe -MSF -DBG -pATMEGA128 -LHF -GC -Y -DL -SSA -RA -O11111114 -fo8 -BOOTSZ4096 -BOOTOP0 -N"H:\button_test2\test-128\MyProject.mbpav" -SP"C:\Program Files\mikroBasic PRO for AVR\defs\" -SP"C:\Program Files\mikroBasic PRO for AVR\uses\lte64kw\" -SP"H:\button_test2\test-128\" -SP"C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\defs\" -SP"C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\" -SP"C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs\" -SP"C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw\" -SP"G:\button_test2\test-128\" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CType.mcl" "__Lib_String.mcl" "__Lib_CStdlib.mcl" "__Lib_MemManager.mcl" "__Lib_Conversions.mcl" "__Lib_Time.mcl" "__Lib_Trigon.mcl" "__Lib_Trigonometry.mcl" "__Lib_Button.mcl" "__Lib_Keypad4x4.mcl" "__Lib_Manchester.mcl" "__Lib_OneWire.mcl" "__Lib_PS2.mcl" "__Lib_Sound.mcl" "__Lib_SoftI2C.mcl" "__Lib_SoftSPI.mcl" "__Lib_SoftUART.mcl" "__Lib_ADC.mcl" "__Lib_EEPROM_eew.mcl" "__Lib_FLASH_rwe_ext_eio.mcl" "__Lib_PWM_0_presc.mcl" "__Lib_PWM1_2.mcl" "__Lib_PWM16bit.mcl" "__Lib_SPI_b1320_x2.mcl" "__Lib_TWI_eio.mcl" "__Lib_UART_e01_d23.mcl" "__Lib_PortExpander.mcl" "__Lib_CANSPI.mcl" "__Lib_CF.mcl" "__Lib_CFFat16.mcl" "__Lib_GlcdFonts.mcl" "__Lib_Glcd.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl" "__Lib_Mmc.mcl" "__Lib_MmcFat16.mcl" "__Lib_MmcFat16_Defs.mcl" "__Lib_RS485.mcl" "__Lib_S1D13700.mcl" "__Lib_T6963C.mcl" "__Lib_T6963C_Consts.mcl" "__Lib_SPIGlcd.mcl" "__Lib_SPILcd.mcl" "__Lib_SPILcd8.mcl" "__Lib_SPIT6963C.mcl" "__Lib_SPIT6963C_Const.mcl" "__Lib_TFT.mcl" "__Lib_TFT_Defs.mcl" "__Lib_TFT_16bit.mcl" "__Lib_TFT_16bit_Defs.mcl" "__Lib_TouchPanel_TFT_C.mcl" "__Lib_TouchPanel.mcl" "__Lib_EthEnc28j60.mcl" "__Lib_EthEnc24j600.mcl" "MyProject.mbas"	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\defs'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Elasa\Desktop\mikroBasic PRO for AVR\uses\lte64kw'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\defs'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Users\Public\Documents\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\defs'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Program Files\Mikroelektronika\mikroBasic PRO for AVR\uses\lte64kw'	 
+warning: 0	1501	Specified search path does not exist: 'G:\button_test2\test-128'	 
+diagnostics: 0	133	Compilation Started	C:\Program Files\mikroBasic PRO for AVR\defs\ATMEGA128.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Program Files\mikroBasic PRO for AVR\defs\ATMEGA128.mbas"	ATMEGA128.mbas
+hint: 1831	1010	Hint: Unit "ATMEGA128.mbas" has been recompiled	ATMEGA128.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Program Files\mikroBasic PRO for AVR\defs\ATMEGA128.mbas
+diagnostics: 0	133	Compilation Started	C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_Delays.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_Delays.mbas"	__Lib_Delays.mbas
+hint: 259	1010	Hint: Unit "__Lib_Delays.mbas" has been recompiled	__Lib_Delays.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_Delays.mbas
+diagnostics: 0	133	Compilation Started	C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_MmcFat16_Defs.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_MmcFat16_Defs.mbas"	__Lib_MmcFat16_Defs.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_MmcFat16_Defs.mbas"	__Lib_MmcFat16_Defs.mbas
+hint: 193	1010	Hint: Unit "__Lib_MmcFat16_Defs.mbas" has been recompiled	__Lib_MmcFat16_Defs.mbas
+hint: 193	1010	Hint: Unit "__Lib_MmcFat16_Defs.mbas" has been recompiled	__Lib_MmcFat16_Defs.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_MmcFat16_Defs.mbas
+diagnostics: 0	133	Compilation Started	C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_Defs.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_Defs.mbas"	__Lib_TFT_Defs.mbas
+hint: 2197	1010	Hint: Unit "__Lib_TFT_Defs.mbas" has been recompiled	__Lib_TFT_Defs.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_Defs.mbas
+diagnostics: 0	133	Compilation Started	C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_16bit_Defs.mbas
+hint: 1	1015	Hint: Compiling unit "C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_16bit_Defs.mbas"	__Lib_TFT_16bit_Defs.mbas
+hint: 2071	1010	Hint: Unit "__Lib_TFT_16bit_Defs.mbas" has been recompiled	__Lib_TFT_16bit_Defs.mbas
+diagnostics: 0	134	Compiled Successfully	C:\Program Files\mikroBasic PRO for AVR\Uses\LTE64KW\__Lib_TFT_16bit_Defs.mbas
+diagnostics: 0	133	Compilation Started	H:\button_test2\test-128\MyProject.mbas
+hint: 1	1015	Hint: Compiling unit "H:\button_test2\test-128\MyProject.mbas"	MyProject.mbas
+warning: 295	1516	Warning: Source size (5) does not match destination size (6)	MyProject.mbas
+warning: 327	1516	Warning: Source size (5) does not match destination size (6)	MyProject.mbas
+warning: 392	1509	Warning: Implicit typecast performed from "longint" to "float"	MyProject.mbas
+warning: 392	1509	Warning: Implicit typecast performed from "byte" to "float"	MyProject.mbas
+warning: 392	1509	Warning: Implicit typecast performed from "integer" to "double"	MyProject.mbas
+warning: 392	1509	Warning: Implicit typecast performed from "integer" to "double"	MyProject.mbas
+warning: 392	1509	Warning: Implicit typecast performed from "double" to "integer"	MyProject.mbas
+warning: 403	1509	Warning: Implicit typecast performed from "longint" to "double"	MyProject.mbas
+warning: 404	1516	Warning: Source size (4) does not match destination size (23)	MyProject.mbas
+warning: 413	1516	Warning: Source size (5) does not match destination size (6)	MyProject.mbas
+warning: 423	1509	Warning: Implicit typecast performed from "word" to "float"	MyProject.mbas
+warning: 424	1516	Warning: Source size (4) does not match destination size (23)	MyProject.mbas
+warning: 434	1516	Warning: Source size (5) does not match destination size (6)	MyProject.mbas
+warning: 437	1516	Warning: Source size (5) does not match destination size (6)	MyProject.mbas
+hint: 511	1021	Hint: interrupt handler (interrupt_ISR at 0x0006)	MyProject.mbas
+warning: 519	1516	Warning: Source size (17) does not match destination size (16)	MyProject.mbas
+warning: 521	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 528	1509	Warning: Implicit typecast performed from "double" to "byte"	MyProject.mbas
+warning: 588	1516	Warning: Source size (5) does not match destination size (6)	MyProject.mbas
+hint: 108	1001	Hint: Variable "device_address" has been declared, but not used	MyProject.mbas
+hint: 418	1001	Hint: Variable "max_duty" has been declared, but not used	MyProject.mbas
+hint: 80	1011	Hint: Variable "error" has been eliminated by optimizer	MyProject.mbas
+hint: 107	1011	Hint: Variable "hi_" has been eliminated by optimizer	MyProject.mbas
+hint: 108	1011	Hint: Variable "device_address" has been eliminated by optimizer	MyProject.mbas
+hint: 368	1011	Hint: Variable "tempCh" has been eliminated by optimizer	MyProject.mbas
+hint: 400	1011	Hint: Variable "ii" has been eliminated by optimizer	MyProject.mbas
+hint: 401	1011	Hint: Variable "jjyear" has been eliminated by optimizer	MyProject.mbas
+hint: 421	1011	Hint: Variable "jjyear" has been eliminated by optimizer	MyProject.mbas
+hint: 607	1010	Hint: Unit "MyProject.mbas" has been recompiled	MyProject.mbas
+diagnostics: 0	134	Compiled Successfully	H:\button_test2\test-128\MyProject.mbas
+diagnostics: 0	139	All files Compiled in 953 ms	 
+hint: 0	1144	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)	Used RX (bytes): 32 (100%)   Free RX (bytes): 0 (0%)
+hint: 0	1144	Static RAM (bytes): 2408   Dynamic RAM (bytes): 1688	Static RAM (bytes): 2408   Dynamic RAM (bytes): 1688
+hint: 0	1144	Used ROM (bytes): 14662 (12%)  Free ROM (bytes): 108218 (88%)	Used ROM (bytes): 14662 (12%)  Free ROM (bytes): 108218 (88%)
+diagnostics: 0	145	Project Linked Successfully	MyProject.mbpav
+hint: 0	1004	COFF file successfully generated	COFF file successfully generated
+diagnostics: 0	140	Linked in 13297 ms	 
+diagnostics: 0	141	Project 'MyProject.mbpav' completed: 20812 ms	 
+diagnostics: 0	103	Finished successfully: 07 Feb 2016, 18:54:09	MyProject.mbpav

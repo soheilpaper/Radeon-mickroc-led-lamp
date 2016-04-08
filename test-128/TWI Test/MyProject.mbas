@@ -1,0 +1,435 @@
+program MyProject
+' Declarations section
+
+' Lcd module connections
+dim LCD_RS as sbit at PORTc2_bit
+dim LCD_EN as sbit at PORTc3_bit
+dim LCD_D4 as sbit at PORTc4_bit
+dim LCD_D5 as sbit at PORTc5_bit
+dim LCD_D6 as sbit at PORTc6_bit
+dim LCD_D7 as sbit at PORTc7_bit
+
+dim LCD_RS_Direction as sbit at DDc2_bit
+dim LCD_EN_Direction as sbit at DDc3_bit
+dim LCD_D4_Direction as sbit at DDc4_bit
+dim LCD_D5_Direction as sbit at DDc5_bit
+dim LCD_D6_Direction as sbit at DDc6_bit
+dim LCD_D7_Direction as sbit at DDc7_bit
+' Software I2C connections
+dim Soft_I2C_Scl_Output    as sbit at PORTC0_bit
+    Soft_I2C_Sda_Output    as sbit at PORTC1_bit
+    Soft_I2C_Scl_Input     as sbit at PINC0_bit
+    Soft_I2C_Sda_Input     as sbit at PINC1_bit
+    Soft_I2C_Scl_Direction as sbit at DDC0_bit
+    Soft_I2C_Sda_Direction as sbit at DDC1_bit
+' End Software I2C connections
+
+' Declarations section 
+ dim hours, minutes, seconds, day, week, month, year as byte    ' Global date/time variables
+dim kp,ok,k_set,chanel,Pwm_Percent,Pwm_chanel ,on_off,on_off2 as  integer
+dim counter_ex as word
+' Lcd constants
+dim txt1 as string[16]
+    txt2 as string[10]
+    txt as string[5]
+        oldstate as bit
+'dim counter as word
+ dim st as string[4]
+ dim txt11,txt22 as string [4]
+ dim output as integer'
+dim on_a_0 as byte[7][4][7][2][4]  ''[week-1][chanel-1][pwm_chanel-1][on_off2-1][0]
+Dim EEprom_data_read As byte
+const write_address_bus =0xA0
+const read_address_bus = 0xA1
+
+''################# LCD Initial #################
+
+sub procedure Lcd_0()
+              Lcd_Init()
+              Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+              Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+
+end sub
+
+
+sub procedure on_off_initial (dim on_off22,en,hr,mint,prc as byte)
+' on_off2=1       'on time
+
+     for week =1 to 7
+     for Pwm_chanel=1 to 7
+     for chanel =1 to 4
+         on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off22-1][0] =en
+         on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off22-1][1]=hr
+         on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off22-1][2] =mint
+         on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off22-1][3]=prc
+'      Delay_mS(1000)
+'       next on_off2
+     next chanel
+      next pwm_chanel
+      next week
+
+end sub
+
+
+
+''################# EXT EEPROM Initial #################
+
+sub procedure write_eeprom_ext_TWI(dim address_ as integer,dim  data_ as byte)
+
+ TWI_Init(100000)         ' initialize TWI communication
+  TWI_Start()              ' issue TWI start signal
+  TWI_Write(write_address_bus)          ' send byte via TWI (device address + W)
+  TWI_Write(address_)             ' send byte (address of EEPROM location)
+  TWI_Write(data_)          ' send data (data to be written)
+  TWI_Stop()               ' issue TWI stop signal
+
+  Delay_ms(15)
+end sub
+sub procedure Read_eeprom_ext_TWI(dim address_ as integer)
+
+ TWI_Init(100000)         ' initialize TWI communication
+  TWI_Start()              ' issue TWI start signal
+  TWI_Write(write_address_bus)          ' send byte via TWI (device address + W)
+  TWI_Write(address_)             ' send byte (data address)
+  TWI_Start()              ' issue TWI signal repeated start
+  TWI_Write(read_address_bus)          ' send byte (device address + R)
+  EEprom_data_read = TWI_Read(0)      ' read data (NO acknowledge)
+'  IntToStr(EEprom_data_read, txt)
+'  Lcd_0()
+'  Lcd_Out(1,1,"EEprom TWI o " )
+'  Lcd_Out(2,1,txt )
+'  delay_ms(1500)  
+  TWI_Stop() 
+  Delay_ms(15)
+end sub
+
+
+
+sub procedure eeprom_call_back_ext_twi()'dim on_a_0 as integer[7][2][7][2][4] )
+dim on_off22 as byte
+    week_twi as byte
+    counter as integer
+'    hx1 as string[2]
+'    txt_sub as string[4]
+'      Lcd_0()
+     counter=5
+     for week_twi =1 to 7
+     for Pwm_chanel=1 to 7
+     for chanel =1 to 4
+     for on_off22=1 to 2
+'     counter=counter+1
+'          LongWordToStr(counter, txt)
+'          Lcd_Out(1,1,"read counter: " )
+'          Lcd_Out(2,7,txt )
+'          delay_ms(4)
+
+         Read_eeprom_ext_TWI(inc(counter))
+         on_a_0 [week_twi-1][chanel-1][pwm_chanel-1][on_off22-1][0]=  EEprom_data_read
+         
+'         Lcd_0() byteToStr(EEprom_data_read, txt)
+'          Lcd_Out(1,1,"0date read is: " )
+'          Lcd_Out(2,9,txt )
+'          Delay_mS(500)
+          
+         Read_eeprom_ext_TWI(inc(counter))
+         on_a_0 [week_twi-1][chanel-1][pwm_chanel-1][on_off22-1][1]=  EEprom_data_read
+         Read_eeprom_ext_TWI(inc(counter))
+         on_a_0 [week_twi-1][chanel-1][pwm_chanel-1][on_off22-1][2]=  EEprom_data_read
+         Read_eeprom_ext_TWI(inc(counter))
+         on_a_0 [week_twi-1][chanel-1][pwm_chanel-1][on_off22-1][3]=  EEprom_data_read
+
+
+         Lcd_0() byteToStr(EEprom_data_read, txt)
+          Lcd_Out(1,1,"date read is: " )
+          Lcd_Out(2,1,txt )
+'          Delay_mS(500)
+          
+'          counter=counter+4
+'      Delay_mS(1000)
+          intToStr(integer (ceil(counter*100/1573)), txt)
+          Lcd_Out(1,1,"read counter: " )
+          Lcd_Out(2,7,txt )
+'          delay_ms(4)
+       next on_off22
+     next chanel
+      next pwm_chanel
+      next week_twi
+'  EEPROM_Write(0x100 ,  hours) EEPROM_Write(0x101 , minutes) EEPROM_Write(0x102 ,  seconds)
+'  EEPROM_Write(0x103 ,  day) EEPROM_Write(0x104 ,  week) EEPROM_Write(0x105 ,  month) EEPROM_Write(0x106 ,  year )
+'  dim hours, minutes, seconds, day, week, month, year as byte
+
+ end sub
+
+
+sub procedure eeprom_save_ext_twi()'dim on_a_0 as integer[7][2][7][2][4] )
+dim on_off22 as byte
+    week_twi as byte
+    counter as integer
+'    hx1 as string[2]
+'    txt_sub as string[4]
+'    Lcd_0()
+     counter=5
+     for week_twi =1 to 7
+     for Pwm_chanel=1 to 7
+     for chanel =1 to 4
+     for on_off22=1 to 2
+'     counter=counter+1
+
+         write_eeprom_ext_TWI(inc(counter),on_a_0 [week_twi-1][chanel-1][pwm_chanel-1][on_off22-1][0] )
+ 
+'         Read_eeprom_ext_TWI(counter)
+'         Lcd_0() byteToStr(EEprom_data_read, txt)
+'          Lcd_Out(1,1,"on_a_0 date writen is: " )
+'          Lcd_Out(2,1,txt )
+'          Delay_mS(500)
+
+         write_eeprom_ext_TWI(inc(counter),on_a_0 [week_twi-1][chanel-1][pwm_chanel-1][on_off22-1][1] )
+         write_eeprom_ext_TWI(inc(counter),on_a_0 [week_twi-1][chanel-1][pwm_chanel-1][on_off22-1][2] )
+         write_eeprom_ext_TWI(inc(counter),on_a_0 [week_twi-1][chanel-1][pwm_chanel-1][on_off22-1][3] )
+         
+         Read_eeprom_ext_TWI(counter)
+         Lcd_0() byteToStr(EEprom_data_read, txt)
+          Lcd_Out(1,1,"EEprom_data_read writen is: " )
+          Lcd_Out(2,1,txt )
+'          Delay_mS(500)
+          
+          
+          intToStr(integer (ceil(counter*100/1573)), txt)
+          Lcd_Out(1,1,"Write counter: " )
+          Lcd_Out(2,7,txt )
+'          delay_ms(4)
+
+       next on_off2
+     next chanel
+      next pwm_chanel
+      next week_twi
+'  EEPROM_Write(0x100 ,  hours) EEPROM_Write(0x101 , minutes) EEPROM_Write(0x102 ,  seconds)
+'  EEPROM_Write(0x103 ,  day) EEPROM_Write(0x104 ,  week) EEPROM_Write(0x105 ,  month) EEPROM_Write(0x106 ,  year )
+'  dim hours, minutes, seconds, day, week, month, year as byte
+     delay_ms(111)
+ end sub
+
+
+''################# EEPROM Initial #################
+
+
+sub procedure ext_twi_eeprom_ini()
+
+
+                       EEprom_data_read=0
+                      Read_eeprom_ext_TWI(0)
+'                      Read_eeprom_ext_TWI(0x6A3)
+'                      Read_eeprom_ext_TWI(0x6A4)
+                     if  (EEprom_data_read=10)   then
+                         Lcd_0() Lcd_Out(1,1,"TWI EEPROM" ) Lcd_Out(2,1,"is working" )
+                         delay_ms(500)
+                          ByteToStr(EEprom_data_read,txt)
+                        Lcd_Out(1,1,"EEprommmmmmmmmm" )
+                         Lcd_Out(2,1,txt )
+                    else
+                         Lcd_0() Lcd_Out(1,1,"TWI EEPROM" ) Lcd_Out(2,1,"is Not working")
+                         bytetostr(EEprom_data_read,txt)
+                         Lcd_0()
+                         delay_ms(500)
+                         Lcd_Out(1,1,"0 EEPROM is:" )Lcd_Out(2,1,txt )
+                         delay_ms(500)
+                    end if
+                    Lcd_0()
+
+                      EEprom_data_read=0
+                      Read_eeprom_ext_TWI(0)
+'                        Read_eeprom_ext_TWI(0x6A3)
+'                       Read_eeprom_ext_TWI(0x6A4)
+                     if  (EEprom_data_read =10)   then
+                         Lcd_Out(1,1,"ext EEp writed befor" )
+                         ByteToStr(EEprom_data_read, txt)
+'                        Lcd_Out(1,1,"EEprommmmmmmmmm" )
+                         Lcd_Out(2,1,txt )   delay_ms(500)
+                         Lcd_0()
+                         Lcd_0()
+                         Lcd_Out(1,1,"Reading EEPROM " )
+                         Lcd_Out(2,1," ..." )
+                         eeprom_call_back_ext_twi()
+'                          Lcd_Out(1,1,"ext EEp callbacked" )
+'                          delay_ms(500)
+'                         EEprom_data_read=0
+'                         Read_eeprom_ext_TWI(0x04)
+'                         ByteToStr(EEprom_data_read, txt)
+'                         Lcd_0()
+'                         Lcd_Out(1,1,"EEprom-ext 04" )
+'                         Lcd_Out(2,1,txt)
+                         delay_ms(500)
+
+
+                    else
+'                        EEPROM_Write(0x00 ,122 )
+                         Lcd_0()
+                         Lcd_Out(1,1,"ext not writed111111111" )
+                         delay_ms(500)
+                         on_off_initial (1,1,0,0,17)    '' On mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
+                         on_off_initial (2,1,0,0,17)    '''OFF mode
+
+                         Lcd_0()
+                         Lcd_Out(1,1,"Wrting to EEPROM ..." )
+'
+                          Lcd_0()
+                         Lcd_Out(1,1,"Wrting to EEPROM " ) Lcd_Out(2,1,"..." )
+                         eeprom_save_ext_twi()
+                         Lcd_Out(1,1,"writing ext eeprom" )
+                         Lcd_0()
+'                         write_eeprom_ext_TWI(0x6A3 ,10 )
+'                         write_eeprom_ext_TWI(1700 ,10 )
+                         write_eeprom_ext_TWI(0 ,10 )
+                         Pwm_chanel=1   chanel=1        on_off2=1
+                         week=7
+                         ByteToStr(on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][3],txt)
+                          Lcd_Out(1,1,"on_a_0" )
+                         Lcd_Out(2,1,txt)
+                         delay_ms(500)
+'
+                    end if
+                    delay_ms(500)
+                    Lcd_0()
+                         Pwm_chanel=1   chanel=1      on_off2=1
+                         week=7
+                         ByteToStr(on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][0],txt)
+                          Lcd_Out(1,1,"on_a_0" )
+                         Lcd_Out(2,1,txt)
+                         delay_ms(500)
+                      Lcd_0()
+
+                      ByteToStr(on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][3],txt)
+                          Lcd_Out(1,1,"precrntage" )
+                         Lcd_Out(2,1,txt)
+                         delay_ms(500)
+                      EEprom_data_read=0
+                      Read_eeprom_ext_TWI(0)
+'                       Read_eeprom_ext_TWI(0x6A3)
+'                       Read_eeprom_ext_TWI(0x6A4)
+                     if  (EEprom_data_read=10)   then
+                         Lcd_0() Lcd_Out(1,1,"TWI EEPROM" ) Lcd_Out(2,1,"is working" )
+                         delay_ms(500)
+                          ByteToStr(EEprom_data_read,txt)
+                        Lcd_Out(1,1,"EEprommmmmmmmmm" )
+                         Lcd_Out(2,1,txt )
+                    else
+                         Lcd_0() Lcd_Out(1,1,"TWI EEPROM" ) Lcd_Out(2,1,"is Not working")
+                         bytetostr(EEprom_data_read,txt)
+                         Lcd_0()
+                         delay_ms(500)
+                         Lcd_Out(1,1,"0 EEPROM is:" )Lcd_Out(2,1,txt )
+                         delay_ms(500)
+
+                    end if
+                    delay_ms(500)
+                     Lcd_0()
+end sub
+
+
+
+
+sub procedure interrupt_ISR () org IVT_ADDR_INT2            ''// Interrupt rutine
+'dim while_satate_in_1 as bit
+
+  SREG_I_bit = 0                                   '' // Disable Interrupts
+
+'   WDT_on()
+  INTF2_bit=0                                                  '  // Clear interrupt flag
+  INT2_bit = 0
+   txt1 = "<int is selected>"
+       Lcd_Out(1,1,txt1)
+if (Button(PIND, 2, 0.1, 1)<> 0) then    ' Detect logical one setting key
+      oldstate = 1
+      Lcd_0()
+      'txt1 = "<Exit is selected>"
+       'Lcd_Out(1,1,txt1)
+      Delay_mS(400)                      ' Update flag
+   end if
+    if (oldstate and Button(PIND, 2, 0.1, 0)) then    ' Detect one-to-zero transition
+       oldstate = 0
+       txt1 = "<good>"
+       Lcd_Out(1,1,txt1)
+           Delay_mS(400) 
+     end if
+  '/* Turn off WDT */
+
+  WDTCR = 0x00
+  INT2_bit = 1
+'  LCD_Out(1,1, "ënd of keypad3")   Delay_mS(1000)
+  SREG_I_bit = 1                                  ''  // Enable Interrupts
+'   Lcd_0()
+'    LCD_Out(1,1, "ënd of interuppt")
+'        inttostr(on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][0],txt)                     ' ??? ????? ???? ? ?????? ????? ? ????
+'           LCD_Out(1,11, txt)
+'            inttostr(week,txt)
+'            LCD_Out(2,11, txt)
+'            Delay_mS(1000)
+end sub
+
+
+
+main:
+
+
+
+
+'   Main program
+
+              Lcd_Init()
+              Lcd_Cmd(_LCD_CLEAR)               ' Clear display
+              Lcd_Cmd(_LCD_CURSOR_OFF)          ' Cursor off
+ txt1 = "hello"
+  txt2 = "RTC2 click"
+
+
+                                        
+  ' ##########   Interupt enalbleing   ##########
+'   ISC20_Bit = 1                                    '' // Set interrupts to be detected on rising edge
+'''   ISC00_bit = 1
+' INTF2_bit = 0
+'   SREG_I_bit = 0
+'    Delay_ms(100)                                  ''  // Enable Interrupts
+'   SREG_I_bit = 1
+'
+'   INT2_bit =1
+'   Delay_ms(100)
+'#########################################
+'  on_off_initial (1,1,0,0,11)    '' off mode on_off initial (dim on_off22,en,hr,mint,prc as integer)
+'  on_off_initial (2,1,0,0,18)    '''on mode
+
+'  ext_eeprom_ini()
+'  eeprom_ext_TWI()
+   ext_twi_eeprom_ini()
+
+'                          eeprom_save_ext_twi()
+'#########################################
+                         Lcd_0() Lcd_Out(1,1,"test ext eeprom" )
+
+                         Pwm_chanel=1   chanel=1  week=7      on_off2=1
+                         byteToStr(on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][3],txt)
+                          Lcd_Out(1,1,"on_a_0" )
+                         Lcd_Out(2,1,txt)
+                         delay_ms(500)
+  while TRUE
+                 ' Initialize I2C bus for communication with RTC
+'  eeprom_0()
+'  Lcd_Out(1,1,txt1)                 ' Write text in first row
+'  Lcd_Out(2,4,txt2)
+  
+  Lcd_0() ''Lcd_Out(1,1,"test ext eeprom" )
+
+                         Pwm_chanel=1   chanel=1  week=7      on_off2=1
+                         byteToStr(on_a_0 [week-1][chanel-1][pwm_chanel-1][on_off2-1][3],txt)
+                          Lcd_Out(1,1,"on_a_0" )
+                         Lcd_Out(2,1,txt)
+                         delay_ms(500)
+                         
+                         EEprom_data_read=0
+                         Read_eeprom_ext_TWI(0x00)
+                         bytetostr(EEprom_data_read,txt)
+                         Lcd_0()
+
+                         Lcd_Out(1,1,"0x00 EEPROM is:" )Lcd_Out(2,1,txt )delay_ms(500)
+  wend
+              
+end.
